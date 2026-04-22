@@ -21,6 +21,7 @@ namespace AppRRHH.views.Empleado
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            panelContenido.Controls.Clear();
 
             UCInicioEmpleado vista = new UCInicioEmpleado();
 
@@ -35,6 +36,17 @@ namespace AppRRHH.views.Empleado
             this.Hide();
             FormLogin login = new FormLogin();
             login.ShowDialog();
+        }
+
+        private void btnYo_Click(object sender, EventArgs e)
+        {
+            panelContenido.Controls.Clear();
+
+            UCEmpleadoFichajes fichajes = new UCEmpleadoFichajes();
+
+            panelContenido.Controls.Add(fichajes);
+
+            fichajes.Dock = DockStyle.Fill;
         }
     }
 }

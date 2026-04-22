@@ -122,13 +122,13 @@
             lstDepartamentos.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             lstDepartamentos.Depth = 0;
             lstDepartamentos.FullRowSelect = true;
-            lstDepartamentos.Location = new Point(81, 322);
+            lstDepartamentos.Location = new Point(101, 342);
             lstDepartamentos.MinimumSize = new Size(200, 100);
             lstDepartamentos.MouseLocation = new Point(-1, -1);
             lstDepartamentos.MouseState = MaterialSkin.MouseState.OUT;
             lstDepartamentos.Name = "lstDepartamentos";
             lstDepartamentos.OwnerDraw = true;
-            lstDepartamentos.Size = new Size(325, 295);
+            lstDepartamentos.Size = new Size(325, 255);
             lstDepartamentos.TabIndex = 2;
             lstDepartamentos.UseCompatibleStateImageBehavior = false;
             lstDepartamentos.View = View.Details;
@@ -153,13 +153,13 @@
             lstEmpleadosDepto.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader4, columnHeader5 });
             lstEmpleadosDepto.Depth = 0;
             lstEmpleadosDepto.FullRowSelect = true;
-            lstEmpleadosDepto.Location = new Point(450, 322);
+            lstEmpleadosDepto.Location = new Point(470, 342);
             lstEmpleadosDepto.MinimumSize = new Size(200, 100);
             lstEmpleadosDepto.MouseLocation = new Point(-1, -1);
             lstEmpleadosDepto.MouseState = MaterialSkin.MouseState.OUT;
             lstEmpleadosDepto.Name = "lstEmpleadosDepto";
             lstEmpleadosDepto.OwnerDraw = true;
-            lstEmpleadosDepto.Size = new Size(430, 295);
+            lstEmpleadosDepto.Size = new Size(390, 255);
             lstEmpleadosDepto.TabIndex = 3;
             lstEmpleadosDepto.UseCompatibleStateImageBehavior = false;
             lstEmpleadosDepto.View = View.Details;
@@ -203,7 +203,7 @@
             btnGuardar.Depth = 0;
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
-            btnGuardar.Location = new Point(374, 247);
+            btnGuardar.Location = new Point(394, 267);
             btnGuardar.Margin = new Padding(4, 6, 4, 6);
             btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
@@ -227,6 +227,7 @@
             Controls.Add(materialCard1);
             Controls.Add(Card1);
             Name = "UCDepartamentosAdmin";
+            Padding = new Padding(20);
             Size = new Size(927, 658);
             Card1.ResumeLayout(false);
             Card1.PerformLayout();

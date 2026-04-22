@@ -58,7 +58,7 @@ namespace AppRRHH.views
                 bool yaExiste = db.Empleados.Any(emp => emp.DNI == txtDni.Text);
 
                 // si ya existe un empleado con el mismo DNI, muestro un mensaje de error y no agrego el nuevo empleado
-                if (yaExiste) 
+                if (yaExiste)
                 {
                     // muestro un mensaje de error
                     MessageBox.Show("Error: Ya existe un empleado registrado con el DNI " + txtDni.Text,
@@ -120,7 +120,8 @@ namespace AppRRHH.views
         {
             // Verifico que haya un empleado seleccionado
             if (empleadoBindingSource.Current is AppRRHH.models.Empleado empleadoSeleccionado)
-            {     using (var db = new AppDbContext())
+            {
+                using (var db = new AppDbContext())
                 {
                     // Busco el empleado en la base de datos
                     var empleadoEnDb = db.Empleados.Find(empleadoSeleccionado.Id);

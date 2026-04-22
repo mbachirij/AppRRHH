@@ -100,8 +100,8 @@
             btnEliminar.Depth = 0;
             btnEliminar.HighEmphasis = true;
             btnEliminar.Icon = (Image)resources.GetObject("btnEliminar.Icon");
-            btnEliminar.Location = new Point(427, 40);
-            btnEliminar.Margin = new Padding(4, 4, 4, 4);
+            btnEliminar.Location = new Point(421, 40);
+            btnEliminar.Margin = new Padding(4);
             btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
             btnEliminar.Name = "btnEliminar";
             btnEliminar.NoAccentTextColor = Color.Empty;
@@ -185,7 +185,7 @@
             btnAdd.HighEmphasis = true;
             btnAdd.Icon = (Image)resources.GetObject("btnAdd.Icon");
             btnAdd.Location = new Point(130, 460);
-            btnAdd.Margin = new Padding(4, 4, 4, 4);
+            btnAdd.Margin = new Padding(4);
             btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             btnAdd.Name = "btnAdd";
             btnAdd.NoAccentTextColor = Color.Empty;
@@ -563,8 +563,10 @@
             Controls.Add(materialCard1);
             ForeColor = Color.White;
             Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(1000, 650);
             Name = "UCEmpleados";
-            Size = new Size(1211, 578);
+            Padding = new Padding(20);
+            Size = new Size(1211, 650);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

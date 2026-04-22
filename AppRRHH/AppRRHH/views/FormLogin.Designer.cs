@@ -46,17 +46,18 @@
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(348, 204);
+            panel2.Size = new Size(305, 154);
             panel2.TabIndex = 3;
             // 
             // lblTitulo
             // 
             lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Comic Sans MS", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(36, 205);
+            lblTitulo.Location = new Point(32, 154);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(107, 49);
+            lblTitulo.Size = new Size(94, 37);
             lblTitulo.TabIndex = 1;
             lblTitulo.Text = "Login";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -64,9 +65,9 @@
             // lblError
             // 
             lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(36, 364);
+            lblError.Location = new Point(32, 273);
             lblError.Name = "lblError";
-            lblError.Size = new Size(280, 20);
+            lblError.Size = new Size(245, 15);
             lblError.TabIndex = 2;
             // 
             // button1
@@ -77,8 +78,8 @@
             button1.Depth = 0;
             button1.HighEmphasis = true;
             button1.Icon = null;
-            button1.Location = new Point(116, 399);
-            button1.Margin = new Padding(4, 6, 4, 6);
+            button1.Location = new Point(102, 299);
+            button1.Margin = new Padding(4, 4, 4, 4);
             button1.MouseState = MaterialSkin.MouseState.HOVER;
             button1.Name = "button1";
             button1.NoAccentTextColor = Color.Empty;
@@ -101,12 +102,12 @@
             materialCard1.Controls.Add(panel2);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(335, 63);
-            materialCard1.Margin = new Padding(14);
+            materialCard1.Location = new Point(293, 47);
+            materialCard1.Margin = new Padding(12, 10, 12, 10);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(348, 455);
+            materialCard1.Padding = new Padding(12, 10, 12, 10);
+            materialCard1.Size = new Size(304, 341);
             materialCard1.TabIndex = 1;
             // 
             // txtPassword
@@ -119,7 +120,8 @@
             txtPassword.HideSelection = true;
             txtPassword.Hint = "Password";
             txtPassword.LeadingIcon = (Image)resources.GetObject("txtPassword.LeadingIcon");
-            txtPassword.Location = new Point(36, 313);
+            txtPassword.Location = new Point(32, 235);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.MaxLength = 32767;
             txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             txtPassword.Name = "txtPassword";
@@ -131,7 +133,7 @@
             txtPassword.SelectionLength = 0;
             txtPassword.SelectionStart = 0;
             txtPassword.ShortcutsEnabled = true;
-            txtPassword.Size = new Size(280, 48);
+            txtPassword.Size = new Size(245, 48);
             txtPassword.TabIndex = 2;
             txtPassword.TabStop = false;
             txtPassword.Text = "admin123";
@@ -144,15 +146,16 @@
             txtEmail.AnimateReadOnly = false;
             txtEmail.BorderStyle = BorderStyle.None;
             txtEmail.Depth = 0;
-            txtEmail.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtEmail.Font = new Font("Microsoft Sans Serif", 12F);
             txtEmail.Hint = "Email";
             txtEmail.LeadingIcon = (Image)resources.GetObject("txtEmail.LeadingIcon");
-            txtEmail.Location = new Point(36, 257);
+            txtEmail.Location = new Point(32, 193);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.MaxLength = 50;
             txtEmail.MouseState = MaterialSkin.MouseState.OUT;
             txtEmail.Multiline = false;
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(280, 50);
+            txtEmail.Size = new Size(245, 50);
             txtEmail.TabIndex = 1;
             txtEmail.Text = "admin@rrhh.com";
             txtEmail.TrailingIcon = null;
@@ -160,13 +163,14 @@
             // FormLogin
             // 
             AcceptButton = button1;
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1027, 572);
+            ClientSize = new Size(899, 429);
             Controls.Add(materialCard1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AppRRHH - Login";

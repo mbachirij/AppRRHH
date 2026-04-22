@@ -88,7 +88,7 @@
             btnCerrarSesion.Depth = 0;
             btnCerrarSesion.HighEmphasis = false;
             btnCerrarSesion.Icon = (Image)resources.GetObject("btnCerrarSesion.Icon");
-            btnCerrarSesion.Location = new Point(11, 412);
+            btnCerrarSesion.Location = new Point(11, 432);
             btnCerrarSesion.Margin = new Padding(4);
             btnCerrarSesion.MouseState = MaterialSkin.MouseState.HOVER;
             btnCerrarSesion.Name = "btnCerrarSesion";
@@ -201,11 +201,12 @@
             btnYo.NoAccentTextColor = Color.Empty;
             btnYo.Size = new Size(68, 36);
             btnYo.TabIndex = 0;
-            btnYo.Text = "YO";
+            btnYo.Text = "FICHAR";
             btnYo.TextAlign = ContentAlignment.MiddleLeft;
             btnYo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnYo.UseAccentColor = false;
             btnYo.UseVisualStyleBackColor = true;
+            btnYo.Click += btnYo_Click;
             // 
             // panelContenido
             // 

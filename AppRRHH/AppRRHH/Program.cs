@@ -2,6 +2,7 @@ using AppRRHH.Data;
 using AppRRHH.views;
 using AppRRHH.models;
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppRRHH
 {
@@ -16,9 +17,10 @@ namespace AppRRHH
         [STAThread]
         static void Main()
         {
-            // Crear la base de datos si no existe
+            
             using (var db = new AppDbContext())
             {
+                
                 db.Database.EnsureCreated();
 
                 // Crear un usuario por defecto si no existe
