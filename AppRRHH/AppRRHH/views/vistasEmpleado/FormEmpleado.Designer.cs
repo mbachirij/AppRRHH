@@ -164,6 +164,7 @@
             btnVacaciones.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnVacaciones.UseAccentColor = false;
             btnVacaciones.UseVisualStyleBackColor = true;
+            btnVacaciones.Click += btnVacaciones_Click;
             // 
             // btnNominas
             // 
@@ -199,7 +200,7 @@
             btnYo.MouseState = MaterialSkin.MouseState.HOVER;
             btnYo.Name = "btnYo";
             btnYo.NoAccentTextColor = Color.Empty;
-            btnYo.Size = new Size(68, 36);
+            btnYo.Size = new Size(101, 36);
             btnYo.TabIndex = 0;
             btnYo.Text = "FICHAR";
             btnYo.TextAlign = ContentAlignment.MiddleLeft;

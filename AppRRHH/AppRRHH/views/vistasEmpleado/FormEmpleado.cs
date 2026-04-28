@@ -48,5 +48,16 @@ namespace AppRRHH.views.Empleado
 
             fichajes.Dock = DockStyle.Fill;
         }
+
+        private void btnVacaciones_Click(object sender, EventArgs e)
+        {
+            panelContenido.Controls.Clear();
+
+            UCVacacionesEmpleado vacaciones = new UCVacacionesEmpleado();
+
+            panelContenido.Controls.Add(vacaciones);
+
+            vacaciones.Dock = DockStyle.Fill;
+        }
     }
 }
