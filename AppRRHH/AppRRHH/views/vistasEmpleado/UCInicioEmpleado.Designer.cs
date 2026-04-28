@@ -45,10 +45,12 @@
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             label3 = new Label();
             lblBienvenida = new Label();
+            panelContenido = new Panel();
             materialCard1.SuspendLayout();
             materialCard2.SuspendLayout();
             materialCard3.SuspendLayout();
             materialCard4.SuspendLayout();
+            panelContenido.SuspendLayout();
             SuspendLayout();
             // 
             // materialCard1
@@ -59,12 +61,12 @@
             materialCard1.Controls.Add(blbNombre);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(12, 10);
+            materialCard1.Location = new Point(12, 28);
             materialCard1.Margin = new Padding(12, 10, 12, 10);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(10);
-            materialCard1.Size = new Size(223, 170);
+            materialCard1.Size = new Size(257, 181);
             materialCard1.TabIndex = 0;
             // 
             // lblNombreUser
@@ -105,12 +107,12 @@
             materialCard2.Controls.Add(label2);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(540, 10);
+            materialCard2.Location = new Point(605, 28);
             materialCard2.Margin = new Padding(12, 10, 12, 10);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
             materialCard2.Padding = new Padding(10);
-            materialCard2.Size = new Size(281, 186);
+            materialCard2.Size = new Size(257, 181);
             materialCard2.TabIndex = 1;
             // 
             // lblDepar
@@ -151,12 +153,12 @@
             materialCard3.Controls.Add(label1);
             materialCard3.Depth = 0;
             materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard3.Location = new Point(260, 10);
+            materialCard3.Location = new Point(305, 28);
             materialCard3.Margin = new Padding(12, 10, 12, 10);
             materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard3.Name = "materialCard3";
             materialCard3.Padding = new Padding(10);
-            materialCard3.Size = new Size(256, 181);
+            materialCard3.Size = new Size(257, 181);
             materialCard3.TabIndex = 2;
             // 
             // lblDia
@@ -197,12 +199,12 @@
             materialCard4.Controls.Add(label3);
             materialCard4.Depth = 0;
             materialCard4.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard4.Location = new Point(854, 10);
+            materialCard4.Location = new Point(901, 28);
             materialCard4.Margin = new Padding(12, 10, 12, 10);
             materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard4.Name = "materialCard4";
             materialCard4.Padding = new Padding(10);
-            materialCard4.Size = new Size(300, 186);
+            materialCard4.Size = new Size(257, 181);
             materialCard4.TabIndex = 3;
             // 
             // materialLabel4
@@ -242,23 +244,32 @@
             // 
             lblBienvenida.AutoSize = true;
             lblBienvenida.Font = new Font("Tw Cen MT Condensed", 48F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblBienvenida.Location = new Point(231, 319);
+            lblBienvenida.Location = new Point(277, 333);
             lblBienvenida.Name = "lblBienvenida";
             lblBienvenida.Size = new Size(285, 74);
             lblBienvenida.TabIndex = 4;
             lblBienvenida.Text = "bienvenido---";
             lblBienvenida.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // panelContenido
+            // 
+            panelContenido.Anchor = AnchorStyles.None;
+            panelContenido.Controls.Add(lblBienvenida);
+            panelContenido.Controls.Add(materialCard4);
+            panelContenido.Controls.Add(materialCard1);
+            panelContenido.Controls.Add(materialCard2);
+            panelContenido.Controls.Add(materialCard3);
+            panelContenido.Location = new Point(25, 15);
+            panelContenido.Name = "panelContenido";
+            panelContenido.Size = new Size(1170, 544);
+            panelContenido.TabIndex = 5;
+            // 
             // UCInicioEmpleado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
-            Controls.Add(lblBienvenida);
-            Controls.Add(materialCard4);
-            Controls.Add(materialCard3);
-            Controls.Add(materialCard2);
-            Controls.Add(materialCard1);
+            Controls.Add(panelContenido);
             ForeColor = Color.White;
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCInicioEmpleado";
@@ -271,8 +282,9 @@
             materialCard3.PerformLayout();
             materialCard4.ResumeLayout(false);
             materialCard4.PerformLayout();
+            panelContenido.ResumeLayout(false);
+            panelContenido.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -294,5 +306,6 @@
         private Label lblDia;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private Label lblBienvenida;
+        private Panel panelContenido;
     }
 }

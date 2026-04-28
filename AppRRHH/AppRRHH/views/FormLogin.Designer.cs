@@ -36,7 +36,9 @@
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             txtPassword = new MaterialSkin.Controls.MaterialTextBox2();
             txtEmail = new MaterialSkin.Controls.MaterialTextBox();
+            panel1 = new Panel();
             materialCard1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -65,7 +67,7 @@
             // lblError
             // 
             lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(32, 273);
+            lblError.Location = new Point(32, 285);
             lblError.Name = "lblError";
             lblError.Size = new Size(245, 15);
             lblError.TabIndex = 2;
@@ -79,7 +81,7 @@
             button1.HighEmphasis = true;
             button1.Icon = null;
             button1.Location = new Point(102, 299);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.MouseState = MaterialSkin.MouseState.HOVER;
             button1.Name = "button1";
             button1.NoAccentTextColor = Color.Empty;
@@ -102,7 +104,7 @@
             materialCard1.Controls.Add(panel2);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(293, 47);
+            materialCard1.Location = new Point(363, 82);
             materialCard1.Margin = new Padding(12, 10, 12, 10);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -160,6 +162,16 @@
             txtEmail.Text = "admin@rrhh.com";
             txtEmail.TrailingIcon = null;
             // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(materialCard1);
+            panel1.Location = new Point(23, 25);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1014, 499);
+            panel1.TabIndex = 2;
+            // 
             // FormLogin
             // 
             AcceptButton = button1;
@@ -167,8 +179,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(899, 429);
-            Controls.Add(materialCard1);
+            ClientSize = new Size(1049, 555);
+            Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormLogin";
@@ -176,6 +188,7 @@
             Text = "AppRRHH - Login";
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -192,5 +205,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard card2;
         private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
+        private Panel panel1;
     }
 }

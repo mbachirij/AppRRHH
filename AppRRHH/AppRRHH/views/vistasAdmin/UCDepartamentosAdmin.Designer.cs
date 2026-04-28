@@ -43,8 +43,10 @@
             columnHeader5 = new ColumnHeader();
             txtNuevoDepto = new MaterialSkin.Controls.MaterialTextBox();
             btnGuardar = new MaterialSkin.Controls.MaterialButton();
+            panelContenido = new Panel();
             Card1.SuspendLayout();
             materialCard1.SuspendLayout();
+            panelContenido.SuspendLayout();
             SuspendLayout();
             // 
             // Card1
@@ -54,7 +56,7 @@
             Card1.Controls.Add(label1);
             Card1.Depth = 0;
             Card1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            Card1.Location = new Point(81, 53);
+            Card1.Location = new Point(632, 26);
             Card1.Margin = new Padding(14);
             Card1.MouseState = MaterialSkin.MouseState.HOVER;
             Card1.Name = "Card1";
@@ -87,7 +89,7 @@
             materialCard1.Controls.Add(label2);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(450, 53);
+            materialCard1.Location = new Point(13, 14);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -122,13 +124,13 @@
             lstDepartamentos.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             lstDepartamentos.Depth = 0;
             lstDepartamentos.FullRowSelect = true;
-            lstDepartamentos.Location = new Point(101, 342);
+            lstDepartamentos.Location = new Point(30, 273);
             lstDepartamentos.MinimumSize = new Size(200, 100);
             lstDepartamentos.MouseLocation = new Point(-1, -1);
             lstDepartamentos.MouseState = MaterialSkin.MouseState.OUT;
             lstDepartamentos.Name = "lstDepartamentos";
             lstDepartamentos.OwnerDraw = true;
-            lstDepartamentos.Size = new Size(325, 255);
+            lstDepartamentos.Size = new Size(325, 274);
             lstDepartamentos.TabIndex = 2;
             lstDepartamentos.UseCompatibleStateImageBehavior = false;
             lstDepartamentos.View = View.Details;
@@ -153,13 +155,13 @@
             lstEmpleadosDepto.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader4, columnHeader5 });
             lstEmpleadosDepto.Depth = 0;
             lstEmpleadosDepto.FullRowSelect = true;
-            lstEmpleadosDepto.Location = new Point(470, 342);
+            lstEmpleadosDepto.Location = new Point(454, 273);
             lstEmpleadosDepto.MinimumSize = new Size(200, 100);
             lstEmpleadosDepto.MouseLocation = new Point(-1, -1);
             lstEmpleadosDepto.MouseState = MaterialSkin.MouseState.OUT;
             lstEmpleadosDepto.Name = "lstEmpleadosDepto";
             lstEmpleadosDepto.OwnerDraw = true;
-            lstEmpleadosDepto.Size = new Size(390, 255);
+            lstEmpleadosDepto.Size = new Size(390, 274);
             lstEmpleadosDepto.TabIndex = 3;
             lstEmpleadosDepto.UseCompatibleStateImageBehavior = false;
             lstEmpleadosDepto.View = View.Details;
@@ -186,12 +188,12 @@
             txtNuevoDepto.Depth = 0;
             txtNuevoDepto.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtNuevoDepto.LeadingIcon = null;
-            txtNuevoDepto.Location = new Point(155, 233);
+            txtNuevoDepto.Location = new Point(266, 198);
             txtNuevoDepto.MaxLength = 50;
             txtNuevoDepto.MouseState = MaterialSkin.MouseState.OUT;
             txtNuevoDepto.Multiline = false;
             txtNuevoDepto.Name = "txtNuevoDepto";
-            txtNuevoDepto.Size = new Size(198, 50);
+            txtNuevoDepto.Size = new Size(221, 50);
             txtNuevoDepto.TabIndex = 4;
             txtNuevoDepto.Text = "";
             txtNuevoDepto.TrailingIcon = null;
@@ -203,7 +205,7 @@
             btnGuardar.Depth = 0;
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
-            btnGuardar.Location = new Point(394, 267);
+            btnGuardar.Location = new Point(522, 212);
             btnGuardar.Margin = new Padding(4, 6, 4, 6);
             btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
@@ -216,16 +218,26 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // panelContenido
+            // 
+            panelContenido.Anchor = AnchorStyles.None;
+            panelContenido.BackColor = Color.Transparent;
+            panelContenido.Controls.Add(materialCard1);
+            panelContenido.Controls.Add(lstEmpleadosDepto);
+            panelContenido.Controls.Add(txtNuevoDepto);
+            panelContenido.Controls.Add(lstDepartamentos);
+            panelContenido.Controls.Add(btnGuardar);
+            panelContenido.Controls.Add(Card1);
+            panelContenido.Location = new Point(23, 76);
+            panelContenido.Name = "panelContenido";
+            panelContenido.Size = new Size(881, 569);
+            panelContenido.TabIndex = 6;
+            // 
             // UCDepartamentosAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(btnGuardar);
-            Controls.Add(txtNuevoDepto);
-            Controls.Add(lstEmpleadosDepto);
-            Controls.Add(lstDepartamentos);
-            Controls.Add(materialCard1);
-            Controls.Add(Card1);
+            Controls.Add(panelContenido);
             Name = "UCDepartamentosAdmin";
             Padding = new Padding(20);
             Size = new Size(927, 658);
@@ -233,8 +245,9 @@
             Card1.PerformLayout();
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
+            panelContenido.ResumeLayout(false);
+            panelContenido.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -254,5 +267,6 @@
         private Label lblPromedio;
         private MaterialSkin.Controls.MaterialTextBox txtNuevoDepto;
         private MaterialSkin.Controls.MaterialButton btnGuardar;
+        private Panel panelContenido;
     }
 }

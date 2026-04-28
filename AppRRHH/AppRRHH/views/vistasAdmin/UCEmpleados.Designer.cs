@@ -61,10 +61,12 @@
             lblDni = new Label();
             lblApellidos = new Label();
             lblNombre = new Label();
+            panel1 = new Panel();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).BeginInit();
             materialCard2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // materialCard1
@@ -75,7 +77,7 @@
             materialCard1.Controls.Add(dataGridView1);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(55, 35);
+            materialCard1.Location = new Point(17, 10);
             materialCard1.Margin = new Padding(12, 10, 12, 10);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -221,7 +223,7 @@
             materialCard2.Controls.Add(lblNombre);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(738, 35);
+            materialCard2.Location = new Point(726, 22);
             materialCard2.Margin = new Padding(12, 10, 12, 10);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
@@ -554,13 +556,23 @@
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre";
             // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(materialCard1);
+            panel1.Controls.Add(materialCard2);
+            panel1.Location = new Point(15, 13);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1173, 617);
+            panel1.TabIndex = 2;
+            // 
             // UCEmpleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
-            Controls.Add(materialCard2);
-            Controls.Add(materialCard1);
+            Controls.Add(panel1);
             ForeColor = Color.White;
             Margin = new Padding(3, 2, 3, 2);
             MinimumSize = new Size(1000, 650);
@@ -573,6 +585,7 @@
             ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).EndInit();
             materialCard2.ResumeLayout(false);
             materialCard2.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -609,5 +622,6 @@
         private MaterialSkin.Controls.MaterialComboBox comboBoxRol;
         private MaterialSkin.Controls.MaterialComboBox txtDepartamento;
         private Label label1;
+        private Panel panel1;
     }
 }

@@ -61,7 +61,7 @@
             panelSidebar.Location = new Point(0, 0);
             panelSidebar.Margin = new Padding(3, 2, 3, 2);
             panelSidebar.Name = "panelSidebar";
-            panelSidebar.Size = new Size(192, 642);
+            panelSidebar.Size = new Size(192, 617);
             panelSidebar.TabIndex = 0;
             // 
             // btnInicio
@@ -249,7 +249,7 @@
             panelContenido.Location = new Point(192, 0);
             panelContenido.Margin = new Padding(3, 2, 3, 2);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(1239, 642);
+            panelContenido.Size = new Size(875, 617);
             panelContenido.TabIndex = 1;
             // 
             // panelTitulo
@@ -259,7 +259,7 @@
             panelTitulo.Location = new Point(0, 0);
             panelTitulo.Margin = new Padding(3, 2, 3, 2);
             panelTitulo.Name = "panelTitulo";
-            panelTitulo.Size = new Size(1239, 57);
+            panelTitulo.Size = new Size(875, 57);
             panelTitulo.TabIndex = 0;
             // 
             // lblTitulo
@@ -277,12 +277,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1431, 642);
+            ClientSize = new Size(1067, 617);
             Controls.Add(panelContenido);
             Controls.Add(panelSidebar);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(1447, 681);
+            MinimumSize = new Size(1000, 500);
             Name = "FormAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pantalla de Inicio - Admin";
