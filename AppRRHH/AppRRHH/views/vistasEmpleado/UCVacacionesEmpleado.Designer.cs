@@ -47,6 +47,7 @@
             // 
             // panelCentrado
             // 
+            panelCentrado.Anchor = AnchorStyles.None;
             panelCentrado.Controls.Add(materialCard2);
             panelCentrado.Controls.Add(materialCard1);
             panelCentrado.Controls.Add(lblDiasDisponibles);

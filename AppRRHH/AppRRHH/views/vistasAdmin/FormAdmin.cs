@@ -48,6 +48,11 @@ namespace AppRRHH
         private void btnVacaciones_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Gestión de Vacaciones";
+
+            panelContenido.Controls.Clear();
+            UCVacacionesAdmin vac = new UCVacacionesAdmin();
+            panelContenido.Controls.Add(vac);
+            vac.Dock = DockStyle.Fill;
         }
 
         private void btnInformes_Click(object sender, EventArgs e)

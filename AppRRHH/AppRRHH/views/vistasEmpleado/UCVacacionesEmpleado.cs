@@ -19,6 +19,7 @@ namespace AppRRHH.views.vistasEmpleado
             CargarDatos();
         }
 
+        // éste método carga el historial de vacaciones y los días disponibles
         private void CargarDatos()
         {
             var empleadoId = Program.idEmpleadoLogueado;
