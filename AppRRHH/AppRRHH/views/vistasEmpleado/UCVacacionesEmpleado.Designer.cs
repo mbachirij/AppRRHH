@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelCentrado = new Panel();
+            label1 = new Label();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             dgvHistorial = new DataGridView();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -48,6 +49,7 @@
             // panelCentrado
             // 
             panelCentrado.Anchor = AnchorStyles.None;
+            panelCentrado.Controls.Add(label1);
             panelCentrado.Controls.Add(materialCard2);
             panelCentrado.Controls.Add(materialCard1);
             panelCentrado.Controls.Add(lblDiasDisponibles);
@@ -56,26 +58,38 @@
             panelCentrado.Size = new Size(1054, 551);
             panelCentrado.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(88, 101, 242);
+            label1.Location = new Point(30, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(229, 41);
+            label1.TabIndex = 8;
+            label1.Text = "Mis Vacaciones";
+            // 
             // materialCard2
             // 
             materialCard2.BackColor = Color.FromArgb(255, 255, 255);
             materialCard2.Controls.Add(dgvHistorial);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(507, 92);
+            materialCard2.Location = new Point(540, 130);
             materialCard2.Margin = new Padding(14);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
             materialCard2.Padding = new Padding(14);
-            materialCard2.Size = new Size(509, 248);
+            materialCard2.Size = new Size(500, 320);
             materialCard2.TabIndex = 7;
             // 
             // dgvHistorial
             // 
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHistorial.Location = new Point(17, 17);
+            dgvHistorial.Dock = DockStyle.Fill;
+            dgvHistorial.Location = new Point(14, 14);
             dgvHistorial.Name = "dgvHistorial";
-            dgvHistorial.Size = new Size(464, 214);
+            dgvHistorial.Size = new Size(472, 292);
             dgvHistorial.TabIndex = 6;
             // 
             // materialCard1
@@ -89,19 +103,19 @@
             materialCard1.Controls.Add(lblTitulo);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(24, 92);
+            materialCard1.Location = new Point(30, 130);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(455, 248);
+            materialCard1.Size = new Size(480, 320);
             materialCard1.TabIndex = 1;
             // 
             // btnSolicitar
             // 
-            btnSolicitar.Location = new Point(166, 171);
+            btnSolicitar.Location = new Point(130, 230);
             btnSolicitar.Name = "btnSolicitar";
-            btnSolicitar.Size = new Size(179, 45);
+            btnSolicitar.Size = new Size(200, 42);
             btnSolicitar.TabIndex = 5;
             btnSolicitar.Text = "Solicitar Vacaciones";
             btnSolicitar.UseVisualStyleBackColor = true;
@@ -117,10 +131,11 @@
             // lblFin
             // 
             lblFin.AutoSize = true;
-            lblFin.Font = new Font("Sitka Banner", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFin.Location = new Point(17, 103);
+            lblFin.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFin.ForeColor = Color.FromArgb(100, 100, 120);
+            lblFin.Location = new Point(20, 106);
             lblFin.Name = "lblFin";
-            lblFin.Size = new Size(86, 28);
+            lblFin.Size = new Size(69, 19);
             lblFin.TabIndex = 3;
             lblFin.Text = "Fecha Fin:";
             // 
@@ -134,32 +149,35 @@
             // lblInicio
             // 
             lblInicio.AutoSize = true;
-            lblInicio.Font = new Font("Sitka Banner", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblInicio.Location = new Point(17, 60);
+            lblInicio.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblInicio.ForeColor = Color.FromArgb(100, 100, 120);
+            lblInicio.Location = new Point(20, 68);
             lblInicio.Name = "lblInicio";
-            lblInicio.Size = new Size(103, 28);
+            lblInicio.Size = new Size(83, 19);
             lblInicio.TabIndex = 1;
             lblInicio.Text = "Fecha Inicio:";
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Sitka Banner", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.FromArgb(88, 101, 242);
             lblTitulo.Location = new Point(17, 14);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(154, 28);
+            lblTitulo.Size = new Size(216, 30);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Solicitar Vacaciones";
             // 
             // lblDiasDisponibles
             // 
-            lblDiasDisponibles.AutoSize = true;
-            lblDiasDisponibles.Font = new Font("Sitka Banner", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDiasDisponibles.Location = new Point(454, 19);
+            lblDiasDisponibles.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDiasDisponibles.ForeColor = Color.FromArgb(88, 101, 242);
+            lblDiasDisponibles.Location = new Point(230, 70);
             lblDiasDisponibles.Name = "lblDiasDisponibles";
-            lblDiasDisponibles.Size = new Size(82, 43);
+            lblDiasDisponibles.Size = new Size(600, 40);
             lblDiasDisponibles.TabIndex = 0;
             lblDiasDisponibles.Text = "label1";
+            lblDiasDisponibles.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // UCVacacionesEmpleado
             // 
@@ -190,5 +208,6 @@
         private Button btnSolicitar;
         private DateTimePicker dtpFin;
         private MaterialSkin.Controls.MaterialCard materialCard2;
+        private Label label1;
     }
 }

@@ -12,28 +12,27 @@ namespace AppRRHH
 
             panelSidebar.BackColor = Color.FromArgb(35, 35, 55);
             panelContenido.BackColor = Color.FromArgb(25, 25, 40);
-            panelTitulo.BackColor = Color.FromArgb(35, 35, 40);
+            
+            UCInicioAdmin home = new UCInicioAdmin();
+            panelContenido.Controls.Add(home);
+            home.Dock = DockStyle.Fill;
+
+            // Maximizo la ventana al abrirla
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            lblTitulo.Text = "GESTIÓN DE EMPLEADOS";
-
             // Borro lo que hay en el panel
             panelContenido.Controls.Clear();
-
             UCEmpleados vista = new UCEmpleados();
-
             panelContenido.Controls.Add(vista);
-
             vista.Dock = DockStyle.Fill;
 
         }
 
         private void btnDepartamentos_Click(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Gestión de Departamentos";
-
             panelContenido.Controls.Clear();
             UCDepartamentosAdmin dep = new UCDepartamentosAdmin();
             panelContenido.Controls.Add(dep);
@@ -42,38 +41,35 @@ namespace AppRRHH
 
         private void btnNominas_Click(object sender, EventArgs e)
         {
-            lblTitulo.Text = "NÓMINAS Y PAGOS";
+            panelContenido.Controls.Clear();
+            UCNominasAdmin nom = new UCNominasAdmin();
+            panelContenido.Controls.Add(nom);
+            nom.Dock = DockStyle.Fill;
         }
 
         private void btnVacaciones_Click(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Gestión de Vacaciones";
-
             panelContenido.Controls.Clear();
             UCVacacionesAdmin vac = new UCVacacionesAdmin();
             panelContenido.Controls.Add(vac);
             vac.Dock = DockStyle.Fill;
         }
 
-        private void btnInformes_Click(object sender, EventArgs e)
-        {
-            lblTitulo.Text = "Gestión de Informes";
-        }
-
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Configuración de la Aplicación";
+            panelContenido.Controls.Clear();
+            UCConfiguracionAdmin config = new UCConfiguracionAdmin();
+            panelContenido.Controls.Add(config);
+            config.Dock = DockStyle.Fill;
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Bienvenido al Sistema de Gestión de Recursos Humanos";
-            /*
             panelContenido.Controls.Clear();
-            UCInicioEmpleado home = new UCInicioEmpleado();
+            UCInicioAdmin home = new UCInicioAdmin();
             panelContenido.Controls.Add(home);
             home.Dock = DockStyle.Fill;
-            */
+            
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

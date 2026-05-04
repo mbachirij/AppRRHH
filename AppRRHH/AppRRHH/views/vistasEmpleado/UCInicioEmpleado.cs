@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppRRHH.Data;
+using AppRRHH.models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +12,8 @@ namespace AppRRHH.views.vistasEmpleado
 {
     public partial class UCInicioEmpleado : UserControl
     {
+        private int empleadoId = Program.idEmpleadoLogueado;
+
         public UCInicioEmpleado()
         {
             InitializeComponent();
@@ -20,37 +24,47 @@ namespace AppRRHH.views.vistasEmpleado
         // en éste método cargaré los datos del empleado que ha iniciado sesión, para mostrarlos en la vista de inicio
         public void cargarDatos() 
         {
-            using (var db = new Data.AppDbContext())
-            { 
-                // cojo el id del empleado que ha iniciado sesión
-                var usuarioActual = db.Empleados.Find(Program.idEmpleadoLogueado);
+            using (var db = new AppDbContext())
+            {
+                // Datos personales
+                var empleado = db.Empleados
+                    .FirstOrDefault(e => e.Id == Program.idEmpleadoLogueado);
 
-                if (usuarioActual == null)
+                if (empleado != null)
                 {
-                    MessageBox.Show("Error al cargar los datos del empleado.");
-                    return;
-                } else
-                {
-
-                    // muestro los datos del empleado en los labels correspondientes
-                    lblNombreUser.Text = usuarioActual.NombreCompleto();
-                    
-                    if (string.IsNullOrWhiteSpace(usuarioActual.Departamento))
-                    {
-                        lblDepartamento.Text = "Sin departamento";
-                    }
-                    else
-                    {
-                        lblDepartamento.Text = usuarioActual.Departamento;
-                    }
-
-                    // muestro los días de vacaciones disponibles
-                    var vacaciones = db.Vacaciones.FirstOrDefault(v => v.EmpleadoId == Program.idEmpleadoLogueado);
-                    lblDias.Text = vacaciones != null ? vacaciones.DiasDisponibles.ToString() : "0";
-
-                    lblBienvenida.Text = $"¡Bienvenido, {usuarioActual.Nombre}!";
-
+                    lblNombre.Text = $"Nombre: {empleado.Nombre}";
+                    lblApellidos.Text = $"Apellidos: {empleado.Apellidos}";
+                    lblDNI.Text = $"DNI: {empleado.DNI}";
+                    lblEmail.Text = $"Email: {empleado.Email}";
+                    lblDepartamento.Text = $"Departamento: {empleado.Departamento}";
+                    lblRol.Text = $"Rol: {empleado.Rol}";
+                    lblNumSegSocial.Text = $"Nº SS: {empleado.NumSegSocial}";
+                    lblPuesto.Text = $"Puesto: {empleado.CategoriaProfesional}";
                 }
+
+                lblVacacionesPend.Text = db.Vacaciones.Count(v => v.EmpleadoId == empleadoId && v.Estado == "Pendiente").ToString();
+
+                // días de vacaciones totales que quedan para el empleado en el año actual 
+                // Primero traer a memoria, luego calcular
+                var vacacionesAprobadas = db.Vacaciones
+                    .Where(v => v.EmpleadoId == Program.idEmpleadoLogueado &&
+                                v.Estado == "Aprobada" &&
+                                v.FechaInicio.Year == DateTime.Now.Year)
+                    .ToList() // ← traer a memoria primero
+                    .Sum(v => (v.FechaFin - v.FechaInicio).Days + 1);
+
+                vacacionesAprobadas = Math.Min(vacacionesAprobadas, 30);
+                lblDiasVacaciones.Text = (30 - vacacionesAprobadas).ToString();
+
+                lblNominasAnio.Text = db.Nominas
+                .Count(n => n.EmpleadoId == empleadoId && n.Anio == DateTime.Now.Year)
+                .ToString();
+
+                lblHorasMes.Text = db.Asistencias
+                .Count(a => a.EmpleadoId == empleadoId && a.Fecha.Month == DateTime.Now.Month)
+                .ToString() + " días";
+
+
             }
         }
     }

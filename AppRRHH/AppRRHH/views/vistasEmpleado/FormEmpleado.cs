@@ -17,16 +17,21 @@ namespace AppRRHH.views.Empleado
 
             panelSidebar.BackColor = Color.FromArgb(35, 35, 55);
             panelContenido.BackColor = Color.FromArgb(25, 25, 40);
+
+            // Cargo la vista de inicio por defecto
+            UCInicioEmpleado home = new UCInicioEmpleado();
+            panelContenido.Controls.Add(home);
+            home.Dock = DockStyle.Fill;
+
+            // Maximizo la ventana al abrirla
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
             panelContenido.Controls.Clear();
-
             UCInicioEmpleado vista = new UCInicioEmpleado();
-
             panelContenido.Controls.Add(vista);
-
             vista.Dock = DockStyle.Fill;
         }
 
@@ -41,22 +46,16 @@ namespace AppRRHH.views.Empleado
         private void btnYo_Click(object sender, EventArgs e)
         {
             panelContenido.Controls.Clear();
-
             UCEmpleadoFichajes fichajes = new UCEmpleadoFichajes();
-
             panelContenido.Controls.Add(fichajes);
-
             fichajes.Dock = DockStyle.Fill;
         }
 
         private void btnVacaciones_Click(object sender, EventArgs e)
         {
             panelContenido.Controls.Clear();
-
             UCVacacionesEmpleado vacaciones = new UCVacacionesEmpleado();
-
             panelContenido.Controls.Add(vacaciones);
-
             vacaciones.Dock = DockStyle.Fill;
         }
     }

@@ -30,9 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCEmpleados));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            label1 = new Label();
+            lblTitulo = new Label();
             btnEliminar = new MaterialSkin.Controls.MaterialButton();
             dataGridView1 = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -43,6 +43,14 @@
             empleadoBindingSource = new BindingSource(components);
             btnAdd = new MaterialSkin.Controls.MaterialButton();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            txtNumSS = new MaterialSkin.Controls.MaterialTextBox2();
+            lblAntiguedad = new Label();
+            nudAntiguedad = new NumericUpDown();
+            cmbCatProfesional = new MaterialSkin.Controls.MaterialComboBox();
+            lblCatProfesional = new Label();
+            cmbTipoContrato = new MaterialSkin.Controls.MaterialComboBox();
+            lblTipoContrato = new Label();
+            lblNSS = new Label();
             comboBoxRol = new MaterialSkin.Controls.MaterialComboBox();
             txtDepartamento = new MaterialSkin.Controls.MaterialComboBox();
             dateFechaNacimiento = new DateTimePicker();
@@ -66,13 +74,14 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).BeginInit();
             materialCard2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudAntiguedad).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(label1);
+            materialCard1.Controls.Add(lblTitulo);
             materialCard1.Controls.Add(btnEliminar);
             materialCard1.Controls.Add(dataGridView1);
             materialCard1.Depth = 0;
@@ -85,15 +94,16 @@
             materialCard1.Size = new Size(643, 450);
             materialCard1.TabIndex = 0;
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Stencil", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(34, 46);
-            label1.Name = "label1";
-            label1.Size = new Size(246, 26);
-            label1.TabIndex = 3;
-            label1.Text = "Listado Empleados";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.FromArgb(180, 180, 200);
+            lblTitulo.Location = new Point(24, 39);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(258, 37);
+            lblTitulo.TabIndex = 3;
+            lblTitulo.Text = "Listado Empleados";
             // 
             // btnEliminar
             // 
@@ -121,14 +131,14 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, apellidosDataGridViewTextBoxColumn, departamentoDataGridViewTextBoxColumn, rolDataGridViewTextBoxColumn });
             dataGridView1.DataSource = empleadoBindingSource;
@@ -186,7 +196,7 @@
             btnAdd.Depth = 0;
             btnAdd.HighEmphasis = true;
             btnAdd.Icon = (Image)resources.GetObject("btnAdd.Icon");
-            btnAdd.Location = new Point(130, 460);
+            btnAdd.Location = new Point(472, 475);
             btnAdd.Margin = new Padding(4);
             btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             btnAdd.Name = "btnAdd";
@@ -202,6 +212,14 @@
             // materialCard2
             // 
             materialCard2.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard2.Controls.Add(txtNumSS);
+            materialCard2.Controls.Add(lblAntiguedad);
+            materialCard2.Controls.Add(nudAntiguedad);
+            materialCard2.Controls.Add(cmbCatProfesional);
+            materialCard2.Controls.Add(lblCatProfesional);
+            materialCard2.Controls.Add(cmbTipoContrato);
+            materialCard2.Controls.Add(lblTipoContrato);
+            materialCard2.Controls.Add(lblNSS);
             materialCard2.Controls.Add(btnAdd);
             materialCard2.Controls.Add(comboBoxRol);
             materialCard2.Controls.Add(txtDepartamento);
@@ -223,13 +241,133 @@
             materialCard2.Controls.Add(lblNombre);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(726, 22);
+            materialCard2.Location = new Point(684, 10);
             materialCard2.Margin = new Padding(12, 10, 12, 10);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
             materialCard2.Padding = new Padding(12, 10, 12, 10);
-            materialCard2.Size = new Size(418, 521);
+            materialCard2.Size = new Size(697, 607);
             materialCard2.TabIndex = 1;
+            // 
+            // txtNumSS
+            // 
+            txtNumSS.AnimateReadOnly = false;
+            txtNumSS.BackgroundImageLayout = ImageLayout.None;
+            txtNumSS.CharacterCasing = CharacterCasing.Normal;
+            txtNumSS.Depth = 0;
+            txtNumSS.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtNumSS.HideSelection = true;
+            txtNumSS.LeadingIcon = null;
+            txtNumSS.Location = new Point(128, 463);
+            txtNumSS.Margin = new Padding(3, 2, 3, 2);
+            txtNumSS.MaxLength = 32767;
+            txtNumSS.MouseState = MaterialSkin.MouseState.OUT;
+            txtNumSS.Name = "txtNumSS";
+            txtNumSS.PasswordChar = '\0';
+            txtNumSS.PrefixSuffixText = "€";
+            txtNumSS.ReadOnly = false;
+            txtNumSS.RightToLeft = RightToLeft.No;
+            txtNumSS.SelectedText = "";
+            txtNumSS.SelectionLength = 0;
+            txtNumSS.SelectionStart = 0;
+            txtNumSS.ShortcutsEnabled = true;
+            txtNumSS.Size = new Size(199, 48);
+            txtNumSS.TabIndex = 27;
+            txtNumSS.TabStop = false;
+            txtNumSS.TextAlign = HorizontalAlignment.Left;
+            txtNumSS.TrailingIcon = null;
+            txtNumSS.UseSystemPasswordChar = false;
+            // 
+            // lblAntiguedad
+            // 
+            lblAntiguedad.AutoSize = true;
+            lblAntiguedad.Location = new Point(375, 389);
+            lblAntiguedad.Name = "lblAntiguedad";
+            lblAntiguedad.Size = new Size(69, 15);
+            lblAntiguedad.TabIndex = 26;
+            lblAntiguedad.Text = "Antiguedad";
+            // 
+            // nudAntiguedad
+            // 
+            nudAntiguedad.Location = new Point(503, 381);
+            nudAntiguedad.Name = "nudAntiguedad";
+            nudAntiguedad.Size = new Size(121, 23);
+            nudAntiguedad.TabIndex = 25;
+            // 
+            // cmbCatProfesional
+            // 
+            cmbCatProfesional.AutoResize = false;
+            cmbCatProfesional.BackColor = Color.FromArgb(255, 255, 255);
+            cmbCatProfesional.Depth = 0;
+            cmbCatProfesional.DrawMode = DrawMode.OwnerDrawVariable;
+            cmbCatProfesional.DropDownHeight = 174;
+            cmbCatProfesional.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCatProfesional.DropDownWidth = 121;
+            cmbCatProfesional.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cmbCatProfesional.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cmbCatProfesional.FormattingEnabled = true;
+            cmbCatProfesional.IntegralHeight = false;
+            cmbCatProfesional.ItemHeight = 43;
+            cmbCatProfesional.Items.AddRange(new object[] { "Técnico", "Administrativo", "Operario", "Directivo", "Comercial" });
+            cmbCatProfesional.Location = new Point(472, 305);
+            cmbCatProfesional.Margin = new Padding(3, 2, 3, 2);
+            cmbCatProfesional.MaxDropDownItems = 4;
+            cmbCatProfesional.MouseState = MaterialSkin.MouseState.OUT;
+            cmbCatProfesional.Name = "cmbCatProfesional";
+            cmbCatProfesional.Size = new Size(199, 49);
+            cmbCatProfesional.StartIndex = 0;
+            cmbCatProfesional.TabIndex = 24;
+            // 
+            // lblCatProfesional
+            // 
+            lblCatProfesional.AutoSize = true;
+            lblCatProfesional.Location = new Point(333, 317);
+            lblCatProfesional.Name = "lblCatProfesional";
+            lblCatProfesional.Size = new Size(120, 15);
+            lblCatProfesional.TabIndex = 23;
+            lblCatProfesional.Text = "Categoría Profesional";
+            // 
+            // cmbTipoContrato
+            // 
+            cmbTipoContrato.AutoResize = false;
+            cmbTipoContrato.BackColor = Color.FromArgb(255, 255, 255);
+            cmbTipoContrato.Depth = 0;
+            cmbTipoContrato.DrawMode = DrawMode.OwnerDrawVariable;
+            cmbTipoContrato.DropDownHeight = 174;
+            cmbTipoContrato.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoContrato.DropDownWidth = 121;
+            cmbTipoContrato.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cmbTipoContrato.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cmbTipoContrato.FormattingEnabled = true;
+            cmbTipoContrato.IntegralHeight = false;
+            cmbTipoContrato.ItemHeight = 43;
+            cmbTipoContrato.Items.AddRange(new object[] { "Contrato Indefinido", "Contrato Fijo-Discontinuo", "Contrato Temporal por Circunstancias de la Producción", "Contrato Temporal por Sustitución" });
+            cmbTipoContrato.Location = new Point(472, 248);
+            cmbTipoContrato.Margin = new Padding(3, 2, 3, 2);
+            cmbTipoContrato.MaxDropDownItems = 4;
+            cmbTipoContrato.MouseState = MaterialSkin.MouseState.OUT;
+            cmbTipoContrato.Name = "cmbTipoContrato";
+            cmbTipoContrato.Size = new Size(199, 49);
+            cmbTipoContrato.StartIndex = 0;
+            cmbTipoContrato.TabIndex = 22;
+            // 
+            // lblTipoContrato
+            // 
+            lblTipoContrato.AutoSize = true;
+            lblTipoContrato.Location = new Point(363, 261);
+            lblTipoContrato.Name = "lblTipoContrato";
+            lblTipoContrato.Size = new Size(81, 15);
+            lblTipoContrato.TabIndex = 21;
+            lblTipoContrato.Text = "Tipo Contrato";
+            // 
+            // lblNSS
+            // 
+            lblNSS.AutoSize = true;
+            lblNSS.Location = new Point(17, 487);
+            lblNSS.Name = "lblNSS";
+            lblNSS.Size = new Size(36, 15);
+            lblNSS.TabIndex = 19;
+            lblNSS.Text = "Nº SS";
             // 
             // comboBoxRol
             // 
@@ -246,7 +384,7 @@
             comboBoxRol.IntegralHeight = false;
             comboBoxRol.ItemHeight = 43;
             comboBoxRol.Items.AddRange(new object[] { "Administrador", "Empleado" });
-            comboBoxRol.Location = new Point(175, 244);
+            comboBoxRol.Location = new Point(128, 375);
             comboBoxRol.Margin = new Padding(3, 2, 3, 2);
             comboBoxRol.MaxDropDownItems = 4;
             comboBoxRol.MouseState = MaterialSkin.MouseState.OUT;
@@ -269,7 +407,7 @@
             txtDepartamento.FormattingEnabled = true;
             txtDepartamento.IntegralHeight = false;
             txtDepartamento.ItemHeight = 43;
-            txtDepartamento.Location = new Point(175, 202);
+            txtDepartamento.Location = new Point(128, 305);
             txtDepartamento.Margin = new Padding(3, 2, 3, 2);
             txtDepartamento.MaxDropDownItems = 4;
             txtDepartamento.MouseState = MaterialSkin.MouseState.OUT;
@@ -281,7 +419,7 @@
             // dateFechaNacimiento
             // 
             dateFechaNacimiento.Format = DateTimePickerFormat.Short;
-            dateFechaNacimiento.Location = new Point(175, 174);
+            dateFechaNacimiento.Location = new Point(128, 253);
             dateFechaNacimiento.Margin = new Padding(3, 2, 3, 2);
             dateFechaNacimiento.Name = "dateFechaNacimiento";
             dateFechaNacimiento.Size = new Size(199, 23);
@@ -296,7 +434,7 @@
             txtSalario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtSalario.HideSelection = true;
             txtSalario.LeadingIcon = null;
-            txtSalario.Location = new Point(175, 388);
+            txtSalario.Location = new Point(476, 181);
             txtSalario.Margin = new Padding(3, 2, 3, 2);
             txtSalario.MaxLength = 32767;
             txtSalario.MouseState = MaterialSkin.MouseState.OUT;
@@ -330,7 +468,7 @@
             txtTelefono.HideSelection = true;
             txtTelefono.InsertKeyMode = InsertKeyMode.Default;
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(175, 292);
+            txtTelefono.Location = new Point(472, 33);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Mask = "000-000-000";
             txtTelefono.MaxLength = 32767;
@@ -368,7 +506,7 @@
             txtEmail.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtEmail.HideSelection = true;
             txtEmail.LeadingIcon = null;
-            txtEmail.Location = new Point(175, 343);
+            txtEmail.Location = new Point(472, 105);
             txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.MaxLength = 32767;
             txtEmail.MouseState = MaterialSkin.MouseState.OUT;
@@ -397,7 +535,7 @@
             txtDni.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtDni.HideSelection = true;
             txtDni.LeadingIcon = null;
-            txtDni.Location = new Point(175, 113);
+            txtDni.Location = new Point(128, 181);
             txtDni.Margin = new Padding(3, 2, 3, 2);
             txtDni.MaxLength = 32767;
             txtDni.MouseState = MaterialSkin.MouseState.OUT;
@@ -426,7 +564,7 @@
             txtApellidos.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtApellidos.HideSelection = true;
             txtApellidos.LeadingIcon = null;
-            txtApellidos.Location = new Point(175, 74);
+            txtApellidos.Location = new Point(128, 105);
             txtApellidos.Margin = new Padding(3, 2, 3, 2);
             txtApellidos.MaxLength = 32767;
             txtApellidos.MouseState = MaterialSkin.MouseState.OUT;
@@ -455,7 +593,7 @@
             txtNombre.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtNombre.HideSelection = true;
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(175, 33);
+            txtNombre.Location = new Point(128, 33);
             txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = MaterialSkin.MouseState.OUT;
@@ -478,7 +616,7 @@
             // lblSalario
             // 
             lblSalario.AutoSize = true;
-            lblSalario.Location = new Point(45, 398);
+            lblSalario.Location = new Point(375, 188);
             lblSalario.Name = "lblSalario";
             lblSalario.Size = new Size(42, 15);
             lblSalario.TabIndex = 8;
@@ -487,7 +625,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(45, 352);
+            lblEmail.Location = new Point(375, 110);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(36, 15);
             lblEmail.TabIndex = 7;
@@ -496,7 +634,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(45, 304);
+            lblTelefono.Location = new Point(375, 46);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(53, 15);
             lblTelefono.TabIndex = 6;
@@ -505,7 +643,7 @@
             // lblRol
             // 
             lblRol.AutoSize = true;
-            lblRol.Location = new Point(45, 258);
+            lblRol.Location = new Point(17, 389);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(24, 15);
             lblRol.TabIndex = 5;
@@ -514,7 +652,7 @@
             // lblDepartamento
             // 
             lblDepartamento.AutoSize = true;
-            lblDepartamento.Location = new Point(45, 214);
+            lblDepartamento.Location = new Point(17, 317);
             lblDepartamento.Name = "lblDepartamento";
             lblDepartamento.Size = new Size(83, 15);
             lblDepartamento.TabIndex = 4;
@@ -523,7 +661,7 @@
             // lblFechaNac
             // 
             lblFechaNac.AutoSize = true;
-            lblFechaNac.Location = new Point(45, 174);
+            lblFechaNac.Location = new Point(17, 253);
             lblFechaNac.Name = "lblFechaNac";
             lblFechaNac.Size = new Size(103, 15);
             lblFechaNac.TabIndex = 3;
@@ -532,7 +670,7 @@
             // lblDni
             // 
             lblDni.AutoSize = true;
-            lblDni.Location = new Point(45, 120);
+            lblDni.Location = new Point(17, 188);
             lblDni.Name = "lblDni";
             lblDni.Size = new Size(27, 15);
             lblDni.TabIndex = 2;
@@ -541,7 +679,7 @@
             // lblApellidos
             // 
             lblApellidos.AutoSize = true;
-            lblApellidos.Location = new Point(45, 79);
+            lblApellidos.Location = new Point(17, 110);
             lblApellidos.Name = "lblApellidos";
             lblApellidos.Size = new Size(56, 15);
             lblApellidos.TabIndex = 1;
@@ -550,7 +688,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(45, 40);
+            lblNombre.Location = new Point(17, 46);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 0;
@@ -562,9 +700,9 @@
             panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(materialCard1);
             panel1.Controls.Add(materialCard2);
-            panel1.Location = new Point(15, 13);
+            panel1.Location = new Point(11, 13);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1173, 617);
+            panel1.Size = new Size(1400, 627);
             panel1.TabIndex = 2;
             // 
             // UCEmpleados
@@ -578,13 +716,14 @@
             MinimumSize = new Size(1000, 650);
             Name = "UCEmpleados";
             Padding = new Padding(20);
-            Size = new Size(1211, 650);
+            Size = new Size(1424, 650);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).EndInit();
             materialCard2.ResumeLayout(false);
             materialCard2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudAntiguedad).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -621,7 +760,15 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtNombre;
         private MaterialSkin.Controls.MaterialComboBox comboBoxRol;
         private MaterialSkin.Controls.MaterialComboBox txtDepartamento;
-        private Label label1;
+        private Label lblTitulo;
         private Panel panel1;
+        private Label lblNSS;
+        private Label lblTipoContrato;
+        private MaterialSkin.Controls.MaterialComboBox cmbTipoContrato;
+        private MaterialSkin.Controls.MaterialComboBox cmbCatProfesional;
+        private Label lblCatProfesional;
+        private Label lblAntiguedad;
+        private NumericUpDown nudAntiguedad;
+        private MaterialSkin.Controls.MaterialTextBox2 txtNumSS;
     }
 }

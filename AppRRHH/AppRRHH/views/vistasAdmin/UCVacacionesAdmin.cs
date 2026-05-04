@@ -17,6 +17,8 @@ namespace AppRRHH.views.vistasAdmin
         {
             InitializeComponent();
             CargarDatos();
+
+            EstiloDataGridView();
         }
 
         private void CargarDatos()
@@ -104,6 +106,47 @@ namespace AppRRHH.views.vistasAdmin
                     CargarDatos();
                 }
             }
+        }
+
+        private void EstiloDataGridView() 
+        {
+            // Estilo del DataGridView
+            dgvPendientes.BackgroundColor = Color.White;
+            dgvPendientes.BorderStyle = BorderStyle.None;
+            dgvPendientes.RowHeadersVisible = false;
+            dgvPendientes.GridColor = Color.FromArgb(230, 230, 230);
+            dgvPendientes.RowsDefaultCellStyle.BackColor = Color.White;
+            dgvPendientes.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
+            dgvPendientes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
+            dgvPendientes.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvPendientes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            dgvPendientes.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvPendientes.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dgvPendientes.ColumnHeadersHeight = 35;
+            dgvPendientes.RowTemplate.Height = 30;
+            dgvPendientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPendientes.EnableHeadersVisualStyles = false;
+            dgvPendientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Estilo del DataGridView
+            dgvHistorial.BackgroundColor = Color.White;
+            dgvHistorial.BorderStyle = BorderStyle.None;
+            dgvHistorial.RowHeadersVisible = false;
+            dgvHistorial.GridColor = Color.FromArgb(230, 230, 230);
+            dgvHistorial.RowsDefaultCellStyle.BackColor = Color.White;
+            dgvHistorial.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
+            dgvHistorial.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
+            dgvHistorial.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvHistorial.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            dgvHistorial.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvHistorial.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dgvHistorial.ColumnHeadersHeight = 35;
+            dgvHistorial.RowTemplate.Height = 30;
+            dgvHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHistorial.EnableHeadersVisualStyles = false;
+            dgvHistorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
         }
     }
 }

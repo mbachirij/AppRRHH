@@ -25,6 +25,7 @@ namespace AppRRHH.views
 
             CargarDatos();
             RellenarDepartamentos();
+            EditarDataGridView();
         }
         public void CargarDatos()
         {
@@ -55,13 +56,13 @@ namespace AppRRHH.views
             using (var db = new AppDbContext())
             {
                 // compruebo si ya existe un empleado con el mismo DNI o email para evitar duplicados
-                bool yaExiste = db.Empleados.Any(emp => emp.DNI == txtDni.Text);
+                bool yaExiste = db.Empleados.Any(emp => emp.DNI == txtDni.Text || emp.Email == txtEmail.Text);
 
                 // si ya existe un empleado con el mismo DNI, muestro un mensaje de error y no agrego el nuevo empleado
                 if (yaExiste)
                 {
                     // muestro un mensaje de error
-                    MessageBox.Show("Error: Ya existe un empleado registrado con el DNI " + txtDni.Text,
+                    MessageBox.Show("Error: Ya existe un empleado registrado con el DNI o Email proporcionado.",
                             "Empleado Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     return;
@@ -76,6 +77,11 @@ namespace AppRRHH.views
                     FechaNacimiento = dateFechaNacimiento.Value,
                     Departamento = txtDepartamento.Text,
                     Email = txtEmail.Text,
+                    Salario = decimal.TryParse(txtSalario.Text, out decimal salario) ? salario : 0,
+                    NumSegSocial = txtNumSS.Text,
+                    TipoContrato = cmbTipoContrato.Text,
+                    CategoriaProfesional = cmbCatProfesional.Text,
+                    Antiguedad = (int)nudAntiguedad.Value, // convierto el valor del NumericUpDown a int
                     Rol = comboBoxRol.Text,
                     Telefono = txtTelefono.Text.Replace("-", "").Replace("_", "").Replace(" ", "")
                 };
@@ -107,7 +113,11 @@ namespace AppRRHH.views
                 txtSalario.Text = "";
                 txtTelefono.Text = "";
                 comboBoxRol.SelectedIndex = -1;
+                cmbTipoContrato.SelectedIndex = -1;
+                cmbCatProfesional.SelectedIndex = -1;
+                nudAntiguedad.Value = 0;
                 dateFechaNacimiento.Value = DateTime.Now;
+
 
                 // recargo la lista de empleados para que se vea el nuevo empleado agregado
                 CargarDatos();
@@ -142,6 +152,29 @@ namespace AppRRHH.views
                     }
                 }
             }
+        }
+
+        private void EditarDataGridView()
+        {
+            // Estilo del DataGridView
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.GridColor = Color.FromArgb(230, 230, 230);
+            dataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            dataGridView1.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dataGridView1.ColumnHeadersHeight = 35;
+            dataGridView1.RowTemplate.Height = 30;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
         }
     }
 }

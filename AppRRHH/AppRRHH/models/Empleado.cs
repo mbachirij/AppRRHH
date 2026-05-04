@@ -37,7 +37,19 @@ namespace AppRRHH.models
         [Column(TypeName = "decimal(10,2)")]
         public decimal Salario { get; set; }
 
+        [MaxLength(12)]
+        public string? NumSegSocial { get; set; }
+
+        [MaxLength(50)]
+        public string? TipoContrato { get; set; }  // "Indefinido", "Temporal", etc.
+
+        [MaxLength(100)]
+        public string? CategoriaProfesional { get; set; }  // "Técnico", "Administrativo", etc.
+
+        public int Antiguedad { get; set; }  // años de antigüedad
+
         public string NombreCompleto() => $"{Nombre} {Apellidos}";
+        public string NombreCompletoTexto => $"{Nombre} {Apellidos}";
     }
 }
 

@@ -33,7 +33,6 @@
             btnInicio = new MaterialSkin.Controls.MaterialButton();
             btnCerrarSesion = new MaterialSkin.Controls.MaterialButton();
             btnConfiguracion = new MaterialSkin.Controls.MaterialButton();
-            btnInformes = new MaterialSkin.Controls.MaterialButton();
             btnVacaciones = new MaterialSkin.Controls.MaterialButton();
             btnNominas = new MaterialSkin.Controls.MaterialButton();
             btnYo = new MaterialSkin.Controls.MaterialButton();
@@ -47,7 +46,6 @@
             panelSidebar.Controls.Add(btnInicio);
             panelSidebar.Controls.Add(btnCerrarSesion);
             panelSidebar.Controls.Add(btnConfiguracion);
-            panelSidebar.Controls.Add(btnInformes);
             panelSidebar.Controls.Add(btnVacaciones);
             panelSidebar.Controls.Add(btnNominas);
             panelSidebar.Controls.Add(btnYo);
@@ -82,6 +80,7 @@
             // 
             // btnCerrarSesion
             // 
+            btnCerrarSesion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnCerrarSesion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCerrarSesion.Cursor = Cursors.Hand;
             btnCerrarSesion.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
@@ -123,27 +122,6 @@
             btnConfiguracion.UseAccentColor = false;
             btnConfiguracion.UseVisualStyleBackColor = true;
             // 
-            // btnInformes
-            // 
-            btnInformes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnInformes.Cursor = Cursors.Hand;
-            btnInformes.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnInformes.Depth = 0;
-            btnInformes.HighEmphasis = false;
-            btnInformes.Icon = (Image)resources.GetObject("btnInformes.Icon");
-            btnInformes.Location = new Point(11, 237);
-            btnInformes.Margin = new Padding(4);
-            btnInformes.MouseState = MaterialSkin.MouseState.HOVER;
-            btnInformes.Name = "btnInformes";
-            btnInformes.NoAccentTextColor = Color.Empty;
-            btnInformes.Size = new Size(122, 36);
-            btnInformes.TabIndex = 4;
-            btnInformes.Text = "Informes";
-            btnInformes.TextAlign = ContentAlignment.MiddleLeft;
-            btnInformes.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnInformes.UseAccentColor = false;
-            btnInformes.UseVisualStyleBackColor = true;
-            // 
             // btnVacaciones
             // 
             btnVacaciones.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -152,7 +130,7 @@
             btnVacaciones.Depth = 0;
             btnVacaciones.HighEmphasis = false;
             btnVacaciones.Icon = (Image)resources.GetObject("btnVacaciones.Icon");
-            btnVacaciones.Location = new Point(11, 201);
+            btnVacaciones.Location = new Point(11, 229);
             btnVacaciones.Margin = new Padding(4);
             btnVacaciones.MouseState = MaterialSkin.MouseState.HOVER;
             btnVacaciones.Name = "btnVacaciones";
@@ -174,7 +152,7 @@
             btnNominas.Depth = 0;
             btnNominas.HighEmphasis = false;
             btnNominas.Icon = (Image)resources.GetObject("btnNominas.Icon");
-            btnNominas.Location = new Point(11, 165);
+            btnNominas.Location = new Point(11, 185);
             btnNominas.Margin = new Padding(4);
             btnNominas.MouseState = MaterialSkin.MouseState.HOVER;
             btnNominas.Name = "btnNominas";
@@ -195,7 +173,7 @@
             btnYo.Depth = 0;
             btnYo.HighEmphasis = false;
             btnYo.Icon = (Image)resources.GetObject("btnYo.Icon");
-            btnYo.Location = new Point(11, 129);
+            btnYo.Location = new Point(11, 141);
             btnYo.Margin = new Padding(4);
             btnYo.MouseState = MaterialSkin.MouseState.HOVER;
             btnYo.Name = "btnYo";
@@ -243,7 +221,6 @@
         private MaterialSkin.Controls.MaterialButton btnInicio;
         private MaterialSkin.Controls.MaterialButton btnCerrarSesion;
         private MaterialSkin.Controls.MaterialButton btnConfiguracion;
-        private MaterialSkin.Controls.MaterialButton btnInformes;
         private MaterialSkin.Controls.MaterialButton btnVacaciones;
         private MaterialSkin.Controls.MaterialButton btnNominas;
         private MaterialSkin.Controls.MaterialButton btnYo;

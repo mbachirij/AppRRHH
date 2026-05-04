@@ -33,17 +33,12 @@
             btnInicio = new MaterialSkin.Controls.MaterialButton();
             btnCerrarSesion = new MaterialSkin.Controls.MaterialButton();
             btnConfiguracion = new MaterialSkin.Controls.MaterialButton();
-            btnInformes = new MaterialSkin.Controls.MaterialButton();
             btnVacaciones = new MaterialSkin.Controls.MaterialButton();
             btnNominas = new MaterialSkin.Controls.MaterialButton();
             btnDepartamentos = new MaterialSkin.Controls.MaterialButton();
             btnEmpleados = new MaterialSkin.Controls.MaterialButton();
             panelContenido = new Panel();
-            panelTitulo = new Panel();
-            lblTitulo = new Label();
             panelSidebar.SuspendLayout();
-            panelContenido.SuspendLayout();
-            panelTitulo.SuspendLayout();
             SuspendLayout();
             // 
             // panelSidebar
@@ -52,7 +47,6 @@
             panelSidebar.Controls.Add(btnInicio);
             panelSidebar.Controls.Add(btnCerrarSesion);
             panelSidebar.Controls.Add(btnConfiguracion);
-            panelSidebar.Controls.Add(btnInformes);
             panelSidebar.Controls.Add(btnVacaciones);
             panelSidebar.Controls.Add(btnNominas);
             panelSidebar.Controls.Add(btnDepartamentos);
@@ -77,10 +71,10 @@
             btnInicio.MouseState = MaterialSkin.MouseState.HOVER;
             btnInicio.Name = "btnInicio";
             btnInicio.NoAccentTextColor = Color.Empty;
-            btnInicio.Size = new Size(96, 36);
+            btnInicio.Size = new Size(117, 36);
             btnInicio.TabIndex = 7;
-            btnInicio.Text = "Admin";
-            btnInicio.TextAlign = ContentAlignment.MiddleLeft;
+            btnInicio.Text = "Mi Perfil";
+            btnInicio.TextAlign = ContentAlignment.TopLeft;
             btnInicio.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnInicio.UseAccentColor = false;
             btnInicio.UseVisualStyleBackColor = true;
@@ -88,6 +82,7 @@
             // 
             // btnCerrarSesion
             // 
+            btnCerrarSesion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnCerrarSesion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCerrarSesion.Cursor = Cursors.Hand;
             btnCerrarSesion.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
@@ -102,7 +97,7 @@
             btnCerrarSesion.Size = new Size(159, 36);
             btnCerrarSesion.TabIndex = 6;
             btnCerrarSesion.Text = "Cerrar sesión";
-            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.TextAlign = ContentAlignment.BottomLeft;
             btnCerrarSesion.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnCerrarSesion.UseAccentColor = false;
             btnCerrarSesion.UseVisualStyleBackColor = true;
@@ -116,7 +111,7 @@
             btnConfiguracion.Depth = 0;
             btnConfiguracion.HighEmphasis = false;
             btnConfiguracion.Icon = (Image)resources.GetObject("btnConfiguracion.Icon");
-            btnConfiguracion.Location = new Point(11, 273);
+            btnConfiguracion.Location = new Point(13, 310);
             btnConfiguracion.Margin = new Padding(4);
             btnConfiguracion.MouseState = MaterialSkin.MouseState.HOVER;
             btnConfiguracion.Name = "btnConfiguracion";
@@ -130,28 +125,6 @@
             btnConfiguracion.UseVisualStyleBackColor = true;
             btnConfiguracion.Click += btnConfiguracion_Click;
             // 
-            // btnInformes
-            // 
-            btnInformes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnInformes.Cursor = Cursors.Hand;
-            btnInformes.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnInformes.Depth = 0;
-            btnInformes.HighEmphasis = false;
-            btnInformes.Icon = (Image)resources.GetObject("btnInformes.Icon");
-            btnInformes.Location = new Point(11, 237);
-            btnInformes.Margin = new Padding(4);
-            btnInformes.MouseState = MaterialSkin.MouseState.HOVER;
-            btnInformes.Name = "btnInformes";
-            btnInformes.NoAccentTextColor = Color.Empty;
-            btnInformes.Size = new Size(122, 36);
-            btnInformes.TabIndex = 4;
-            btnInformes.Text = "Informes";
-            btnInformes.TextAlign = ContentAlignment.MiddleLeft;
-            btnInformes.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnInformes.UseAccentColor = false;
-            btnInformes.UseVisualStyleBackColor = true;
-            btnInformes.Click += btnInformes_Click;
-            // 
             // btnVacaciones
             // 
             btnVacaciones.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -160,7 +133,7 @@
             btnVacaciones.Depth = 0;
             btnVacaciones.HighEmphasis = false;
             btnVacaciones.Icon = (Image)resources.GetObject("btnVacaciones.Icon");
-            btnVacaciones.Location = new Point(11, 201);
+            btnVacaciones.Location = new Point(13, 266);
             btnVacaciones.Margin = new Padding(4);
             btnVacaciones.MouseState = MaterialSkin.MouseState.HOVER;
             btnVacaciones.Name = "btnVacaciones";
@@ -182,7 +155,7 @@
             btnNominas.Depth = 0;
             btnNominas.HighEmphasis = false;
             btnNominas.Icon = (Image)resources.GetObject("btnNominas.Icon");
-            btnNominas.Location = new Point(11, 165);
+            btnNominas.Location = new Point(13, 222);
             btnNominas.Margin = new Padding(4);
             btnNominas.MouseState = MaterialSkin.MouseState.HOVER;
             btnNominas.Name = "btnNominas";
@@ -204,7 +177,7 @@
             btnDepartamentos.Depth = 0;
             btnDepartamentos.HighEmphasis = false;
             btnDepartamentos.Icon = (Image)resources.GetObject("btnDepartamentos.Icon");
-            btnDepartamentos.Location = new Point(11, 129);
+            btnDepartamentos.Location = new Point(13, 178);
             btnDepartamentos.Margin = new Padding(4);
             btnDepartamentos.MouseState = MaterialSkin.MouseState.HOVER;
             btnDepartamentos.Name = "btnDepartamentos";
@@ -226,7 +199,7 @@
             btnEmpleados.Depth = 0;
             btnEmpleados.HighEmphasis = false;
             btnEmpleados.Icon = (Image)resources.GetObject("btnEmpleados.Icon");
-            btnEmpleados.Location = new Point(11, 93);
+            btnEmpleados.Location = new Point(13, 134);
             btnEmpleados.Margin = new Padding(4);
             btnEmpleados.MouseState = MaterialSkin.MouseState.HOVER;
             btnEmpleados.Name = "btnEmpleados";
@@ -242,36 +215,13 @@
             // 
             // panelContenido
             // 
-            panelContenido.BackgroundImage = (Image)resources.GetObject("panelContenido.BackgroundImage");
             panelContenido.BackgroundImageLayout = ImageLayout.Zoom;
-            panelContenido.Controls.Add(panelTitulo);
             panelContenido.Dock = DockStyle.Fill;
             panelContenido.Location = new Point(192, 0);
             panelContenido.Margin = new Padding(3, 2, 3, 2);
             panelContenido.Name = "panelContenido";
             panelContenido.Size = new Size(875, 617);
             panelContenido.TabIndex = 1;
-            // 
-            // panelTitulo
-            // 
-            panelTitulo.Controls.Add(lblTitulo);
-            panelTitulo.Dock = DockStyle.Top;
-            panelTitulo.Location = new Point(0, 0);
-            panelTitulo.Margin = new Padding(3, 2, 3, 2);
-            panelTitulo.Name = "panelTitulo";
-            panelTitulo.Size = new Size(875, 57);
-            panelTitulo.TabIndex = 0;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(26, 19);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(400, 37);
-            lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "PANEL DE CONTROL GENERAL";
             // 
             // FormAdmin
             // 
@@ -288,9 +238,6 @@
             Text = "Pantalla de Inicio - Admin";
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
-            panelContenido.ResumeLayout(false);
-            panelTitulo.ResumeLayout(false);
-            panelTitulo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -300,12 +247,9 @@
         private Panel panelContenido;
         private MaterialSkin.Controls.MaterialButton btnEmpleados;
         private MaterialSkin.Controls.MaterialButton btnConfiguracion;
-        private MaterialSkin.Controls.MaterialButton btnInformes;
         private MaterialSkin.Controls.MaterialButton btnVacaciones;
         private MaterialSkin.Controls.MaterialButton btnNominas;
         private MaterialSkin.Controls.MaterialButton btnDepartamentos;
-        private Panel panelTitulo;
-        private Label lblTitulo;
         private MaterialSkin.Controls.MaterialButton btnCerrarSesion;
         private MaterialSkin.Controls.MaterialButton btnInicio;
     }

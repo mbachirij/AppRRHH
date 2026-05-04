@@ -17,6 +17,7 @@ namespace AppRRHH.views.vistasEmpleado
             InitializeComponent();
 
             CargarDatos();
+            EditarDataGridView();
         }
 
         // éste método carga el historial de vacaciones y los días disponibles
@@ -105,6 +106,28 @@ namespace AppRRHH.views.vistasEmpleado
 
                 CargarDatos();
             }
+        }
+        
+        private void EditarDataGridView()
+        {
+            // Estilo del DataGridView
+            dgvHistorial.BackgroundColor = Color.White;
+            dgvHistorial.BorderStyle = BorderStyle.None;
+            dgvHistorial.RowHeadersVisible = false;
+            dgvHistorial.GridColor = Color.FromArgb(230, 230, 230);
+            dgvHistorial.RowsDefaultCellStyle.BackColor = Color.White;
+            dgvHistorial.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
+            dgvHistorial.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
+            dgvHistorial.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvHistorial.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            dgvHistorial.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvHistorial.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dgvHistorial.ColumnHeadersHeight = 35;
+            dgvHistorial.RowTemplate.Height = 30;
+            dgvHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHistorial.EnableHeadersVisualStyles = false;
+            dgvHistorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
     }
 }

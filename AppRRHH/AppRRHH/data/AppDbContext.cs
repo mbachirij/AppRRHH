@@ -19,6 +19,7 @@ namespace AppRRHH.Data
         public DbSet<Nomina> Nominas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Asistencia> Asistencias { get; set; }
+        public DbSet<Empresa> Empresas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(@"Server=DESKTOP-95UPOKJ\SQLEXPRESS01;Database=AppRRHH;Trusted_Connection=True;TrustServerCertificate=True;");

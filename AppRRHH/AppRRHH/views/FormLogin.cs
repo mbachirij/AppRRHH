@@ -17,6 +17,10 @@ namespace AppRRHH.views
         public FormLogin()
         {
             InitializeComponent();
+
+            // Maximizo la ventana al abrirla
+            this.WindowState = FormWindowState.Maximized;
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -78,6 +82,7 @@ namespace AppRRHH.views
 
             }
         }
+
 
 
     }

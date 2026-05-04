@@ -28,241 +28,296 @@
         /// </summary>
         private void InitializeComponent()
         {
-            materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            lblNombreUser = new MaterialSkin.Controls.MaterialLabel();
-            lblTitulo1 = new Label();
-            blbNombre = new Label();
-            materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            lblDepar = new Label();
-            lblDepartamento = new MaterialSkin.Controls.MaterialLabel();
-            label2 = new Label();
-            materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            lblDia = new Label();
-            lblDias = new MaterialSkin.Controls.MaterialLabel();
-            label1 = new Label();
-            materialCard4 = new MaterialSkin.Controls.MaterialCard();
-            materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            label3 = new Label();
-            lblBienvenida = new Label();
             panelContenido = new Panel();
-            materialCard1.SuspendLayout();
-            materialCard2.SuspendLayout();
-            materialCard3.SuspendLayout();
-            materialCard4.SuspendLayout();
+            materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            lblNominasAnio = new Label();
+            label7 = new Label();
+            lblVacacionesPend = new Label();
+            label1 = new Label();
+            lblDiasVacaciones = new Label();
+            label2 = new Label();
+            lblHorasMes = new Label();
+            label3 = new Label();
+            label8 = new Label();
+            label6 = new Label();
+            materialCard5 = new MaterialSkin.Controls.MaterialCard();
+            lblNumSegSocial = new Label();
+            lblRol = new Label();
+            lblDepartamento = new Label();
+            lblEmail = new Label();
+            lblDNI = new Label();
+            lblApellidos = new Label();
+            lblNombre = new Label();
+            label5 = new Label();
+            lblPuesto = new Label();
             panelContenido.SuspendLayout();
+            materialCard2.SuspendLayout();
+            materialCard5.SuspendLayout();
             SuspendLayout();
-            // 
-            // materialCard1
-            // 
-            materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(lblNombreUser);
-            materialCard1.Controls.Add(lblTitulo1);
-            materialCard1.Controls.Add(blbNombre);
-            materialCard1.Depth = 0;
-            materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(12, 28);
-            materialCard1.Margin = new Padding(12, 10, 12, 10);
-            materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(10);
-            materialCard1.Size = new Size(257, 181);
-            materialCard1.TabIndex = 0;
-            // 
-            // lblNombreUser
-            // 
-            lblNombreUser.AutoSize = true;
-            lblNombreUser.Depth = 0;
-            lblNombreUser.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblNombreUser.Location = new Point(13, 88);
-            lblNombreUser.MouseState = MaterialSkin.MouseState.HOVER;
-            lblNombreUser.Name = "lblNombreUser";
-            lblNombreUser.Size = new Size(207, 19);
-            lblNombreUser.TabIndex = 4;
-            lblNombreUser.Text = "Mohammed Bachiri Jabbouri";
-            // 
-            // lblTitulo1
-            // 
-            lblTitulo1.AutoSize = true;
-            lblTitulo1.Location = new Point(67, 10);
-            lblTitulo1.Name = "lblTitulo1";
-            lblTitulo1.Size = new Size(51, 15);
-            lblTitulo1.TabIndex = 5;
-            lblTitulo1.Text = "Mi Perfil";
-            // 
-            // blbNombre
-            // 
-            blbNombre.AutoSize = true;
-            blbNombre.Location = new Point(13, 48);
-            blbNombre.Name = "blbNombre";
-            blbNombre.Size = new Size(57, 15);
-            blbNombre.TabIndex = 4;
-            blbNombre.Text = "Nombre: ";
-            // 
-            // materialCard2
-            // 
-            materialCard2.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard2.Controls.Add(lblDepar);
-            materialCard2.Controls.Add(lblDepartamento);
-            materialCard2.Controls.Add(label2);
-            materialCard2.Depth = 0;
-            materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(605, 28);
-            materialCard2.Margin = new Padding(12, 10, 12, 10);
-            materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard2.Name = "materialCard2";
-            materialCard2.Padding = new Padding(10);
-            materialCard2.Size = new Size(257, 181);
-            materialCard2.TabIndex = 1;
-            // 
-            // lblDepar
-            // 
-            lblDepar.AutoSize = true;
-            lblDepar.Location = new Point(13, 48);
-            lblDepar.Name = "lblDepar";
-            lblDepar.Size = new Size(86, 15);
-            lblDepar.TabIndex = 9;
-            lblDepar.Text = "Departamento:";
-            // 
-            // lblDepartamento
-            // 
-            lblDepartamento.AutoSize = true;
-            lblDepartamento.Depth = 0;
-            lblDepartamento.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblDepartamento.Location = new Point(13, 88);
-            lblDepartamento.MouseState = MaterialSkin.MouseState.HOVER;
-            lblDepartamento.Name = "lblDepartamento";
-            lblDepartamento.Size = new Size(139, 19);
-            lblDepartamento.TabIndex = 7;
-            lblDepartamento.Text = "Recursos Humanos";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(82, 10);
-            label2.Name = "label2";
-            label2.Size = new Size(61, 15);
-            label2.TabIndex = 6;
-            label2.Text = "Mi Equipo";
-            // 
-            // materialCard3
-            // 
-            materialCard3.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard3.Controls.Add(lblDia);
-            materialCard3.Controls.Add(lblDias);
-            materialCard3.Controls.Add(label1);
-            materialCard3.Depth = 0;
-            materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard3.Location = new Point(305, 28);
-            materialCard3.Margin = new Padding(12, 10, 12, 10);
-            materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard3.Name = "materialCard3";
-            materialCard3.Padding = new Padding(10);
-            materialCard3.Size = new Size(257, 181);
-            materialCard3.TabIndex = 2;
-            // 
-            // lblDia
-            // 
-            lblDia.AutoSize = true;
-            lblDia.Location = new Point(13, 48);
-            lblDia.Name = "lblDia";
-            lblDia.Size = new Size(95, 15);
-            lblDia.TabIndex = 8;
-            lblDia.Text = "Dias disponibles:";
-            // 
-            // lblDias
-            // 
-            lblDias.AutoSize = true;
-            lblDias.Depth = 0;
-            lblDias.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblDias.Location = new Point(13, 88);
-            lblDias.MouseState = MaterialSkin.MouseState.HOVER;
-            lblDias.Name = "lblDias";
-            lblDias.Size = new Size(19, 19);
-            lblDias.TabIndex = 7;
-            lblDias.Text = "15";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(75, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(65, 15);
-            label1.TabIndex = 6;
-            label1.Text = "Vacaciones";
-            // 
-            // materialCard4
-            // 
-            materialCard4.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard4.Controls.Add(materialLabel4);
-            materialCard4.Controls.Add(materialLabel3);
-            materialCard4.Controls.Add(label3);
-            materialCard4.Depth = 0;
-            materialCard4.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard4.Location = new Point(901, 28);
-            materialCard4.Margin = new Padding(12, 10, 12, 10);
-            materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard4.Name = "materialCard4";
-            materialCard4.Padding = new Padding(10);
-            materialCard4.Size = new Size(257, 181);
-            materialCard4.TabIndex = 3;
-            // 
-            // materialLabel4
-            // 
-            materialLabel4.AutoSize = true;
-            materialLabel4.Depth = 0;
-            materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(23, 59);
-            materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel4.Name = "materialLabel4";
-            materialLabel4.Size = new Size(95, 19);
-            materialLabel4.TabIndex = 8;
-            materialLabel4.Text = "Entrada: 9:00";
-            // 
-            // materialLabel3
-            // 
-            materialLabel3.AutoSize = true;
-            materialLabel3.Depth = 0;
-            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(23, 105);
-            materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel3.Name = "materialLabel3";
-            materialLabel3.Size = new Size(94, 19);
-            materialLabel3.TabIndex = 7;
-            materialLabel3.Text = "Salida: 18:00";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(83, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(47, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Horario";
-            // 
-            // lblBienvenida
-            // 
-            lblBienvenida.AutoSize = true;
-            lblBienvenida.Font = new Font("Tw Cen MT Condensed", 48F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblBienvenida.Location = new Point(277, 333);
-            lblBienvenida.Name = "lblBienvenida";
-            lblBienvenida.Size = new Size(285, 74);
-            lblBienvenida.TabIndex = 4;
-            lblBienvenida.Text = "bienvenido---";
-            lblBienvenida.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelContenido
             // 
             panelContenido.Anchor = AnchorStyles.None;
-            panelContenido.Controls.Add(lblBienvenida);
-            panelContenido.Controls.Add(materialCard4);
-            panelContenido.Controls.Add(materialCard1);
             panelContenido.Controls.Add(materialCard2);
-            panelContenido.Controls.Add(materialCard3);
-            panelContenido.Location = new Point(25, 15);
+            panelContenido.Controls.Add(label6);
+            panelContenido.Controls.Add(materialCard5);
+            panelContenido.Location = new Point(25, 24);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(1170, 544);
+            panelContenido.Size = new Size(1170, 690);
             panelContenido.TabIndex = 5;
+            // 
+            // materialCard2
+            // 
+            materialCard2.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard2.Controls.Add(lblNominasAnio);
+            materialCard2.Controls.Add(label7);
+            materialCard2.Controls.Add(lblVacacionesPend);
+            materialCard2.Controls.Add(label1);
+            materialCard2.Controls.Add(lblDiasVacaciones);
+            materialCard2.Controls.Add(label2);
+            materialCard2.Controls.Add(lblHorasMes);
+            materialCard2.Controls.Add(label3);
+            materialCard2.Controls.Add(label8);
+            materialCard2.Depth = 0;
+            materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCard2.Location = new Point(540, 70);
+            materialCard2.Margin = new Padding(14);
+            materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard2.Name = "materialCard2";
+            materialCard2.Padding = new Padding(14);
+            materialCard2.Size = new Size(480, 550);
+            materialCard2.TabIndex = 7;
+            // 
+            // lblNominasAnio
+            // 
+            lblNominasAnio.AutoSize = true;
+            lblNominasAnio.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNominasAnio.ForeColor = Color.FromArgb(88, 101, 242);
+            lblNominasAnio.Location = new Point(20, 365);
+            lblNominasAnio.Name = "lblNominasAnio";
+            lblNominasAnio.Size = new Size(44, 51);
+            lblNominasAnio.TabIndex = 9;
+            lblNominasAnio.Text = "0";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(200, 200, 220);
+            label7.Location = new Point(20, 340);
+            label7.Name = "label7";
+            label7.Size = new Size(176, 19);
+            label7.TabIndex = 8;
+            label7.Text = "Nóminas recibidas este año";
+            // 
+            // lblVacacionesPend
+            // 
+            lblVacacionesPend.AutoSize = true;
+            lblVacacionesPend.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVacacionesPend.ForeColor = Color.FromArgb(88, 101, 242);
+            lblVacacionesPend.Location = new Point(20, 275);
+            lblVacacionesPend.Name = "lblVacacionesPend";
+            lblVacacionesPend.Size = new Size(44, 51);
+            lblVacacionesPend.TabIndex = 7;
+            lblVacacionesPend.Text = "0";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(200, 200, 220);
+            label1.Location = new Point(20, 250);
+            label1.Name = "label1";
+            label1.Size = new Size(146, 19);
+            label1.TabIndex = 6;
+            label1.Text = "Vacaciones pendientes";
+            // 
+            // lblDiasVacaciones
+            // 
+            lblDiasVacaciones.AutoSize = true;
+            lblDiasVacaciones.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDiasVacaciones.ForeColor = Color.FromArgb(88, 101, 242);
+            lblDiasVacaciones.Location = new Point(20, 185);
+            lblDiasVacaciones.Name = "lblDiasVacaciones";
+            lblDiasVacaciones.Size = new Size(44, 51);
+            lblDiasVacaciones.TabIndex = 5;
+            lblDiasVacaciones.Text = "0";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(200, 200, 220);
+            label2.Location = new Point(20, 160);
+            label2.Name = "label2";
+            label2.Size = new Size(195, 19);
+            label2.TabIndex = 4;
+            label2.Text = "Días de vacaciones disponibles";
+            // 
+            // lblHorasMes
+            // 
+            lblHorasMes.AutoSize = true;
+            lblHorasMes.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHorasMes.ForeColor = Color.FromArgb(88, 101, 242);
+            lblHorasMes.Location = new Point(20, 95);
+            lblHorasMes.Name = "lblHorasMes";
+            lblHorasMes.Size = new Size(44, 51);
+            lblHorasMes.TabIndex = 3;
+            lblHorasMes.Text = "0";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(200, 200, 220);
+            label3.Location = new Point(20, 70);
+            label3.Name = "label3";
+            label3.Size = new Size(187, 19);
+            label3.TabIndex = 2;
+            label3.Text = "Total horas fichadas este mes";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(88, 101, 242);
+            label8.Location = new Point(20, 15);
+            label8.Name = "label8";
+            label8.Size = new Size(123, 25);
+            label8.TabIndex = 1;
+            label8.Text = "Mi Actividad";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(30, 20);
+            label6.Name = "label6";
+            label6.Size = new Size(140, 41);
+            label6.TabIndex = 6;
+            label6.Text = "Mi Perfil";
+            // 
+            // materialCard5
+            // 
+            materialCard5.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard5.Controls.Add(lblPuesto);
+            materialCard5.Controls.Add(lblNumSegSocial);
+            materialCard5.Controls.Add(lblRol);
+            materialCard5.Controls.Add(lblDepartamento);
+            materialCard5.Controls.Add(lblEmail);
+            materialCard5.Controls.Add(lblDNI);
+            materialCard5.Controls.Add(lblApellidos);
+            materialCard5.Controls.Add(lblNombre);
+            materialCard5.Controls.Add(label5);
+            materialCard5.Depth = 0;
+            materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCard5.Location = new Point(30, 70);
+            materialCard5.Margin = new Padding(14);
+            materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard5.Name = "materialCard5";
+            materialCard5.Padding = new Padding(14);
+            materialCard5.Size = new Size(480, 550);
+            materialCard5.TabIndex = 5;
+            // 
+            // lblNumSegSocial
+            // 
+            lblNumSegSocial.AutoSize = true;
+            lblNumSegSocial.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNumSegSocial.ForeColor = Color.FromArgb(200, 200, 220);
+            lblNumSegSocial.Location = new Point(20, 410);
+            lblNumSegSocial.Name = "lblNumSegSocial";
+            lblNumSegSocial.Size = new Size(46, 19);
+            lblNumSegSocial.TabIndex = 7;
+            lblNumSegSocial.Text = "Nº SS:";
+            // 
+            // lblRol
+            // 
+            lblRol.AutoSize = true;
+            lblRol.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRol.ForeColor = Color.FromArgb(200, 200, 220);
+            lblRol.Location = new Point(20, 310);
+            lblRol.Name = "lblRol";
+            lblRol.Size = new Size(31, 19);
+            lblRol.TabIndex = 6;
+            lblRol.Text = "Rol:";
+            // 
+            // lblDepartamento
+            // 
+            lblDepartamento.AutoSize = true;
+            lblDepartamento.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDepartamento.ForeColor = Color.FromArgb(200, 200, 220);
+            lblDepartamento.Location = new Point(20, 260);
+            lblDepartamento.Name = "lblDepartamento";
+            lblDepartamento.Size = new Size(101, 19);
+            lblDepartamento.TabIndex = 5;
+            lblDepartamento.Text = "Departamento:";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmail.ForeColor = Color.FromArgb(200, 200, 220);
+            lblEmail.Location = new Point(20, 210);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(44, 19);
+            lblEmail.TabIndex = 4;
+            lblEmail.Text = "Email:";
+            // 
+            // lblDNI
+            // 
+            lblDNI.AutoSize = true;
+            lblDNI.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDNI.ForeColor = Color.FromArgb(200, 200, 220);
+            lblDNI.Location = new Point(20, 160);
+            lblDNI.Name = "lblDNI";
+            lblDNI.Size = new Size(36, 19);
+            lblDNI.TabIndex = 3;
+            lblDNI.Text = "DNI:";
+            // 
+            // lblApellidos
+            // 
+            lblApellidos.AutoSize = true;
+            lblApellidos.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblApellidos.ForeColor = Color.FromArgb(200, 200, 220);
+            lblApellidos.Location = new Point(20, 110);
+            lblApellidos.Name = "lblApellidos";
+            lblApellidos.Size = new Size(67, 19);
+            lblApellidos.TabIndex = 2;
+            lblApellidos.Text = "Apellidos:";
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombre.ForeColor = Color.FromArgb(200, 200, 220);
+            lblNombre.Location = new Point(20, 60);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(62, 19);
+            lblNombre.TabIndex = 1;
+            lblNombre.Text = "Nombre:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(88, 101, 242);
+            label5.Location = new Point(20, 15);
+            label5.Name = "label5";
+            label5.Size = new Size(162, 25);
+            label5.TabIndex = 0;
+            label5.Text = "Datos Personales";
+            // 
+            // lblPuesto
+            // 
+            lblPuesto.AutoSize = true;
+            lblPuesto.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPuesto.ForeColor = Color.FromArgb(200, 200, 220);
+            lblPuesto.Location = new Point(20, 360);
+            lblPuesto.Name = "lblPuesto";
+            lblPuesto.Size = new Size(54, 19);
+            lblPuesto.TabIndex = 8;
+            lblPuesto.Text = "Puesto:";
             // 
             // UCInicioEmpleado
             // 
@@ -273,39 +328,38 @@
             ForeColor = Color.White;
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCInicioEmpleado";
-            Size = new Size(1211, 578);
-            materialCard1.ResumeLayout(false);
-            materialCard1.PerformLayout();
-            materialCard2.ResumeLayout(false);
-            materialCard2.PerformLayout();
-            materialCard3.ResumeLayout(false);
-            materialCard3.PerformLayout();
-            materialCard4.ResumeLayout(false);
-            materialCard4.PerformLayout();
+            Size = new Size(1211, 736);
             panelContenido.ResumeLayout(false);
             panelContenido.PerformLayout();
+            materialCard2.ResumeLayout(false);
+            materialCard2.PerformLayout();
+            materialCard5.ResumeLayout(false);
+            materialCard5.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialCard materialCard2;
-        private MaterialSkin.Controls.MaterialCard materialCard3;
-        private MaterialSkin.Controls.MaterialCard materialCard4;
-        private Label lblTitulo1;
-        private Label blbNombre;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private MaterialSkin.Controls.MaterialLabel lblNombreUser;
-        private MaterialSkin.Controls.MaterialLabel lblDepartamento;
-        private MaterialSkin.Controls.MaterialLabel lblDias;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private Label lblDepar;
-        private Label lblDia;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private Label lblBienvenida;
         private Panel panelContenido;
+        private MaterialSkin.Controls.MaterialCard materialCard5;
+        private Label lblNumSegSocial;
+        private Label lblRol;
+        private Label lblDepartamento;
+        private Label lblEmail;
+        private Label lblDNI;
+        private Label lblApellidos;
+        private Label lblNombre;
+        private Label label5;
+        private Label label6;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private Label lblNominasAnio;
+        private Label label7;
+        private Label lblVacacionesPend;
+        private Label label1;
+        private Label lblDiasVacaciones;
+        private Label label2;
+        private Label lblHorasMes;
+        private Label label3;
+        private Label label8;
+        private Label lblPuesto;
     }
 }

@@ -62,10 +62,11 @@
             // lblHistorial
             // 
             lblHistorial.AutoSize = true;
-            lblHistorial.Font = new Font("Sitka Banner", 25.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHistorial.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHistorial.ForeColor = Color.White;
             lblHistorial.Location = new Point(633, 39);
             lblHistorial.Name = "lblHistorial";
-            lblHistorial.Size = new Size(136, 50);
+            lblHistorial.Size = new Size(139, 41);
             lblHistorial.TabIndex = 3;
             lblHistorial.Text = "Historial";
             // 
@@ -95,19 +96,22 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(180, 180, 200);
             label1.Location = new Point(17, 23);
             label1.Name = "label1";
-            label1.Size = new Size(107, 15);
+            label1.Size = new Size(140, 20);
             label1.TabIndex = 1;
             label1.Text = "Historial Completo";
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Sitka Banner", 25.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(41, 39);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(314, 50);
+            lblTitulo.Size = new Size(332, 41);
             lblTitulo.TabIndex = 1;
             lblTitulo.Text = "Solicitudes Vacaciones";
             // 
@@ -163,9 +167,11 @@
             // lblSoliciPend
             // 
             lblSoliciPend.AutoSize = true;
+            lblSoliciPend.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSoliciPend.ForeColor = Color.FromArgb(180, 180, 200);
             lblSoliciPend.Location = new Point(17, 23);
             lblSoliciPend.Name = "lblSoliciPend";
-            lblSoliciPend.Size = new Size(125, 15);
+            lblSoliciPend.Size = new Size(165, 20);
             lblSoliciPend.TabIndex = 0;
             lblSoliciPend.Text = "Solicitudes Pendientes";
             // 

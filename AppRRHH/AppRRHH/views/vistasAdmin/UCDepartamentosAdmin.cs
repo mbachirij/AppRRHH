@@ -15,6 +15,8 @@ namespace AppRRHH.views.vistasAdmin
             InitializeComponent();
 
             CargarDepartamentos();
+
+            EstiloListas();
         }
 
         private void lstDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,6 +102,56 @@ namespace AppRRHH.views.vistasAdmin
             //actualizo Lista y Tarjetas
             CargarDepartamentos();
             MessageBox.Show("Departamento creado con éxito");
+        }
+
+        private void EstiloListas()
+        {
+            // lstDepartamentos
+            lstDepartamentos.BackColor = Color.White;
+            lstDepartamentos.ForeColor = Color.FromArgb(50, 50, 50);
+            lstDepartamentos.Font = new Font("Segoe UI", 10);
+            lstDepartamentos.FullRowSelect = true;
+            lstDepartamentos.GridLines = true;
+            lstDepartamentos.BorderStyle = BorderStyle.None;
+
+            // lstEmpleadosDepto
+            lstEmpleadosDepto.BackColor = Color.White;
+            lstEmpleadosDepto.ForeColor = Color.FromArgb(50, 50, 50);
+            lstEmpleadosDepto.Font = new Font("Segoe UI", 10);
+            lstEmpleadosDepto.FullRowSelect = true;
+            lstEmpleadosDepto.GridLines = true;
+            lstEmpleadosDepto.BorderStyle = BorderStyle.None;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (lstDepartamentos.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecciona un departamento para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nombreDepto = lstDepartamentos.SelectedItems[0].Text;
+
+            using (var db = new Data.AppDbContext())
+            {
+                bool tieneEmpleados = db.Empleados.Any(e => e.Departamento == nombreDepto);
+                if (tieneEmpleados)
+                {
+                    MessageBox.Show("No puedes eliminar un departamento con empleados asignados.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var depto = db.Departamentos.FirstOrDefault(d => d.Nombre == nombreDepto);
+                if (depto != null)
+                {
+                    db.Departamentos.Remove(depto);
+                    db.SaveChanges();
+                    CargarDepartamentos();
+                    MessageBox.Show("Departamento eliminado correctamente.");
+                }
+            }
         }
     }
 }
