@@ -35,13 +35,14 @@
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             lblContadorHoras = new Label();
             lblReloj = new Label();
+            btnFichar = new Button();
             lblFecha = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            btnFichar = new Button();
             dgvHistorial = new DataGridView();
             panelCentrado = new Panel();
-            lblTitulo = new Label();
+            label2 = new Label();
             label1 = new Label();
+            lblTitulo = new Label();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
             panelCentrado.SuspendLayout();
@@ -56,7 +57,7 @@
             materialCard1.Controls.Add(lblFecha);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(30, 70);
+            materialCard1.Location = new Point(45, 233);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -86,6 +87,18 @@
             lblReloj.Text = "label1";
             lblReloj.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnFichar
+            // 
+            btnFichar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFichar.ForeColor = SystemColors.Control;
+            btnFichar.Location = new Point(23, 273);
+            btnFichar.Name = "btnFichar";
+            btnFichar.Size = new Size(460, 60);
+            btnFichar.TabIndex = 2;
+            btnFichar.Text = "Fichar Entrada";
+            btnFichar.UseVisualStyleBackColor = true;
+            btnFichar.Click += btnFichar_Click;
+            // 
             // lblFecha
             // 
             lblFecha.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -100,18 +113,6 @@
             // timer1
             // 
             timer1.Tick += timer1_Tick;
-            // 
-            // btnFichar
-            // 
-            btnFichar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnFichar.ForeColor = SystemColors.Control;
-            btnFichar.Location = new Point(23, 273);
-            btnFichar.Name = "btnFichar";
-            btnFichar.Size = new Size(460, 60);
-            btnFichar.TabIndex = 2;
-            btnFichar.Text = "Fichar Entrada";
-            btnFichar.UseVisualStyleBackColor = true;
-            btnFichar.Click += btnFichar_Click;
             // 
             // dgvHistorial
             // 
@@ -139,51 +140,64 @@
             dgvHistorial.DefaultCellStyle = dataGridViewCellStyle2;
             dgvHistorial.EnableHeadersVisualStyles = false;
             dgvHistorial.GridColor = Color.LightGray;
-            dgvHistorial.Location = new Point(560, 100);
+            dgvHistorial.Location = new Point(683, 233);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.ReadOnly = true;
             dgvHistorial.RowHeadersVisible = false;
             dataGridViewCellStyle3.ForeColor = Color.Black;
             dgvHistorial.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHistorial.Size = new Size(500, 320);
+            dgvHistorial.Size = new Size(555, 350);
             dgvHistorial.TabIndex = 0;
             // 
             // panelCentrado
             // 
-            panelCentrado.Anchor = AnchorStyles.None;
+            panelCentrado.Anchor = AnchorStyles.Top;
+            panelCentrado.Controls.Add(label2);
             panelCentrado.Controls.Add(label1);
             panelCentrado.Controls.Add(lblTitulo);
             panelCentrado.Controls.Add(dgvHistorial);
             panelCentrado.Controls.Add(materialCard1);
-            panelCentrado.Location = new Point(17, 26);
+            panelCentrado.Location = new Point(10, 10);
             panelCentrado.Name = "panelCentrado";
-            panelCentrado.Size = new Size(1076, 543);
+            panelCentrado.Size = new Size(1396, 962);
             panelCentrado.TabIndex = 5;
             // 
-            // lblTitulo
+            // label2
             // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(88, 101, 242);
-            lblTitulo.Location = new Point(30, 20);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(337, 45);
-            lblTitulo.TabIndex = 3;
-            lblTitulo.Text = "Control de Asistencia";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(88, 101, 242);
+            label2.Location = new Point(14, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(1339, 68);
+            label2.TabIndex = 5;
+            label2.Text = "Gestión de Fichajes";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(88, 101, 242);
-            label1.Location = new Point(560, 30);
+            label1.Location = new Point(683, 183);
             label1.Name = "label1";
             label1.Size = new Size(320, 45);
             label1.TabIndex = 4;
             label1.Text = "Historial de Fichajes";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.FromArgb(88, 101, 242);
+            lblTitulo.Location = new Point(45, 183);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(337, 45);
+            lblTitulo.TabIndex = 3;
+            lblTitulo.Text = "Control de Asistencia";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // UCEmpleadoFichajes
             // 
@@ -194,7 +208,8 @@
             Controls.Add(panelCentrado);
             ForeColor = SystemColors.ControlText;
             Name = "UCEmpleadoFichajes";
-            Size = new Size(1109, 586);
+            Padding = new Padding(20);
+            Size = new Size(1411, 1008);
             Load += UCEmpleadoFichajes_Load;
             materialCard1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();
@@ -215,5 +230,6 @@
         private Panel panelCentrado;
         private Label lblTitulo;
         private Label label1;
+        private Label label2;
     }
 }

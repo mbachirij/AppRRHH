@@ -40,6 +40,7 @@
             btnAprobar = new Button();
             dgvPendientes = new DataGridView();
             lblSoliciPend = new Label();
+            label2 = new Label();
             panelContenido.SuspendLayout();
             materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
@@ -49,14 +50,14 @@
             // 
             // panelContenido
             // 
-            panelContenido.Anchor = AnchorStyles.None;
+            panelContenido.Controls.Add(label2);
             panelContenido.Controls.Add(lblHistorial);
             panelContenido.Controls.Add(materialCard2);
             panelContenido.Controls.Add(lblTitulo);
             panelContenido.Controls.Add(materialCard1);
-            panelContenido.Location = new Point(14, 17);
+            panelContenido.Location = new Point(10, 10);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(1119, 546);
+            panelContenido.Size = new Size(1396, 962);
             panelContenido.TabIndex = 0;
             // 
             // lblHistorial
@@ -64,7 +65,7 @@
             lblHistorial.AutoSize = true;
             lblHistorial.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHistorial.ForeColor = Color.White;
-            lblHistorial.Location = new Point(633, 39);
+            lblHistorial.Location = new Point(736, 156);
             lblHistorial.Name = "lblHistorial";
             lblHistorial.Size = new Size(139, 41);
             lblHistorial.TabIndex = 3;
@@ -77,7 +78,7 @@
             materialCard2.Controls.Add(label1);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(633, 121);
+            materialCard2.Location = new Point(736, 238);
             materialCard2.Margin = new Padding(14);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
@@ -109,7 +110,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(41, 39);
+            lblTitulo.Location = new Point(144, 156);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(332, 41);
             lblTitulo.TabIndex = 1;
@@ -124,7 +125,7 @@
             materialCard1.Controls.Add(lblSoliciPend);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(41, 121);
+            materialCard1.Location = new Point(144, 238);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -175,13 +176,25 @@
             lblSoliciPend.TabIndex = 0;
             lblSoliciPend.Text = "Solicitudes Pendientes";
             // 
+            // label2
+            // 
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(88, 101, 242);
+            label2.Location = new Point(14, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(1339, 68);
+            label2.TabIndex = 4;
+            label2.Text = "Gestión de Vacaciones";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // UCVacacionesAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelContenido);
             Name = "UCVacacionesAdmin";
-            Size = new Size(1149, 578);
+            Size = new Size(1411, 1008);
             panelContenido.ResumeLayout(false);
             panelContenido.PerformLayout();
             materialCard2.ResumeLayout(false);
@@ -206,5 +219,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private DataGridView dgvHistorial;
         private Label label1;
+        private Label label2;
     }
 }

@@ -47,7 +47,7 @@ namespace AppRRHH
                     {
                         EmpleadoId = empleadoAdmin.Id,
                         Email = "admin@rrhh.com",
-                        Contrasena = "admin123", // En un entorno real, la contraseña debería estar hasheada
+                        Contrasena = BCrypt.Net.BCrypt.HashPassword("admin1234"), // contraseña hasheada
                         Rol = "Administrador",
                         Empleado = empleadoAdmin
                     });

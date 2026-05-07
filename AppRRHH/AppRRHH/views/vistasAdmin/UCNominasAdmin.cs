@@ -24,6 +24,34 @@ namespace AppRRHH.views.vistasAdmin
             CargarHistorial();
 
             EstiloDataGridView();
+
+            CargarFiltros();
+
+            this.AutoScroll = true;
+        }
+        private void CargarFiltros()
+        {
+            using (var db = new AppDbContext())
+            {
+                // Empleados
+                var empleados = db.Empleados.ToList();
+                cmbFiltroNombre.Items.Add("Todos los empleados");
+                foreach (var emp in empleados)
+                    cmbFiltroNombre.Items.Add(emp.NombreCompletoTexto);
+                cmbFiltroNombre.SelectedIndex = 0;
+
+                // Años
+                cmbFiltroAno.Items.Add("Todos los años");
+                for (int i = DateTime.Now.Year - 2; i <= DateTime.Now.Year; i++)
+                    cmbFiltroAno.Items.Add(i);
+                cmbFiltroAno.SelectedIndex = 0;
+
+                // Meses
+                cmbFiltroMes.Items.Add("Todos los meses");
+                foreach (var mes in new[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" })
+                    cmbFiltroMes.Items.Add(mes);
+                cmbFiltroMes.SelectedIndex = 0;
+            }
         }
         private void CargarEmpleados()
         {
@@ -48,7 +76,10 @@ namespace AppRRHH.views.vistasAdmin
             // Cargo un rango de años desde 2 años antes del actual
             // hasta 1 año después del actual para poder generar nóminas de meses anteriores y futuros
             for (int i = DateTime.Now.Year - 2; i <= DateTime.Now.Year + 1; i++)
+            {
                 anios.Add(i);
+            }
+                
             cmbAnio.DataSource = anios;
             cmbAnio.SelectedItem = DateTime.Now.Year;
         }
@@ -70,7 +101,7 @@ namespace AppRRHH.views.vistasAdmin
                         n.Anio,
                         SalarioBase = n.SalarioBase.ToString("C"),
                         TotalDevengado = n.TotalDevengado.ToString("C"),
-                        Deducciones = n.TotalDeducciones.ToString("C"),
+                        TotalDeducciones = n.TotalDeducciones.ToString("C"),
                         LiquidoAPercibir = n.LiquidoAPercibir.ToString("C"),
                         n.FechaPago
                     }).ToList();
@@ -117,11 +148,10 @@ namespace AppRRHH.views.vistasAdmin
                 decimal salarioBase = precioHora * horas;
                 decimal horasExtraImporte = (precioHora * 1.75m) * horasExtra;
 
-                decimal totalDevengado = salarioBase + horasExtraImporte
-                    + plusNocturnidad + plusFestivo + plusTransporte;
+                decimal totalDevengado = salarioBase + horasExtraImporte + plusNocturnidad + plusFestivo + plusTransporte;
 
-                // Deducciones reales
-                decimal irpf = totalDevengado * 0.15m;          // 15% IRPF
+                // Deducciones
+                decimal irpf = totalDevengado * ((decimal)nudIRPF.Value / 100); // Uso el porcentaje que ha introducido el admin
                 decimal contingencias = totalDevengado * 0.047m; // 4.7% SS
                 decimal desempleo = totalDevengado * 0.0155m;    // 1.55%
                 decimal fp = totalDevengado * 0.001m;            // 0.1% FP
@@ -129,7 +159,7 @@ namespace AppRRHH.views.vistasAdmin
 
                 decimal liquidoAPercibir = totalDevengado - totalDeducciones;
 
-                // Guardar en variable temporal
+                // Guardo en una variable temporal la nómina calculada
                 nominaCalculada = new Nomina
                 {
                     EmpleadoId = empleadoId,
@@ -144,7 +174,7 @@ namespace AppRRHH.views.vistasAdmin
                     PlusFestivo = plusFestivo,
                     PlusTransporte = plusTransporte,
                     TotalDevengado = totalDevengado,
-                    PorcentajeIRPF = 15,
+                    PorcentajeIRPF = nudIRPF.Value,
                     ImporteIRPF = irpf,
                     ContingenciasComunes = contingencias,
                     Desempleo = desempleo,
@@ -154,7 +184,7 @@ namespace AppRRHH.views.vistasAdmin
                     FechaPago = DateTime.Now
                 };
 
-                // Mostrar resumen
+                // Muestro el resumen
                 lblResumen.Text =
                     $"Empleado: {empleado.NombreCompleto()}\n" +
                     $"Periodo: {cmbMes.SelectedItem} {cmbAnio.SelectedItem}\n" +
@@ -166,7 +196,7 @@ namespace AppRRHH.views.vistasAdmin
                     $"Plus transporte:       {plusTransporte:C}\n" +
                     $"─────────────────────────\n" +
                     $"Total devengado:       {totalDevengado:C}\n" +
-                    $"IRPF (15%):           -{irpf:C}\n" +
+                    $"IRPF ({nudIRPF.Value}%):           -{irpf:C}\n" +
                     $"Cont. comunes (4.7%): -{contingencias:C}\n" +
                     $"Desempleo (1.55%):    -{desempleo:C}\n" +
                     $"Form. prof. (0.1%):   -{fp:C}\n" +
@@ -250,7 +280,7 @@ namespace AppRRHH.views.vistasAdmin
             }
         }
 
-        private void EstiloDataGridView() 
+        private void EstiloDataGridView()
         {
             // Estilo del DataGridView
             dgvNominas.BackgroundColor = Color.White;
@@ -270,7 +300,77 @@ namespace AppRRHH.views.vistasAdmin
             dgvNominas.EnableHeadersVisualStyles = false;
             dgvNominas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            
+            // Comprobaciones defensivas: evitar NullReferenceException si faltan columnas en el DataSource
+            var expectedColumns = new[] { "Id", "FechaPago", "Anio", "Empleado", "Mes", "SalarioBase", "TotalDevengado", "TotalDeducciones", "LiquidoAPercibir" };
+            foreach (var colName in expectedColumns)
+            {
+                if (!dgvNominas.Columns.Contains(colName))
+                {
+                    System.Diagnostics.Debug.WriteLine($"[UCNominasAdmin] Columna faltante: {colName}");
+                }
+            }
+
+            if (dgvNominas.Columns.Contains("Id"))
+                dgvNominas.Columns["Id"].Visible = false;
+            if (dgvNominas.Columns.Contains("FechaPago"))
+                dgvNominas.Columns["FechaPago"].Visible = false;
+            if (dgvNominas.Columns.Contains("Anio"))
+                dgvNominas.Columns["Anio"].Visible = false;
+            if (dgvNominas.Columns.Contains("Empleado"))
+                dgvNominas.Columns["Empleado"].HeaderText = "Empleado";
+            if (dgvNominas.Columns.Contains("Mes"))
+                dgvNominas.Columns["Mes"].HeaderText = "Mes";
+            if (dgvNominas.Columns.Contains("SalarioBase"))
+                dgvNominas.Columns["SalarioBase"].HeaderText = "S. Base";
+            if (dgvNominas.Columns.Contains("TotalDevengado"))
+                dgvNominas.Columns["TotalDevengado"].HeaderText = "Bruto";
+            if (dgvNominas.Columns.Contains("TotalDeducciones"))
+                dgvNominas.Columns["TotalDeducciones"].HeaderText = "Deduc.";
+            if (dgvNominas.Columns.Contains("LiquidoAPercibir"))
+                dgvNominas.Columns["LiquidoAPercibir"].HeaderText = "Neto";
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            using (var db = new AppDbContext())
+            {
+                // sraigo todos los empleados y nóminas de la BD
+                var empleados = db.Empleados.ToList();
+                var nominas = db.Nominas.ToList();
+
+                // Si el combo de empleado no está en (Todos los empleados), filtro por ese empleado
+                if (cmbFiltroNombre.SelectedIndex > 0)
+                {
+                    var empSeleccionado = empleados.FirstOrDefault(e => e.NombreCompletoTexto == cmbFiltroNombre.SelectedItem.ToString());
+                    if (empSeleccionado != null)
+                        nominas = nominas.Where(n => n.EmpleadoId == empSeleccionado.Id).ToList();
+                }
+
+                // si el combo de año no está en (Todos los años), filtro por ese año
+                if (cmbFiltroAno.SelectedIndex > 0)
+                {
+                    nominas = nominas.Where(n => n.Anio == (int)cmbFiltroAno.SelectedItem).ToList();
+                }
+                    
+
+                // si el combo de mes no está en (Todos los meses), filtro por el mes en el que está
+                if (cmbFiltroMes.SelectedIndex > 0)
+                {
+                    nominas = nominas.Where(n => n.Mes == cmbFiltroMes.SelectedItem.ToString()).ToList();
+                }
+
+                // muestro los resultados en el DataGridView
+                dgvNominas.DataSource = nominas.Select(n => new
+                {
+                    Empleado = empleados.FirstOrDefault(e => e.Id == n.EmpleadoId)?.NombreCompletoTexto ?? "Desconocido",
+                    n.Mes,
+                    Año = n.Anio,
+                    SalarioNeto = n.LiquidoAPercibir.ToString("C")
+                }).ToList();
+
+                dgvNominas.DefaultCellStyle.ForeColor = Color.Black;
+                dgvNominas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
         }
     }
 }

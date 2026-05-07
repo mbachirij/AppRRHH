@@ -72,6 +72,7 @@
             lblError.Name = "lblError";
             lblError.Size = new Size(280, 15);
             lblError.TabIndex = 2;
+            lblError.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
@@ -150,7 +151,7 @@
             txtEmail.BorderStyle = BorderStyle.None;
             txtEmail.Depth = 0;
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F);
-            txtEmail.Hint = "Email";
+            txtEmail.Hint = "Email/User name";
             txtEmail.LeadingIcon = (Image)resources.GetObject("txtEmail.LeadingIcon");
             txtEmail.Location = new Point(76, 289);
             txtEmail.Margin = new Padding(3, 2, 3, 2);

@@ -1,19 +1,14 @@
 ﻿using AppRRHH.Data;
-using AppRRHH.models;
-using AppRRHH.views;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Net;
 using System.Text;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using AppRRHH.models;
 
-namespace AppRRHH.views
+namespace AppRRHH.views.vistasAdmin
 {
     public partial class UCEmpleados : UserControl
     {
@@ -21,11 +16,10 @@ namespace AppRRHH.views
         {
             InitializeComponent();
 
-            this.BackColor = Color.FromArgb(25, 25, 40);
-
             CargarDatos();
-            RellenarDepartamentos();
             EditarDataGridView();
+
+            this.AutoScroll = true;
         }
         public void CargarDatos()
         {
@@ -33,26 +27,36 @@ namespace AppRRHH.views
             {
                 // Traigo la lista de empleados de la DB
                 var listaEmpleados = db.Empleados.ToList();
+                dgvEmpleados.DataSource = listaEmpleados;
 
-                // La asigno al BindingSource que he creado en el diseño
-                empleadoBindingSource.DataSource = listaEmpleados;
+                // oculto las que no son necesarias
+                dgvEmpleados.Columns["NumSegSocial"].Visible = false;
+                dgvEmpleados.Columns["TipoContrato"].Visible = false;
+                dgvEmpleados.Columns["CategoriaProfesional"].Visible = false;
+                dgvEmpleados.Columns["Antiguedad"].Visible = false;
+                dgvEmpleados.Columns["FechaNacimiento"].Visible = false;
+                dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
+            RellenarDatos();
         }
 
-        public void RellenarDepartamentos()
+        public void RellenarDatos()
         {
             using (var db = new AppDbContext())
             {
-                // Cojo los nombres de la tabla Departamentos
+                // Traigo la lista de departamentos de la DB y la asigno al ComboBox
                 var listaDeptos = db.Departamentos.Select(d => d.Nombre).ToList();
-
-                // Los meto en el ComboBox que lo he llamado txtDepartamento
-                txtDepartamento.DataSource = listaDeptos;
+                // si la lista no es nula ni vacía, asigno la lista al ComboBox
+                if (listaDeptos != null && listaDeptos.Count > 0)
+                {
+                    cmbDepartamento.DataSource = listaDeptos;
+                }
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
             using (var db = new AppDbContext())
             {
                 // compruebo si ya existe un empleado con el mismo DNI o email para evitar duplicados
@@ -69,19 +73,19 @@ namespace AppRRHH.views
                 }
 
                 // creo un empleado nuevo con los datos de los controles
-                AppRRHH.models.Empleado nuevoEmpleado = new AppRRHH.models.Empleado
+                Empleado nuevoEmpleado = new Empleado
                 {
                     Nombre = txtNombre.Text,
                     Apellidos = txtApellidos.Text,
                     DNI = txtDni.Text,
                     FechaNacimiento = dateFechaNacimiento.Value,
-                    Departamento = txtDepartamento.Text,
+                    Departamento = cmbDepartamento.Text,
                     Email = txtEmail.Text,
                     Salario = decimal.TryParse(txtSalario.Text, out decimal salario) ? salario : 0,
                     NumSegSocial = txtNumSS.Text,
                     TipoContrato = cmbTipoContrato.Text,
                     CategoriaProfesional = cmbCatProfesional.Text,
-                    Antiguedad = (int)nudAntiguedad.Value, // convierto el valor del NumericUpDown a int
+                    Antiguedad = 0, // pongo antiguedad a 0 por defecto
                     Rol = comboBoxRol.Text,
                     Telefono = txtTelefono.Text.Replace("-", "").Replace("_", "").Replace(" ", "")
                 };
@@ -96,7 +100,7 @@ namespace AppRRHH.views
                 {
                     EmpleadoId = nuevoEmpleado.Id,
                     Email = nuevoEmpleado.Email.ToLower(),
-                    Contrasena = "1234",
+                    Contrasena = BCrypt.Net.BCrypt.HashPassword("1234"), // le asigno una contraseña temporal hasheada
                     Rol = nuevoEmpleado.Rol,
                     Empleado = nuevoEmpleado
                 };
@@ -115,7 +119,6 @@ namespace AppRRHH.views
                 comboBoxRol.SelectedIndex = -1;
                 cmbTipoContrato.SelectedIndex = -1;
                 cmbCatProfesional.SelectedIndex = -1;
-                nudAntiguedad.Value = 0;
                 dateFechaNacimiento.Value = DateTime.Now;
 
 
@@ -126,55 +129,88 @@ namespace AppRRHH.views
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void EditarDataGridView()
         {
-            // Verifico que haya un empleado seleccionado
-            if (empleadoBindingSource.Current is AppRRHH.models.Empleado empleadoSeleccionado)
+            // Verifico que el DataGridView no sea nulo antes de aplicar los estilos
+            if (dgvEmpleados == null) return;
+
+            // Estilo del DataGridView
+            dgvEmpleados.BackgroundColor = Color.White;
+            dgvEmpleados.BorderStyle = BorderStyle.None;
+            dgvEmpleados.RowHeadersVisible = false;
+            dgvEmpleados.GridColor = Color.FromArgb(230, 230, 230);
+            dgvEmpleados.RowsDefaultCellStyle.BackColor = Color.White;
+            dgvEmpleados.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
+            dgvEmpleados.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
+            dgvEmpleados.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            dgvEmpleados.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            dgvEmpleados.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvEmpleados.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dgvEmpleados.ColumnHeadersHeight = 35;
+            dgvEmpleados.RowTemplate.Height = 30;
+            dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEmpleados.EnableHeadersVisualStyles = false;
+            // dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string busqueda = txtBuscar.Text.ToLower().Trim();
+
+            using (var db = new AppDbContext())
             {
-                using (var db = new AppDbContext())
-                {
-                    // Busco el empleado en la base de datos
-                    var empleadoEnDb = db.Empleados.Find(empleadoSeleccionado.Id);
-                    if (empleadoEnDb != null)
-                    {
-                        // Elimino el empleado
-                        db.Empleados.Remove(empleadoEnDb);
-                        // Elimino el usuario asociado al empleado
-                        var usuarioEnDb = db.Usuarios.FirstOrDefault(u => u.EmpleadoId == empleadoEnDb.Id);
-                        if (usuarioEnDb != null)
-                        {
-                            db.Usuarios.Remove(usuarioEnDb);
-                        }
-                        // Guardo los cambios en la base de datos
-                        db.SaveChanges();
-                        // Recargo la lista de empleados para reflejar los cambios
-                        CargarDatos();
-                    }
-                }
+                // busco dentro de la tabla empleados
+                var empleados = db.Empleados
+                    // donde nombre contenga busqueda
+                    .Where(e => e.Nombre.ToLower().Contains(busqueda)
+                    // apellidos contegna busqueda
+                        || e.Apellidos.ToLower().Contains(busqueda)
+                        // o dni contenga busqueda
+                        || e.DNI.ToLower().Contains(busqueda))
+                    .ToList();
+                // y lo muestro
+                dgvEmpleados.DataSource = empleados;
+                // y oculto datos innecesarios
+                dgvEmpleados.Columns["NumSegSocial"].Visible = false;
+                dgvEmpleados.Columns["TipoContrato"].Visible = false;
+                dgvEmpleados.Columns["CategoriaProfesional"].Visible = false;
+                dgvEmpleados.Columns["Antiguedad"].Visible = false;
+                dgvEmpleados.Columns["FechaNacimiento"].Visible = false;
+                dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             }
         }
 
-        private void EditarDataGridView()
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Estilo del DataGridView
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.GridColor = Color.FromArgb(230, 230, 230);
-            dataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-            dataGridView1.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
-            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-            dataGridView1.ColumnHeadersHeight = 35;
-            dataGridView1.RowTemplate.Height = 30;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // compruebo que haya seleccionado un empleado
+            if (dgvEmpleados.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecciona un empleado primero.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            var empleadoSeleccionado = dgvEmpleados.SelectedRows[0].DataBoundItem as Empleado;
 
+            if (empleadoSeleccionado == null) return;
+
+            using (var db = new AppDbContext())
+            {
+                var empleadoEnDb = db.Empleados.Find(empleadoSeleccionado.Id);
+                if (empleadoEnDb != null)
+                {
+                    db.Empleados.Remove(empleadoEnDb);
+                    var usuarioEnDb = db.Usuarios.FirstOrDefault(u => u.EmpleadoId == empleadoEnDb.Id);
+                    if (usuarioEnDb != null)
+                        db.Usuarios.Remove(usuarioEnDb);
+                    db.SaveChanges();
+                    CargarDatos();
+                }
+            }
         }
     }
 }
+

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelCentrado = new Panel();
+            label2 = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             btnGuardar = new Button();
             txtNumCuentaCotizacion = new TextBox();
@@ -50,12 +51,24 @@
             // 
             // panelCentrado
             // 
-            panelCentrado.Anchor = AnchorStyles.None;
+            panelCentrado.Controls.Add(label2);
             panelCentrado.Controls.Add(materialCard1);
-            panelCentrado.Location = new Point(14, 13);
+            panelCentrado.Location = new Point(10, 10);
             panelCentrado.Name = "panelCentrado";
-            panelCentrado.Size = new Size(1100, 596);
+            panelCentrado.Size = new Size(1396, 962);
             panelCentrado.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(88, 101, 242);
+            label2.Location = new Point(14, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(1339, 68);
+            label2.TabIndex = 3;
+            label2.Text = "Gestión de Datos Empresa";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // materialCard1
             // 
@@ -76,7 +89,7 @@
             materialCard1.Controls.Add(lblTitulo);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(101, 43);
+            materialCard1.Location = new Point(191, 173);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -206,7 +219,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelCentrado);
             Name = "UCConfiguracionAdmin";
-            Size = new Size(1130, 625);
+            Size = new Size(1411, 1008);
             panelCentrado.ResumeLayout(false);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
@@ -231,5 +244,6 @@
         private TextBox txtNombre;
         private Label label1;
         private Button btnGuardar;
+        private Label label2;
     }
 }

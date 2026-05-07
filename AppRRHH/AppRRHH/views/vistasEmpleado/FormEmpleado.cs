@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using AppRRHH.views.vistasEmpleado;
 
-namespace AppRRHH.views.Empleado
+namespace AppRRHH.views.vistasEmpleado
 {
     public partial class FormEmpleado : Form
     {
@@ -57,6 +57,14 @@ namespace AppRRHH.views.Empleado
             UCVacacionesEmpleado vacaciones = new UCVacacionesEmpleado();
             panelContenido.Controls.Add(vacaciones);
             vacaciones.Dock = DockStyle.Fill;
+        }
+
+        private void btnNominas_Click(object sender, EventArgs e)
+        {
+            panelContenido.Controls.Clear();
+            UCNominasEmpleado nominas = new UCNominasEmpleado();
+            panelContenido.Controls.Add(nominas);
+            nominas.Dock = DockStyle.Fill;
         }
     }
 }

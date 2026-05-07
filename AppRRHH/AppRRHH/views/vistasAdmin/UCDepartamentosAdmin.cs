@@ -17,57 +17,43 @@ namespace AppRRHH.views.vistasAdmin
             CargarDepartamentos();
 
             EstiloListas();
+
+            this.AutoScroll = true;
         }
 
-        private void lstDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
+        private void lstDepartamentos_SelectionChanged(object sender, EventArgs e)
         {
-            if (lstDepartamentos.SelectedItems.Count > 0)
+            // si no hay ninguna fila seleccionada salgo
+            if (lstDepartamentos.SelectedRows.Count == 0) return;
+            // cojo el nombre del departamento de la primera fila seleccionada
+            string nombreDepto = lstDepartamentos.SelectedRows[0].Cells["Nombre"].Value?.ToString();
+
+            using (var db = new Data.AppDbContext())
             {
-                // Cojo el nombre del departamento de la primera columna
-                string nombreDepto = lstDepartamentos.SelectedItems[0].Text;
+                // busco los empleados que pertenecen a ese departamento
+                var empleados = db.Empleados
+                    .Where(emp => emp.Departamento == nombreDepto)
+                    .Select(emp => new { emp.Nombre, emp.Apellidos, emp.Rol })
+                    .ToList();
 
-                using (var db = new Data.AppDbContext())
-                {
-                    lstEmpleadosDepto.Items.Clear();
-
-                    // Busco empleados y Filtro por el nombre del depto
-                    var empleados = db.Empleados
-                        .Where(emp => emp.Departamento == nombreDepto)
-                        .ToList();
-
-                    foreach (var emp in empleados)
-                    {
-                        // El primer campo es el nombre
-                        ListViewItem item = new ListViewItem(emp.Nombre);
-
-                        // Añado los sub-elementos (Apellidos y Rol)
-                        item.SubItems.Add(emp.Apellidos);
-                        item.SubItems.Add(emp.Rol);
-
-                        lstEmpleadosDepto.Items.Add(item);
-                    }
-                }
+                // y los muestro en la otra lista
+                lstEmpleadosDepto.DataSource = empleados;
+                lstEmpleadosDepto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
         public void CargarDepartamentos()
         {
             using (var db = new Data.AppDbContext())
             {
-                lstDepartamentos.Items.Clear();
-                var lista = db.Departamentos.ToList();
-
-                foreach (var d in lista)
+                var lista = db.Departamentos.Select(d => new
                 {
-                    ListViewItem item = new ListViewItem(d.Nombre);
+                    Nombre = d.Nombre,
+                    Empleados = db.Empleados.Count(e => e.Departamento == d.Nombre)
+                }).ToList();
 
-                    // Cuento cuántos empleados hay en este depto
-                    int total = db.Empleados.Count(e => e.Departamento == d.Nombre);
-                    item.SubItems.Add(total.ToString());
-
-                    lstDepartamentos.Items.Add(item);
-                }
+                lstDepartamentos.DataSource = lista;
+                lstDepartamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
-            // para que se actualice cada vez que cargue departamentos
             ActualizarCards();
         }
         private void ActualizarCards()
@@ -106,32 +92,60 @@ namespace AppRRHH.views.vistasAdmin
 
         private void EstiloListas()
         {
-            // lstDepartamentos
-            lstDepartamentos.BackColor = Color.White;
-            lstDepartamentos.ForeColor = Color.FromArgb(50, 50, 50);
-            lstDepartamentos.Font = new Font("Segoe UI", 10);
-            lstDepartamentos.FullRowSelect = true;
-            lstDepartamentos.GridLines = true;
-            lstDepartamentos.BorderStyle = BorderStyle.None;
+            // Verifico que el DataGridView no sea nulo antes de aplicar los estilos
+            if (lstDepartamentos == null) return;
 
-            // lstEmpleadosDepto
-            lstEmpleadosDepto.BackColor = Color.White;
-            lstEmpleadosDepto.ForeColor = Color.FromArgb(50, 50, 50);
-            lstEmpleadosDepto.Font = new Font("Segoe UI", 10);
-            lstEmpleadosDepto.FullRowSelect = true;
-            lstEmpleadosDepto.GridLines = true;
+            // Estilo del DataGridView
+            lstDepartamentos.BackgroundColor = Color.White;
+            lstDepartamentos.BorderStyle = BorderStyle.None;
+            lstDepartamentos.RowHeadersVisible = false;
+            lstDepartamentos.GridColor = Color.FromArgb(230, 230, 230);
+            lstDepartamentos.RowsDefaultCellStyle.BackColor = Color.White;
+            lstDepartamentos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
+            lstDepartamentos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
+            lstDepartamentos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            lstDepartamentos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            lstDepartamentos.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            lstDepartamentos.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            lstDepartamentos.ColumnHeadersHeight = 35;
+            lstDepartamentos.RowTemplate.Height = 30;
+            lstDepartamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lstDepartamentos.EnableHeadersVisualStyles = false;
+            lstDepartamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Verifico que el DataGridView no sea nulo antes de aplicar los estilos
+            if (lstDepartamentos == null) return;
+
+            // Estilo del DataGridView
+            lstEmpleadosDepto.BackgroundColor = Color.White;
             lstEmpleadosDepto.BorderStyle = BorderStyle.None;
+            lstEmpleadosDepto.RowHeadersVisible = false;
+            lstEmpleadosDepto.GridColor = Color.FromArgb(230, 230, 230);
+            lstEmpleadosDepto.RowsDefaultCellStyle.BackColor = Color.White;
+            lstEmpleadosDepto.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 255);
+            lstEmpleadosDepto.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(88, 101, 242);
+            lstEmpleadosDepto.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            lstEmpleadosDepto.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            lstEmpleadosDepto.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            lstEmpleadosDepto.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            lstEmpleadosDepto.ColumnHeadersHeight = 35;
+            lstEmpleadosDepto.RowTemplate.Height = 30;
+            lstEmpleadosDepto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lstEmpleadosDepto.EnableHeadersVisualStyles = false;
+            lstEmpleadosDepto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (lstDepartamentos.SelectedItems.Count == 0)
+            if (lstDepartamentos.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecciona un departamento para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string nombreDepto = lstDepartamentos.SelectedItems[0].Text;
+            string nombreDepto = lstDepartamentos.SelectedRows[0].ToString();
 
             using (var db = new Data.AppDbContext())
             {
@@ -150,6 +164,33 @@ namespace AppRRHH.views.vistasAdmin
                     db.SaveChanges();
                     CargarDepartamentos();
                     MessageBox.Show("Departamento eliminado correctamente.");
+                }
+            }
+        }
+
+        private void btnEliminar2_Click(object sender, EventArgs e)
+        {
+            if (lstEmpleadosDepto.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecciona un empleado primero.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nombreEmp = lstEmpleadosDepto.SelectedRows[0].ToString();
+
+            using (var db = new Data.AppDbContext())
+            {
+                // Busco el empleado por nombre
+                var emp = db.Empleados.FirstOrDefault(e => e.Nombre == nombreEmp);
+
+                if (emp != null)
+                {
+                    // Le quito el departamento
+                    emp.Departamento = null;
+                    db.SaveChanges();
+                    CargarDepartamentos();
+                    MessageBox.Show("Empleado eliminado del departamento correctamente.");
                 }
             }
         }

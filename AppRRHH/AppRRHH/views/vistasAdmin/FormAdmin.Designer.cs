@@ -1,4 +1,4 @@
-﻿namespace AppRRHH
+﻿namespace AppRRHH.views.vistasAdmin
 {
     partial class FormAdmin
     {

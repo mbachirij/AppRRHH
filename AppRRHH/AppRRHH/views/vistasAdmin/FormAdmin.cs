@@ -1,8 +1,7 @@
 using AppRRHH.views;
 using AppRRHH.views.vistasAdmin;
-using AppRRHH.views.vistasEmpleado;
 
-namespace AppRRHH
+namespace AppRRHH.views.vistasAdmin
 {
     public partial class FormAdmin : Form
     {
@@ -28,7 +27,6 @@ namespace AppRRHH
             UCEmpleados vista = new UCEmpleados();
             panelContenido.Controls.Add(vista);
             vista.Dock = DockStyle.Fill;
-
         }
 
         private void btnDepartamentos_Click(object sender, EventArgs e)

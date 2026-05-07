@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCNominasAdmin));
             panelCentrado = new Panel();
+            label2 = new Label();
             materialCard7 = new MaterialSkin.Controls.MaterialCard();
+            btnBuscar = new Button();
+            cmbFiltroAno = new ComboBox();
+            cmbFiltroMes = new ComboBox();
+            cmbFiltroNombre = new ComboBox();
             btnGuardar = new Button();
             btnImprimir = new Button();
             dgvNominas = new DataGridView();
             lblHistorial = new Label();
-            materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            lblResumen = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             label1 = new Label();
             btnCalcular = new Button();
@@ -55,49 +59,108 @@
             cmbMes = new ComboBox();
             lblEmpleado = new Label();
             cmbEmpleado = new ComboBox();
+            materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            lblResumen = new Label();
+            nudIRPF = new NumericUpDown();
+            label3 = new Label();
             panelCentrado.SuspendLayout();
             materialCard7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNominas).BeginInit();
-            materialCard2.SuspendLayout();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudPlusTransporte).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusFestivo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusNocturnidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudHorasExtra).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudHoras).BeginInit();
+            materialCard2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudIRPF).BeginInit();
             SuspendLayout();
             // 
             // panelCentrado
             // 
-            panelCentrado.Anchor = AnchorStyles.None;
+            panelCentrado.Controls.Add(label2);
             panelCentrado.Controls.Add(materialCard7);
-            panelCentrado.Controls.Add(materialCard2);
             panelCentrado.Controls.Add(materialCard1);
-            panelCentrado.Location = new Point(-4, 0);
+            panelCentrado.Controls.Add(materialCard2);
+            panelCentrado.Location = new Point(10, 10);
             panelCentrado.Name = "panelCentrado";
-            panelCentrado.Size = new Size(1114, 821);
+            panelCentrado.Size = new Size(1396, 962);
             panelCentrado.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(88, 101, 242);
+            label2.Location = new Point(14, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(1339, 68);
+            label2.TabIndex = 3;
+            label2.Text = "Gestión de Nóminas";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // materialCard7
             // 
             materialCard7.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard7.Controls.Add(btnBuscar);
+            materialCard7.Controls.Add(cmbFiltroAno);
+            materialCard7.Controls.Add(cmbFiltroMes);
+            materialCard7.Controls.Add(cmbFiltroNombre);
             materialCard7.Controls.Add(btnGuardar);
             materialCard7.Controls.Add(btnImprimir);
             materialCard7.Controls.Add(dgvNominas);
             materialCard7.Controls.Add(lblHistorial);
             materialCard7.Depth = 0;
             materialCard7.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard7.Location = new Point(474, 243);
+            materialCard7.Location = new Point(564, 348);
             materialCard7.Margin = new Padding(14);
             materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard7.Name = "materialCard7";
             materialCard7.Padding = new Padding(14);
-            materialCard7.Size = new Size(626, 572);
+            materialCard7.Size = new Size(626, 600);
             materialCard7.TabIndex = 2;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
+            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBuscar.Location = new Point(471, 71);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(138, 55);
+            btnBuscar.TabIndex = 17;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // cmbFiltroAno
+            // 
+            cmbFiltroAno.FormattingEnabled = true;
+            cmbFiltroAno.Location = new Point(291, 88);
+            cmbFiltroAno.Name = "cmbFiltroAno";
+            cmbFiltroAno.Size = new Size(121, 23);
+            cmbFiltroAno.TabIndex = 5;
+            // 
+            // cmbFiltroMes
+            // 
+            cmbFiltroMes.FormattingEnabled = true;
+            cmbFiltroMes.Location = new Point(151, 88);
+            cmbFiltroMes.Name = "cmbFiltroMes";
+            cmbFiltroMes.Size = new Size(121, 23);
+            cmbFiltroMes.TabIndex = 4;
+            // 
+            // cmbFiltroNombre
+            // 
+            cmbFiltroNombre.FormattingEnabled = true;
+            cmbFiltroNombre.Location = new Point(17, 88);
+            cmbFiltroNombre.Name = "cmbFiltroNombre";
+            cmbFiltroNombre.Size = new Size(121, 23);
+            cmbFiltroNombre.TabIndex = 3;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(17, 503);
+            btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
+            btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGuardar.Location = new Point(17, 528);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(138, 55);
             btnGuardar.TabIndex = 1;
@@ -107,7 +170,9 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(471, 500);
+            btnImprimir.Image = (Image)resources.GetObject("btnImprimir.Image");
+            btnImprimir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImprimir.Location = new Point(471, 528);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(138, 55);
             btnImprimir.TabIndex = 2;
@@ -118,9 +183,9 @@
             // dgvNominas
             // 
             dgvNominas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNominas.Location = new Point(17, 52);
+            dgvNominas.Location = new Point(17, 140);
             dgvNominas.Name = "dgvNominas";
-            dgvNominas.Size = new Size(592, 435);
+            dgvNominas.Size = new Size(592, 382);
             dgvNominas.TabIndex = 1;
             // 
             // lblHistorial
@@ -134,33 +199,11 @@
             lblHistorial.TabIndex = 0;
             lblHistorial.Text = "Historial de Nóminas";
             // 
-            // materialCard2
-            // 
-            materialCard2.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard2.Controls.Add(lblResumen);
-            materialCard2.Depth = 0;
-            materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(14, 243);
-            materialCard2.Margin = new Padding(14);
-            materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard2.Name = "materialCard2";
-            materialCard2.Padding = new Padding(14);
-            materialCard2.Size = new Size(445, 572);
-            materialCard2.TabIndex = 1;
-            // 
-            // lblResumen
-            // 
-            lblResumen.Dock = DockStyle.Fill;
-            lblResumen.Font = new Font("Sitka Banner", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblResumen.Location = new Point(14, 14);
-            lblResumen.Name = "lblResumen";
-            lblResumen.Size = new Size(417, 544);
-            lblResumen.TabIndex = 0;
-            lblResumen.Text = "Resumen";
-            // 
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard1.Controls.Add(label3);
+            materialCard1.Controls.Add(nudIRPF);
             materialCard1.Controls.Add(label1);
             materialCard1.Controls.Add(btnCalcular);
             materialCard1.Controls.Add(lblPlusTrans);
@@ -181,7 +224,7 @@
             materialCard1.Controls.Add(cmbEmpleado);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(14, 14);
+            materialCard1.Location = new Point(104, 104);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -202,7 +245,7 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(931, 120);
+            btnCalcular.Location = new Point(931, 134);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(138, 55);
             btnCalcular.TabIndex = 16;
@@ -342,6 +385,50 @@
             cmbEmpleado.Size = new Size(121, 23);
             cmbEmpleado.TabIndex = 0;
             // 
+            // materialCard2
+            // 
+            materialCard2.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard2.Controls.Add(lblResumen);
+            materialCard2.Depth = 0;
+            materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCard2.Location = new Point(104, 348);
+            materialCard2.Margin = new Padding(14);
+            materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard2.Name = "materialCard2";
+            materialCard2.Padding = new Padding(14);
+            materialCard2.Size = new Size(445, 600);
+            materialCard2.TabIndex = 1;
+            // 
+            // lblResumen
+            // 
+            lblResumen.Dock = DockStyle.Fill;
+            lblResumen.Font = new Font("Sitka Banner", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblResumen.Location = new Point(14, 14);
+            lblResumen.Name = "lblResumen";
+            lblResumen.Size = new Size(417, 572);
+            lblResumen.TabIndex = 0;
+            lblResumen.Text = "Resumen";
+            // 
+            // nudIRPF
+            // 
+            nudIRPF.DecimalPlaces = 2;
+            nudIRPF.Location = new Point(889, 97);
+            nudIRPF.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
+            nudIRPF.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            nudIRPF.Name = "nudIRPF";
+            nudIRPF.Size = new Size(79, 23);
+            nudIRPF.TabIndex = 18;
+            nudIRPF.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(829, 99);
+            label3.Name = "label3";
+            label3.Size = new Size(43, 15);
+            label3.TabIndex = 19;
+            label3.Text = "% IRPF";
+            // 
             // UCNominasAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -349,12 +436,12 @@
             AutoScroll = true;
             Controls.Add(panelCentrado);
             Name = "UCNominasAdmin";
-            Size = new Size(1110, 821);
+            Padding = new Padding(20);
+            Size = new Size(1411, 1008);
             panelCentrado.ResumeLayout(false);
             materialCard7.ResumeLayout(false);
             materialCard7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNominas).EndInit();
-            materialCard2.ResumeLayout(false);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudPlusTransporte).EndInit();
@@ -362,6 +449,8 @@
             ((System.ComponentModel.ISupportInitialize)nudPlusNocturnidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudHorasExtra).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudHoras).EndInit();
+            materialCard2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)nudIRPF).EndInit();
             ResumeLayout(false);
         }
 
@@ -394,5 +483,12 @@
         private Label lblResumen;
         private Button btnImprimir;
         private Label label1;
+        private Label label2;
+        private Button btnBuscar;
+        private ComboBox cmbFiltroAno;
+        private ComboBox cmbFiltroMes;
+        private ComboBox cmbFiltroNombre;
+        private Label label3;
+        private NumericUpDown nudIRPF;
     }
 }

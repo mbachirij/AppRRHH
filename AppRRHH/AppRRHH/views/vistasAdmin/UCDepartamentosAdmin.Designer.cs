@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCDepartamentosAdmin));
             Card1 = new MaterialSkin.Controls.MaterialCard();
             label3 = new Label();
             lblTotalDeptos = new Label();
@@ -36,24 +37,28 @@
             lblPromedio = new Label();
             lblPr = new Label();
             label2 = new Label();
-            lstDepartamentos = new MaterialSkin.Controls.MaterialListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            lstEmpleadosDepto = new MaterialSkin.Controls.MaterialListView();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
             txtNuevoDepto = new MaterialSkin.Controls.MaterialTextBox();
-            btnGuardar = new MaterialSkin.Controls.MaterialButton();
             panelContenido = new Panel();
-            label7 = new Label();
+            materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            lstEmpleadosDepto = new DataGridView();
+            lstDepartamentos = new DataGridView();
+            btnEliminar = new Button();
+            label9 = new Label();
+            btnEliminar2 = new Button();
+            label8 = new Label();
             label6 = new Label();
-            btnEliminar = new MaterialSkin.Controls.MaterialButton();
-            label5 = new Label();
+            label7 = new Label();
+            materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            btnGuardar = new Button();
             label4 = new Label();
+            label5 = new Label();
             Card1.SuspendLayout();
             materialCard1.SuspendLayout();
             panelContenido.SuspendLayout();
+            materialCard3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lstEmpleadosDepto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lstDepartamentos).BeginInit();
+            materialCard2.SuspendLayout();
             SuspendLayout();
             // 
             // Card1
@@ -64,7 +69,7 @@
             Card1.Controls.Add(label1);
             Card1.Depth = 0;
             Card1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            Card1.Location = new Point(607, 114);
+            Card1.Location = new Point(44, 19);
             Card1.Margin = new Padding(14);
             Card1.MouseState = MaterialSkin.MouseState.HOVER;
             Card1.Name = "Card1";
@@ -113,7 +118,7 @@
             materialCard1.Controls.Add(label2);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(52, 114);
+            materialCard1.Location = new Point(808, 19);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -154,206 +159,211 @@
             label2.Text = "Promedio de Empleados";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lstDepartamentos
-            // 
-            lstDepartamentos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            lstDepartamentos.AutoSizeTable = false;
-            lstDepartamentos.BackColor = Color.FromArgb(255, 255, 255);
-            lstDepartamentos.BorderStyle = BorderStyle.None;
-            lstDepartamentos.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
-            lstDepartamentos.Depth = 0;
-            lstDepartamentos.FullRowSelect = true;
-            lstDepartamentos.Location = new Point(52, 424);
-            lstDepartamentos.MinimumSize = new Size(200, 100);
-            lstDepartamentos.MouseLocation = new Point(-1, -1);
-            lstDepartamentos.MouseState = MaterialSkin.MouseState.OUT;
-            lstDepartamentos.Name = "lstDepartamentos";
-            lstDepartamentos.OwnerDraw = true;
-            lstDepartamentos.Size = new Size(277, 292);
-            lstDepartamentos.TabIndex = 2;
-            lstDepartamentos.UseCompatibleStateImageBehavior = false;
-            lstDepartamentos.View = View.Details;
-            lstDepartamentos.SelectedIndexChanged += lstDepartamentos_SelectedIndexChanged;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Nombre Dept";
-            columnHeader1.Width = 150;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Nº Empleados";
-            columnHeader2.Width = 150;
-            // 
-            // lstEmpleadosDepto
-            // 
-            lstEmpleadosDepto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lstEmpleadosDepto.AutoSizeTable = false;
-            lstEmpleadosDepto.BackColor = Color.FromArgb(255, 255, 255);
-            lstEmpleadosDepto.BorderStyle = BorderStyle.None;
-            lstEmpleadosDepto.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader4, columnHeader5 });
-            lstEmpleadosDepto.Depth = 0;
-            lstEmpleadosDepto.FullRowSelect = true;
-            lstEmpleadosDepto.Location = new Point(579, 424);
-            lstEmpleadosDepto.MinimumSize = new Size(200, 100);
-            lstEmpleadosDepto.MouseLocation = new Point(-1, -1);
-            lstEmpleadosDepto.MouseState = MaterialSkin.MouseState.OUT;
-            lstEmpleadosDepto.Name = "lstEmpleadosDepto";
-            lstEmpleadosDepto.OwnerDraw = true;
-            lstEmpleadosDepto.Size = new Size(350, 292);
-            lstEmpleadosDepto.TabIndex = 3;
-            lstEmpleadosDepto.UseCompatibleStateImageBehavior = false;
-            lstEmpleadosDepto.View = View.Details;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Nombre";
-            columnHeader3.Width = 120;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "Apellidos";
-            columnHeader4.Width = 150;
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "Rol";
-            columnHeader5.Width = 100;
-            // 
             // txtNuevoDepto
             // 
             txtNuevoDepto.AnimateReadOnly = false;
             txtNuevoDepto.BorderStyle = BorderStyle.None;
             txtNuevoDepto.Depth = 0;
             txtNuevoDepto.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtNuevoDepto.Hint = "Nombre departamento...";
             txtNuevoDepto.LeadingIcon = null;
-            txtNuevoDepto.Location = new Point(300, 303);
+            txtNuevoDepto.Location = new Point(386, 99);
             txtNuevoDepto.MaxLength = 50;
             txtNuevoDepto.MouseState = MaterialSkin.MouseState.OUT;
             txtNuevoDepto.Multiline = false;
             txtNuevoDepto.Name = "txtNuevoDepto";
-            txtNuevoDepto.Size = new Size(253, 50);
+            txtNuevoDepto.Size = new Size(202, 50);
             txtNuevoDepto.TabIndex = 4;
             txtNuevoDepto.Text = "";
             txtNuevoDepto.TrailingIcon = null;
             // 
-            // btnGuardar
-            // 
-            btnGuardar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnGuardar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnGuardar.Depth = 0;
-            btnGuardar.HighEmphasis = true;
-            btnGuardar.Icon = null;
-            btnGuardar.Location = new Point(593, 312);
-            btnGuardar.Margin = new Padding(4, 6, 4, 6);
-            btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.NoAccentTextColor = Color.Empty;
-            btnGuardar.Size = new Size(88, 36);
-            btnGuardar.TabIndex = 5;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnGuardar.UseAccentColor = false;
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click;
-            // 
             // panelContenido
             // 
-            panelContenido.Anchor = AnchorStyles.None;
             panelContenido.BackColor = Color.Transparent;
-            panelContenido.Controls.Add(label7);
-            panelContenido.Controls.Add(label6);
-            panelContenido.Controls.Add(btnEliminar);
+            panelContenido.Controls.Add(materialCard3);
+            panelContenido.Controls.Add(materialCard2);
             panelContenido.Controls.Add(label5);
-            panelContenido.Controls.Add(label4);
-            panelContenido.Controls.Add(materialCard1);
-            panelContenido.Controls.Add(lstEmpleadosDepto);
-            panelContenido.Controls.Add(txtNuevoDepto);
-            panelContenido.Controls.Add(lstDepartamentos);
-            panelContenido.Controls.Add(btnGuardar);
-            panelContenido.Controls.Add(Card1);
-            panelContenido.Location = new Point(15, 11);
+            panelContenido.Location = new Point(10, 10);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(1045, 738);
+            panelContenido.Size = new Size(1396, 962);
             panelContenido.TabIndex = 6;
             // 
-            // label7
+            // materialCard3
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(200, 210, 255);
-            label7.Location = new Point(657, 385);
-            label7.Name = "label7";
-            label7.Size = new Size(104, 25);
-            label7.TabIndex = 10;
-            label7.Text = "Empleados";
+            materialCard3.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard3.Controls.Add(lstEmpleadosDepto);
+            materialCard3.Controls.Add(lstDepartamentos);
+            materialCard3.Controls.Add(btnEliminar);
+            materialCard3.Controls.Add(label9);
+            materialCard3.Controls.Add(btnEliminar2);
+            materialCard3.Controls.Add(label8);
+            materialCard3.Controls.Add(label6);
+            materialCard3.Controls.Add(label7);
+            materialCard3.Depth = 0;
+            materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCard3.Location = new Point(101, 384);
+            materialCard3.Margin = new Padding(14);
+            materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard3.Name = "materialCard3";
+            materialCard3.Padding = new Padding(14);
+            materialCard3.Size = new Size(1104, 390);
+            materialCard3.TabIndex = 12;
+            // 
+            // lstEmpleadosDepto
+            // 
+            lstEmpleadosDepto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            lstEmpleadosDepto.Location = new Point(497, 57);
+            lstEmpleadosDepto.Name = "lstEmpleadosDepto";
+            lstEmpleadosDepto.Size = new Size(420, 304);
+            lstEmpleadosDepto.TabIndex = 16;
+            // 
+            // lstDepartamentos
+            // 
+            lstDepartamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            lstDepartamentos.Location = new Point(44, 57);
+            lstDepartamentos.Name = "lstDepartamentos";
+            lstDepartamentos.Size = new Size(275, 304);
+            lstDepartamentos.TabIndex = 15;
+            lstDepartamentos.SelectionChanged += lstDepartamentos_SelectionChanged;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
+            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminar.Location = new Point(352, 308);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(110, 53);
+            btnEliminar.TabIndex = 14;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // label9
+            // 
+            label9.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(150, 150, 170);
+            label9.Location = new Point(923, 254);
+            label9.Name = "label9";
+            label9.Size = new Size(170, 38);
+            label9.TabIndex = 13;
+            label9.Text = "\"Selecciona un Empleado para eliminarlo\"";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnEliminar2
+            // 
+            btnEliminar2.Image = (Image)resources.GetObject("btnEliminar2.Image");
+            btnEliminar2.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminar2.Location = new Point(949, 308);
+            btnEliminar2.Name = "btnEliminar2";
+            btnEliminar2.Size = new Size(110, 53);
+            btnEliminar2.TabIndex = 12;
+            btnEliminar2.Text = "Eliminar";
+            btnEliminar2.UseVisualStyleBackColor = true;
+            btnEliminar2.Click += btnEliminar2_Click;
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(150, 150, 170);
+            label8.Location = new Point(321, 254);
+            label8.Name = "label8";
+            label8.Size = new Size(170, 38);
+            label8.TabIndex = 11;
+            label8.Text = "\"Selecciona un Departamento para eliminarlo\"";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(200, 210, 255);
-            label6.Location = new Point(98, 385);
+            label6.Location = new Point(44, 14);
             label6.Name = "label6";
             label6.Size = new Size(141, 25);
             label6.TabIndex = 9;
             label6.Text = "Departamentos";
             // 
-            // btnEliminar
+            // label7
             // 
-            btnEliminar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnEliminar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnEliminar.Depth = 0;
-            btnEliminar.HighEmphasis = true;
-            btnEliminar.Icon = null;
-            btnEliminar.Location = new Point(401, 424);
-            btnEliminar.Margin = new Padding(4, 6, 4, 6);
-            btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.NoAccentTextColor = Color.Empty;
-            btnEliminar.Size = new Size(88, 36);
-            btnEliminar.TabIndex = 8;
-            btnEliminar.Text = "eliminar";
-            btnEliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnEliminar.UseAccentColor = false;
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(200, 210, 255);
+            label7.Location = new Point(497, 14);
+            label7.Name = "label7";
+            label7.Size = new Size(104, 25);
+            label7.TabIndex = 10;
+            label7.Text = "Empleados";
             // 
-            // label5
+            // materialCard2
             // 
-            label5.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.FromArgb(200, 210, 255);
-            label5.Location = new Point(0, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(1042, 113);
-            label5.TabIndex = 7;
-            label5.Text = "Gestión de Departamentos";
-            label5.TextAlign = ContentAlignment.MiddleCenter;
+            materialCard2.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard2.Controls.Add(btnGuardar);
+            materialCard2.Controls.Add(Card1);
+            materialCard2.Controls.Add(materialCard1);
+            materialCard2.Controls.Add(label4);
+            materialCard2.Controls.Add(txtNuevoDepto);
+            materialCard2.Depth = 0;
+            materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCard2.Location = new Point(101, 115);
+            materialCard2.Margin = new Padding(14);
+            materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard2.Name = "materialCard2";
+            materialCard2.Padding = new Padding(14);
+            materialCard2.Size = new Size(1104, 226);
+            materialCard2.TabIndex = 11;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
+            btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGuardar.Location = new Point(631, 99);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(133, 53);
+            btnGuardar.TabIndex = 13;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(200, 210, 255);
-            label4.Location = new Point(64, 323);
+            label4.Location = new Point(386, 42);
             label4.Name = "label4";
             label4.Size = new Size(202, 25);
             label4.TabIndex = 6;
             label4.Text = "Nuevo Departamento: ";
+            // 
+            // label5
+            // 
+            label5.BorderStyle = BorderStyle.Fixed3D;
+            label5.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(88, 101, 242);
+            label5.Location = new Point(14, 12);
+            label5.Name = "label5";
+            label5.Size = new Size(1339, 68);
+            label5.TabIndex = 7;
+            label5.Text = "Gestión de Departamentos";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // UCDepartamentosAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelContenido);
-            Location = new Point(17, 11);
             Name = "UCDepartamentosAdmin";
             Padding = new Padding(20);
-            Size = new Size(1197, 772);
+            Size = new Size(1411, 1008);
             Card1.ResumeLayout(false);
             materialCard1.ResumeLayout(false);
             panelContenido.ResumeLayout(false);
-            panelContenido.PerformLayout();
+            materialCard3.ResumeLayout(false);
+            materialCard3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)lstEmpleadosDepto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lstDepartamentos).EndInit();
+            materialCard2.ResumeLayout(false);
+            materialCard2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -363,24 +373,24 @@
         private Label label1;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Label label2;
-        private MaterialSkin.Controls.MaterialListView lstDepartamentos;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private MaterialSkin.Controls.MaterialListView lstEmpleadosDepto;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
         private Label lblTotalDeptos;
         private Label lblPromedio;
         private MaterialSkin.Controls.MaterialTextBox txtNuevoDepto;
-        private MaterialSkin.Controls.MaterialButton btnGuardar;
         private Panel panelContenido;
         private Label label3;
         private Label lblPr;
         private Label label4;
         private Label label5;
-        private MaterialSkin.Controls.MaterialButton btnEliminar;
         private Label label7;
         private Label label6;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private MaterialSkin.Controls.MaterialCard materialCard3;
+        private Label label9;
+        private Button btnEliminar2;
+        private Label label8;
+        private Button btnEliminar;
+        private Button btnGuardar;
+        private DataGridView lstEmpleadosDepto;
+        private DataGridView lstDepartamentos;
     }
 }

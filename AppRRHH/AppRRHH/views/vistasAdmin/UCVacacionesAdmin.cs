@@ -19,6 +19,8 @@ namespace AppRRHH.views.vistasAdmin
             CargarDatos();
 
             EstiloDataGridView();
+
+            this.AutoScroll = true;
         }
 
         private void CargarDatos()

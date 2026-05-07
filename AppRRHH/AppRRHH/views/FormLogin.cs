@@ -1,14 +1,7 @@
 ﻿using AppRRHH.Data;
-using AppRRHH.views.Empleado;
-using AppRRHH.models;
+using AppRRHH.views.vistasAdmin;
+using AppRRHH.views.vistasEmpleado;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace AppRRHH.views
 {
@@ -44,16 +37,23 @@ namespace AppRRHH.views
             
             using (var db = new AppDbContext())
             {
-                // Buscar el usuario en la base de datos
+                // busco el usuario en la base de datos
                 var usuario = db.Usuarios
                     .Include(u => u.Empleado)
-                    .FirstOrDefault(u => u.Email == email && u.Contrasena == password);
+                    .FirstOrDefault(u => u.Email == email);
 
-                // Validar si se encontró el usuario
-                if (usuario == null)
+                // verifico si se existe y la contraseña es correcta
+                if (usuario == null || !BCrypt.Net.BCrypt.Verify(password, usuario.Contrasena))
                 {
                     lblErrorControl.Text = "Email o contraseña incorrectos.";
                     return;
+                }
+
+                // Compruebo si tiene que cambiar la contraseña
+                if (usuario.CambiarContrasena)
+                {
+                    MessageBox.Show("Por seguridad tienes que cambiar tu contraseña al entrar por primera vez.", 
+                        "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 // Redirigir según rol

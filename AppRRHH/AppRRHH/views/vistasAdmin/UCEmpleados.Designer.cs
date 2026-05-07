@@ -1,4 +1,4 @@
-﻿namespace AppRRHH.views
+﻿namespace AppRRHH.views.vistasAdmin
 {
     partial class UCEmpleados
     {
@@ -28,38 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCEmpleados));
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            panel1 = new Panel();
+            label1 = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            btnEliminar = new Button();
+            txtBuscar = new MaterialSkin.Controls.MaterialTextBox();
             lblTitulo = new Label();
-            btnEliminar = new MaterialSkin.Controls.MaterialButton();
-            dataGridView1 = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            apellidosDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            departamentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            rolDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            empleadoBindingSource = new BindingSource(components);
-            btnAdd = new MaterialSkin.Controls.MaterialButton();
+            dgvEmpleados = new DataGridView();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            txtNumSS = new MaterialSkin.Controls.MaterialTextBox2();
-            lblAntiguedad = new Label();
-            nudAntiguedad = new NumericUpDown();
-            cmbCatProfesional = new MaterialSkin.Controls.MaterialComboBox();
+            btnAdd = new Button();
+            label2 = new Label();
+            cmbTipoContrato = new ComboBox();
+            cmbCatProfesional = new ComboBox();
+            cmbDepartamento = new ComboBox();
+            comboBoxRol = new ComboBox();
+            txtSalario = new TextBox();
+            txtEmail = new TextBox();
+            txtApellidos = new TextBox();
+            txtNumSS = new TextBox();
+            txtDni = new TextBox();
+            txtNombre = new TextBox();
             lblCatProfesional = new Label();
-            cmbTipoContrato = new MaterialSkin.Controls.MaterialComboBox();
             lblTipoContrato = new Label();
             lblNSS = new Label();
-            comboBoxRol = new MaterialSkin.Controls.MaterialComboBox();
-            txtDepartamento = new MaterialSkin.Controls.MaterialComboBox();
             dateFechaNacimiento = new DateTimePicker();
-            txtSalario = new MaterialSkin.Controls.MaterialTextBox2();
             txtTelefono = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            txtEmail = new MaterialSkin.Controls.MaterialTextBox2();
-            txtDni = new MaterialSkin.Controls.MaterialTextBox2();
-            txtApellidos = new MaterialSkin.Controls.MaterialTextBox2();
-            txtNombre = new MaterialSkin.Controls.MaterialTextBox2();
             lblSalario = new Label();
             lblEmail = new Label();
             lblTelefono = new Label();
@@ -69,68 +64,99 @@
             lblDni = new Label();
             lblApellidos = new Label();
             lblNombre = new Label();
-            panel1 = new Panel();
-            materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).BeginInit();
-            materialCard2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudAntiguedad).BeginInit();
             panel1.SuspendLayout();
+            materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
+            materialCard2.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(materialCard1);
+            panel1.Controls.Add(materialCard2);
+            panel1.Location = new Point(10, 10);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1396, 962);
+            panel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(88, 101, 242);
+            label1.Location = new Point(14, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(1339, 68);
+            label1.TabIndex = 2;
+            label1.Text = "Gestión de Empleados";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(lblTitulo);
             materialCard1.Controls.Add(btnEliminar);
-            materialCard1.Controls.Add(dataGridView1);
+            materialCard1.Controls.Add(txtBuscar);
+            materialCard1.Controls.Add(lblTitulo);
+            materialCard1.Controls.Add(dgvEmpleados);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(17, 10);
+            materialCard1.Location = new Point(14, 90);
             materialCard1.Margin = new Padding(12, 10, 12, 10);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(12, 10, 12, 10);
-            materialCard1.Size = new Size(643, 450);
+            materialCard1.Size = new Size(1339, 368);
             materialCard1.TabIndex = 0;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
+            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminar.Location = new Point(1080, 39);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(215, 50);
+            btnEliminar.TabIndex = 8;
+            btnEliminar.Text = "Eliminar Empleado";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.AnimateReadOnly = false;
+            txtBuscar.BorderStyle = BorderStyle.None;
+            txtBuscar.Depth = 0;
+            txtBuscar.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtBuscar.Hint = "Buscar por nombre, apellidos o DNI...";
+            txtBuscar.LeadingIcon = (Image)resources.GetObject("txtBuscar.LeadingIcon");
+            txtBuscar.Location = new Point(513, 39);
+            txtBuscar.MaxLength = 50;
+            txtBuscar.MouseState = MaterialSkin.MouseState.OUT;
+            txtBuscar.Multiline = false;
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(324, 50);
+            txtBuscar.TabIndex = 7;
+            txtBuscar.Text = "";
+            txtBuscar.TrailingIcon = null;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(180, 180, 200);
-            lblTitulo.Location = new Point(24, 39);
+            lblTitulo.Location = new Point(22, 22);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(258, 37);
             lblTitulo.TabIndex = 3;
             lblTitulo.Text = "Listado Empleados";
             // 
-            // btnEliminar
+            // dgvEmpleados
             // 
-            btnEliminar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnEliminar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnEliminar.Depth = 0;
-            btnEliminar.HighEmphasis = true;
-            btnEliminar.Icon = (Image)resources.GetObject("btnEliminar.Icon");
-            btnEliminar.Location = new Point(421, 40);
-            btnEliminar.Margin = new Padding(4);
-            btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.NoAccentTextColor = Color.Empty;
-            btnEliminar.Size = new Size(197, 36);
-            btnEliminar.TabIndex = 2;
-            btnEliminar.Text = "Eliminar Empleado";
-            btnEliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnEliminar.UseAccentColor = false;
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
+            dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEmpleados.BackgroundColor = Color.White;
+            dgvEmpleados.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -138,98 +164,36 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, apellidosDataGridViewTextBoxColumn, departamentoDataGridViewTextBoxColumn, rolDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = empleadoBindingSource;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(24, 108);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(594, 316);
-            dataGridView1.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // apellidosDataGridViewTextBoxColumn
-            // 
-            apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
-            apellidosDataGridViewTextBoxColumn.HeaderText = "Apellidos";
-            apellidosDataGridViewTextBoxColumn.MinimumWidth = 6;
-            apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
-            // 
-            // departamentoDataGridViewTextBoxColumn
-            // 
-            departamentoDataGridViewTextBoxColumn.DataPropertyName = "Departamento";
-            departamentoDataGridViewTextBoxColumn.HeaderText = "Departamento";
-            departamentoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            departamentoDataGridViewTextBoxColumn.Name = "departamentoDataGridViewTextBoxColumn";
-            // 
-            // rolDataGridViewTextBoxColumn
-            // 
-            rolDataGridViewTextBoxColumn.DataPropertyName = "Rol";
-            rolDataGridViewTextBoxColumn.HeaderText = "Rol";
-            rolDataGridViewTextBoxColumn.MinimumWidth = 6;
-            rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
-            // 
-            // empleadoBindingSource
-            // 
-            empleadoBindingSource.DataSource = typeof(models.Empleado);
-            // 
-            // btnAdd
-            // 
-            btnAdd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnAdd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnAdd.Depth = 0;
-            btnAdd.HighEmphasis = true;
-            btnAdd.Icon = (Image)resources.GetObject("btnAdd.Icon");
-            btnAdd.Location = new Point(472, 475);
-            btnAdd.Margin = new Padding(4);
-            btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
-            btnAdd.Name = "btnAdd";
-            btnAdd.NoAccentTextColor = Color.Empty;
-            btnAdd.Size = new Size(183, 36);
-            btnAdd.TabIndex = 1;
-            btnAdd.Text = "Añadir Empleado";
-            btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnAdd.UseAccentColor = false;
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
+            dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEmpleados.EnableHeadersVisualStyles = false;
+            dgvEmpleados.Location = new Point(15, 121);
+            dgvEmpleados.Margin = new Padding(3, 2, 3, 2);
+            dgvEmpleados.Name = "dgvEmpleados";
+            dgvEmpleados.RowHeadersWidth = 51;
+            dgvEmpleados.Size = new Size(1280, 235);
+            dgvEmpleados.TabIndex = 0;
             // 
             // materialCard2
             // 
             materialCard2.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard2.Controls.Add(txtNumSS);
-            materialCard2.Controls.Add(lblAntiguedad);
-            materialCard2.Controls.Add(nudAntiguedad);
-            materialCard2.Controls.Add(cmbCatProfesional);
-            materialCard2.Controls.Add(lblCatProfesional);
+            materialCard2.Controls.Add(btnAdd);
+            materialCard2.Controls.Add(label2);
             materialCard2.Controls.Add(cmbTipoContrato);
+            materialCard2.Controls.Add(cmbCatProfesional);
+            materialCard2.Controls.Add(cmbDepartamento);
+            materialCard2.Controls.Add(comboBoxRol);
+            materialCard2.Controls.Add(txtSalario);
+            materialCard2.Controls.Add(txtEmail);
+            materialCard2.Controls.Add(txtApellidos);
+            materialCard2.Controls.Add(txtNumSS);
+            materialCard2.Controls.Add(txtDni);
+            materialCard2.Controls.Add(txtNombre);
+            materialCard2.Controls.Add(lblCatProfesional);
             materialCard2.Controls.Add(lblTipoContrato);
             materialCard2.Controls.Add(lblNSS);
-            materialCard2.Controls.Add(btnAdd);
-            materialCard2.Controls.Add(comboBoxRol);
-            materialCard2.Controls.Add(txtDepartamento);
             materialCard2.Controls.Add(dateFechaNacimiento);
-            materialCard2.Controls.Add(txtSalario);
             materialCard2.Controls.Add(txtTelefono);
-            materialCard2.Controls.Add(txtEmail);
-            materialCard2.Controls.Add(txtDni);
-            materialCard2.Controls.Add(txtApellidos);
-            materialCard2.Controls.Add(txtNombre);
             materialCard2.Controls.Add(lblSalario);
             materialCard2.Controls.Add(lblEmail);
             materialCard2.Controls.Add(lblTelefono);
@@ -241,120 +205,127 @@
             materialCard2.Controls.Add(lblNombre);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(684, 10);
+            materialCard2.Location = new Point(14, 478);
             materialCard2.Margin = new Padding(12, 10, 12, 10);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
             materialCard2.Padding = new Padding(12, 10, 12, 10);
-            materialCard2.Size = new Size(697, 607);
+            materialCard2.Size = new Size(1339, 357);
             materialCard2.TabIndex = 1;
             // 
-            // txtNumSS
+            // btnAdd
             // 
-            txtNumSS.AnimateReadOnly = false;
-            txtNumSS.BackgroundImageLayout = ImageLayout.None;
-            txtNumSS.CharacterCasing = CharacterCasing.Normal;
-            txtNumSS.Depth = 0;
-            txtNumSS.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtNumSS.HideSelection = true;
-            txtNumSS.LeadingIcon = null;
-            txtNumSS.Location = new Point(128, 463);
-            txtNumSS.Margin = new Padding(3, 2, 3, 2);
-            txtNumSS.MaxLength = 32767;
-            txtNumSS.MouseState = MaterialSkin.MouseState.OUT;
-            txtNumSS.Name = "txtNumSS";
-            txtNumSS.PasswordChar = '\0';
-            txtNumSS.PrefixSuffixText = "€";
-            txtNumSS.ReadOnly = false;
-            txtNumSS.RightToLeft = RightToLeft.No;
-            txtNumSS.SelectedText = "";
-            txtNumSS.SelectionLength = 0;
-            txtNumSS.SelectionStart = 0;
-            txtNumSS.ShortcutsEnabled = true;
-            txtNumSS.Size = new Size(199, 48);
-            txtNumSS.TabIndex = 27;
-            txtNumSS.TabStop = false;
-            txtNumSS.TextAlign = HorizontalAlignment.Left;
-            txtNumSS.TrailingIcon = null;
-            txtNumSS.UseSystemPasswordChar = false;
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.Location = new Point(1046, 284);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(215, 50);
+            btnAdd.TabIndex = 40;
+            btnAdd.Text = "Añadir Empleado";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // lblAntiguedad
+            // label2
             // 
-            lblAntiguedad.AutoSize = true;
-            lblAntiguedad.Location = new Point(375, 389);
-            lblAntiguedad.Name = "lblAntiguedad";
-            lblAntiguedad.Size = new Size(69, 15);
-            lblAntiguedad.TabIndex = 26;
-            lblAntiguedad.Text = "Antiguedad";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(180, 180, 200);
+            label2.Location = new Point(22, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(324, 37);
+            label2.TabIndex = 39;
+            label2.Text = "Añadir nuevo Empleado";
             // 
-            // nudAntiguedad
+            // cmbTipoContrato
             // 
-            nudAntiguedad.Location = new Point(503, 381);
-            nudAntiguedad.Name = "nudAntiguedad";
-            nudAntiguedad.Size = new Size(121, 23);
-            nudAntiguedad.TabIndex = 25;
+            cmbTipoContrato.FormattingEnabled = true;
+            cmbTipoContrato.Items.AddRange(new object[] { "Contrato Indefinido", "Contrato Fijo-Discontinuo", "Contrato Temporal", "Contrato de Prácticas" });
+            cmbTipoContrato.Location = new Point(1116, 93);
+            cmbTipoContrato.Name = "cmbTipoContrato";
+            cmbTipoContrato.Size = new Size(199, 23);
+            cmbTipoContrato.TabIndex = 38;
             // 
             // cmbCatProfesional
             // 
-            cmbCatProfesional.AutoResize = false;
-            cmbCatProfesional.BackColor = Color.FromArgb(255, 255, 255);
-            cmbCatProfesional.Depth = 0;
-            cmbCatProfesional.DrawMode = DrawMode.OwnerDrawVariable;
-            cmbCatProfesional.DropDownHeight = 174;
-            cmbCatProfesional.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCatProfesional.DropDownWidth = 121;
-            cmbCatProfesional.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cmbCatProfesional.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cmbCatProfesional.FormattingEnabled = true;
-            cmbCatProfesional.IntegralHeight = false;
-            cmbCatProfesional.ItemHeight = 43;
             cmbCatProfesional.Items.AddRange(new object[] { "Técnico", "Administrativo", "Operario", "Directivo", "Comercial" });
-            cmbCatProfesional.Location = new Point(472, 305);
-            cmbCatProfesional.Margin = new Padding(3, 2, 3, 2);
-            cmbCatProfesional.MaxDropDownItems = 4;
-            cmbCatProfesional.MouseState = MaterialSkin.MouseState.OUT;
+            cmbCatProfesional.Location = new Point(1116, 154);
             cmbCatProfesional.Name = "cmbCatProfesional";
-            cmbCatProfesional.Size = new Size(199, 49);
-            cmbCatProfesional.StartIndex = 0;
-            cmbCatProfesional.TabIndex = 24;
+            cmbCatProfesional.Size = new Size(199, 23);
+            cmbCatProfesional.TabIndex = 37;
+            // 
+            // cmbDepartamento
+            // 
+            cmbDepartamento.FormattingEnabled = true;
+            cmbDepartamento.Location = new Point(755, 158);
+            cmbDepartamento.Name = "cmbDepartamento";
+            cmbDepartamento.Size = new Size(199, 23);
+            cmbDepartamento.TabIndex = 36;
+            // 
+            // comboBoxRol
+            // 
+            comboBoxRol.FormattingEnabled = true;
+            comboBoxRol.Items.AddRange(new object[] { "Empleado", "Administrador" });
+            comboBoxRol.Location = new Point(755, 230);
+            comboBoxRol.Name = "comboBoxRol";
+            comboBoxRol.Size = new Size(199, 23);
+            comboBoxRol.TabIndex = 35;
+            // 
+            // txtSalario
+            // 
+            txtSalario.Location = new Point(411, 236);
+            txtSalario.Name = "txtSalario";
+            txtSalario.Size = new Size(199, 23);
+            txtSalario.TabIndex = 34;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(411, 158);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(199, 23);
+            txtEmail.TabIndex = 33;
+            // 
+            // txtApellidos
+            // 
+            txtApellidos.Location = new Point(103, 150);
+            txtApellidos.Name = "txtApellidos";
+            txtApellidos.Size = new Size(199, 23);
+            txtApellidos.TabIndex = 32;
+            // 
+            // txtNumSS
+            // 
+            txtNumSS.Location = new Point(1116, 224);
+            txtNumSS.Name = "txtNumSS";
+            txtNumSS.Size = new Size(199, 23);
+            txtNumSS.TabIndex = 31;
+            // 
+            // txtDni
+            // 
+            txtDni.Location = new Point(103, 224);
+            txtDni.Name = "txtDni";
+            txtDni.Size = new Size(199, 23);
+            txtDni.TabIndex = 30;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(103, 89);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(199, 23);
+            txtNombre.TabIndex = 28;
             // 
             // lblCatProfesional
             // 
             lblCatProfesional.AutoSize = true;
-            lblCatProfesional.Location = new Point(333, 317);
+            lblCatProfesional.Location = new Point(975, 153);
             lblCatProfesional.Name = "lblCatProfesional";
             lblCatProfesional.Size = new Size(120, 15);
             lblCatProfesional.TabIndex = 23;
             lblCatProfesional.Text = "Categoría Profesional";
             // 
-            // cmbTipoContrato
-            // 
-            cmbTipoContrato.AutoResize = false;
-            cmbTipoContrato.BackColor = Color.FromArgb(255, 255, 255);
-            cmbTipoContrato.Depth = 0;
-            cmbTipoContrato.DrawMode = DrawMode.OwnerDrawVariable;
-            cmbTipoContrato.DropDownHeight = 174;
-            cmbTipoContrato.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTipoContrato.DropDownWidth = 121;
-            cmbTipoContrato.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cmbTipoContrato.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cmbTipoContrato.FormattingEnabled = true;
-            cmbTipoContrato.IntegralHeight = false;
-            cmbTipoContrato.ItemHeight = 43;
-            cmbTipoContrato.Items.AddRange(new object[] { "Contrato Indefinido", "Contrato Fijo-Discontinuo", "Contrato Temporal por Circunstancias de la Producción", "Contrato Temporal por Sustitución" });
-            cmbTipoContrato.Location = new Point(472, 248);
-            cmbTipoContrato.Margin = new Padding(3, 2, 3, 2);
-            cmbTipoContrato.MaxDropDownItems = 4;
-            cmbTipoContrato.MouseState = MaterialSkin.MouseState.OUT;
-            cmbTipoContrato.Name = "cmbTipoContrato";
-            cmbTipoContrato.Size = new Size(199, 49);
-            cmbTipoContrato.StartIndex = 0;
-            cmbTipoContrato.TabIndex = 22;
-            // 
             // lblTipoContrato
             // 
             lblTipoContrato.AutoSize = true;
-            lblTipoContrato.Location = new Point(363, 261);
+            lblTipoContrato.Location = new Point(1005, 97);
             lblTipoContrato.Name = "lblTipoContrato";
             lblTipoContrato.Size = new Size(81, 15);
             lblTipoContrato.TabIndex = 21;
@@ -363,96 +334,20 @@
             // lblNSS
             // 
             lblNSS.AutoSize = true;
-            lblNSS.Location = new Point(17, 487);
+            lblNSS.Location = new Point(1046, 232);
             lblNSS.Name = "lblNSS";
             lblNSS.Size = new Size(36, 15);
             lblNSS.TabIndex = 19;
             lblNSS.Text = "Nº SS";
             // 
-            // comboBoxRol
-            // 
-            comboBoxRol.AutoResize = false;
-            comboBoxRol.BackColor = Color.FromArgb(255, 255, 255);
-            comboBoxRol.Depth = 0;
-            comboBoxRol.DrawMode = DrawMode.OwnerDrawVariable;
-            comboBoxRol.DropDownHeight = 174;
-            comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxRol.DropDownWidth = 121;
-            comboBoxRol.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            comboBoxRol.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            comboBoxRol.FormattingEnabled = true;
-            comboBoxRol.IntegralHeight = false;
-            comboBoxRol.ItemHeight = 43;
-            comboBoxRol.Items.AddRange(new object[] { "Administrador", "Empleado" });
-            comboBoxRol.Location = new Point(128, 375);
-            comboBoxRol.Margin = new Padding(3, 2, 3, 2);
-            comboBoxRol.MaxDropDownItems = 4;
-            comboBoxRol.MouseState = MaterialSkin.MouseState.OUT;
-            comboBoxRol.Name = "comboBoxRol";
-            comboBoxRol.Size = new Size(199, 49);
-            comboBoxRol.StartIndex = 0;
-            comboBoxRol.TabIndex = 18;
-            // 
-            // txtDepartamento
-            // 
-            txtDepartamento.AutoResize = false;
-            txtDepartamento.BackColor = Color.FromArgb(255, 255, 255);
-            txtDepartamento.Depth = 0;
-            txtDepartamento.DrawMode = DrawMode.OwnerDrawVariable;
-            txtDepartamento.DropDownHeight = 174;
-            txtDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtDepartamento.DropDownWidth = 121;
-            txtDepartamento.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            txtDepartamento.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            txtDepartamento.FormattingEnabled = true;
-            txtDepartamento.IntegralHeight = false;
-            txtDepartamento.ItemHeight = 43;
-            txtDepartamento.Location = new Point(128, 305);
-            txtDepartamento.Margin = new Padding(3, 2, 3, 2);
-            txtDepartamento.MaxDropDownItems = 4;
-            txtDepartamento.MouseState = MaterialSkin.MouseState.OUT;
-            txtDepartamento.Name = "txtDepartamento";
-            txtDepartamento.Size = new Size(199, 49);
-            txtDepartamento.StartIndex = 0;
-            txtDepartamento.TabIndex = 17;
-            // 
             // dateFechaNacimiento
             // 
             dateFechaNacimiento.Format = DateTimePickerFormat.Short;
-            dateFechaNacimiento.Location = new Point(128, 253);
+            dateFechaNacimiento.Location = new Point(755, 97);
             dateFechaNacimiento.Margin = new Padding(3, 2, 3, 2);
             dateFechaNacimiento.Name = "dateFechaNacimiento";
             dateFechaNacimiento.Size = new Size(199, 23);
             dateFechaNacimiento.TabIndex = 16;
-            // 
-            // txtSalario
-            // 
-            txtSalario.AnimateReadOnly = false;
-            txtSalario.BackgroundImageLayout = ImageLayout.None;
-            txtSalario.CharacterCasing = CharacterCasing.Normal;
-            txtSalario.Depth = 0;
-            txtSalario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtSalario.HideSelection = true;
-            txtSalario.LeadingIcon = null;
-            txtSalario.Location = new Point(476, 181);
-            txtSalario.Margin = new Padding(3, 2, 3, 2);
-            txtSalario.MaxLength = 32767;
-            txtSalario.MouseState = MaterialSkin.MouseState.OUT;
-            txtSalario.Name = "txtSalario";
-            txtSalario.PasswordChar = '\0';
-            txtSalario.PrefixSuffixText = "€";
-            txtSalario.ReadOnly = false;
-            txtSalario.RightToLeft = RightToLeft.No;
-            txtSalario.SelectedText = "";
-            txtSalario.SelectionLength = 0;
-            txtSalario.SelectionStart = 0;
-            txtSalario.ShortcutsEnabled = true;
-            txtSalario.Size = new Size(199, 48);
-            txtSalario.TabIndex = 15;
-            txtSalario.TabStop = false;
-            txtSalario.TextAlign = HorizontalAlignment.Left;
-            txtSalario.TrailingIcon = null;
-            txtSalario.UseSystemPasswordChar = false;
             // 
             // txtTelefono
             // 
@@ -468,7 +363,7 @@
             txtTelefono.HideSelection = true;
             txtTelefono.InsertKeyMode = InsertKeyMode.Default;
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(472, 33);
+            txtTelefono.Location = new Point(411, 84);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Mask = "000-000-000";
             txtTelefono.MaxLength = 32767;
@@ -497,126 +392,10 @@
             txtTelefono.UseSystemPasswordChar = false;
             txtTelefono.ValidatingType = null;
             // 
-            // txtEmail
-            // 
-            txtEmail.AnimateReadOnly = false;
-            txtEmail.BackgroundImageLayout = ImageLayout.None;
-            txtEmail.CharacterCasing = CharacterCasing.Normal;
-            txtEmail.Depth = 0;
-            txtEmail.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtEmail.HideSelection = true;
-            txtEmail.LeadingIcon = null;
-            txtEmail.Location = new Point(472, 105);
-            txtEmail.Margin = new Padding(3, 2, 3, 2);
-            txtEmail.MaxLength = 32767;
-            txtEmail.MouseState = MaterialSkin.MouseState.OUT;
-            txtEmail.Name = "txtEmail";
-            txtEmail.PasswordChar = '\0';
-            txtEmail.PrefixSuffixText = null;
-            txtEmail.ReadOnly = false;
-            txtEmail.RightToLeft = RightToLeft.No;
-            txtEmail.SelectedText = "";
-            txtEmail.SelectionLength = 0;
-            txtEmail.SelectionStart = 0;
-            txtEmail.ShortcutsEnabled = true;
-            txtEmail.Size = new Size(199, 48);
-            txtEmail.TabIndex = 12;
-            txtEmail.TabStop = false;
-            txtEmail.TextAlign = HorizontalAlignment.Left;
-            txtEmail.TrailingIcon = null;
-            txtEmail.UseSystemPasswordChar = false;
-            // 
-            // txtDni
-            // 
-            txtDni.AnimateReadOnly = false;
-            txtDni.BackgroundImageLayout = ImageLayout.None;
-            txtDni.CharacterCasing = CharacterCasing.Normal;
-            txtDni.Depth = 0;
-            txtDni.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtDni.HideSelection = true;
-            txtDni.LeadingIcon = null;
-            txtDni.Location = new Point(128, 181);
-            txtDni.Margin = new Padding(3, 2, 3, 2);
-            txtDni.MaxLength = 32767;
-            txtDni.MouseState = MaterialSkin.MouseState.OUT;
-            txtDni.Name = "txtDni";
-            txtDni.PasswordChar = '\0';
-            txtDni.PrefixSuffixText = null;
-            txtDni.ReadOnly = false;
-            txtDni.RightToLeft = RightToLeft.No;
-            txtDni.SelectedText = "";
-            txtDni.SelectionLength = 0;
-            txtDni.SelectionStart = 0;
-            txtDni.ShortcutsEnabled = true;
-            txtDni.Size = new Size(199, 48);
-            txtDni.TabIndex = 11;
-            txtDni.TabStop = false;
-            txtDni.TextAlign = HorizontalAlignment.Left;
-            txtDni.TrailingIcon = null;
-            txtDni.UseSystemPasswordChar = false;
-            // 
-            // txtApellidos
-            // 
-            txtApellidos.AnimateReadOnly = false;
-            txtApellidos.BackgroundImageLayout = ImageLayout.None;
-            txtApellidos.CharacterCasing = CharacterCasing.Normal;
-            txtApellidos.Depth = 0;
-            txtApellidos.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtApellidos.HideSelection = true;
-            txtApellidos.LeadingIcon = null;
-            txtApellidos.Location = new Point(128, 105);
-            txtApellidos.Margin = new Padding(3, 2, 3, 2);
-            txtApellidos.MaxLength = 32767;
-            txtApellidos.MouseState = MaterialSkin.MouseState.OUT;
-            txtApellidos.Name = "txtApellidos";
-            txtApellidos.PasswordChar = '\0';
-            txtApellidos.PrefixSuffixText = null;
-            txtApellidos.ReadOnly = false;
-            txtApellidos.RightToLeft = RightToLeft.No;
-            txtApellidos.SelectedText = "";
-            txtApellidos.SelectionLength = 0;
-            txtApellidos.SelectionStart = 0;
-            txtApellidos.ShortcutsEnabled = true;
-            txtApellidos.Size = new Size(199, 48);
-            txtApellidos.TabIndex = 10;
-            txtApellidos.TabStop = false;
-            txtApellidos.TextAlign = HorizontalAlignment.Left;
-            txtApellidos.TrailingIcon = null;
-            txtApellidos.UseSystemPasswordChar = false;
-            // 
-            // txtNombre
-            // 
-            txtNombre.AnimateReadOnly = false;
-            txtNombre.BackgroundImageLayout = ImageLayout.None;
-            txtNombre.CharacterCasing = CharacterCasing.Normal;
-            txtNombre.Depth = 0;
-            txtNombre.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtNombre.HideSelection = true;
-            txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(128, 33);
-            txtNombre.Margin = new Padding(3, 2, 3, 2);
-            txtNombre.MaxLength = 32767;
-            txtNombre.MouseState = MaterialSkin.MouseState.OUT;
-            txtNombre.Name = "txtNombre";
-            txtNombre.PasswordChar = '\0';
-            txtNombre.PrefixSuffixText = null;
-            txtNombre.ReadOnly = false;
-            txtNombre.RightToLeft = RightToLeft.No;
-            txtNombre.SelectedText = "";
-            txtNombre.SelectionLength = 0;
-            txtNombre.SelectionStart = 0;
-            txtNombre.ShortcutsEnabled = true;
-            txtNombre.Size = new Size(199, 48);
-            txtNombre.TabIndex = 9;
-            txtNombre.TabStop = false;
-            txtNombre.TextAlign = HorizontalAlignment.Left;
-            txtNombre.TrailingIcon = null;
-            txtNombre.UseSystemPasswordChar = false;
-            // 
             // lblSalario
             // 
             lblSalario.AutoSize = true;
-            lblSalario.Location = new Point(375, 188);
+            lblSalario.Location = new Point(341, 235);
             lblSalario.Name = "lblSalario";
             lblSalario.Size = new Size(42, 15);
             lblSalario.TabIndex = 8;
@@ -625,7 +404,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(375, 110);
+            lblEmail.Location = new Point(341, 157);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(36, 15);
             lblEmail.TabIndex = 7;
@@ -634,7 +413,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(375, 46);
+            lblTelefono.Location = new Point(341, 93);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(53, 15);
             lblTelefono.TabIndex = 6;
@@ -643,7 +422,7 @@
             // lblRol
             // 
             lblRol.AutoSize = true;
-            lblRol.Location = new Point(17, 389);
+            lblRol.Location = new Point(674, 238);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(24, 15);
             lblRol.TabIndex = 5;
@@ -652,7 +431,7 @@
             // lblDepartamento
             // 
             lblDepartamento.AutoSize = true;
-            lblDepartamento.Location = new Point(17, 317);
+            lblDepartamento.Location = new Point(642, 157);
             lblDepartamento.Name = "lblDepartamento";
             lblDepartamento.Size = new Size(83, 15);
             lblDepartamento.TabIndex = 4;
@@ -661,7 +440,7 @@
             // lblFechaNac
             // 
             lblFechaNac.AutoSize = true;
-            lblFechaNac.Location = new Point(17, 253);
+            lblFechaNac.Location = new Point(642, 93);
             lblFechaNac.Name = "lblFechaNac";
             lblFechaNac.Size = new Size(103, 15);
             lblFechaNac.TabIndex = 3;
@@ -670,7 +449,7 @@
             // lblDni
             // 
             lblDni.AutoSize = true;
-            lblDni.Location = new Point(17, 188);
+            lblDni.Location = new Point(15, 238);
             lblDni.Name = "lblDni";
             lblDni.Size = new Size(27, 15);
             lblDni.TabIndex = 2;
@@ -679,7 +458,7 @@
             // lblApellidos
             // 
             lblApellidos.AutoSize = true;
-            lblApellidos.Location = new Point(17, 110);
+            lblApellidos.Location = new Point(15, 160);
             lblApellidos.Name = "lblApellidos";
             lblApellidos.Size = new Size(56, 15);
             lblApellidos.TabIndex = 1;
@@ -688,60 +467,53 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(17, 46);
+            lblNombre.Location = new Point(15, 96);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre";
             // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(materialCard1);
-            panel1.Controls.Add(materialCard2);
-            panel1.Location = new Point(11, 13);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1400, 627);
-            panel1.TabIndex = 2;
-            // 
             // UCEmpleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoValidate = AutoValidate.EnableAllowFocusChange;
             Controls.Add(panel1);
-            ForeColor = Color.White;
-            Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(1000, 650);
             Name = "UCEmpleados";
             Padding = new Padding(20);
-            Size = new Size(1424, 650);
+            Size = new Size(1411, 1008);
+            panel1.ResumeLayout(false);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             materialCard2.ResumeLayout(false);
             materialCard2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudAntiguedad).EndInit();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
+        private Panel panel1;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private DataGridView dataGridView1;
-        private BindingSource empleadoBindingSource;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn departamentoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn rolDataGridViewTextBoxColumn;
-        private MaterialSkin.Controls.MaterialButton btnAdd;
-        private MaterialSkin.Controls.MaterialButton btnEliminar;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private Label lblTitulo;
+        private DataGridView dgvEmpleados;
         private MaterialSkin.Controls.MaterialCard materialCard2;
+        private ComboBox cmbTipoContrato;
+        private ComboBox cmbCatProfesional;
+        private ComboBox cmbDepartamento;
+        private ComboBox comboBoxRol;
+        private TextBox txtSalario;
+        private TextBox txtEmail;
+        private TextBox txtApellidos;
+        private TextBox txtNumSS;
+        private TextBox txtDni;
+        private TextBox txtNombre;
+        private Label lblCatProfesional;
+        private Label lblTipoContrato;
+        private Label lblNSS;
+        private DateTimePicker dateFechaNacimiento;
+        private MaterialSkin.Controls.MaterialMaskedTextBox txtTelefono;
+        private Label lblSalario;
+        private Label lblEmail;
         private Label lblTelefono;
         private Label lblRol;
         private Label lblDepartamento;
@@ -749,26 +521,10 @@
         private Label lblDni;
         private Label lblApellidos;
         private Label lblNombre;
-        private Label lblSalario;
-        private Label lblEmail;
-        private DateTimePicker dateFechaNacimiento;
-        private MaterialSkin.Controls.MaterialTextBox2 txtSalario;
-        private MaterialSkin.Controls.MaterialMaskedTextBox txtTelefono;
-        private MaterialSkin.Controls.MaterialTextBox2 txtEmail;
-        private MaterialSkin.Controls.MaterialTextBox2 txtDni;
-        private MaterialSkin.Controls.MaterialTextBox2 txtApellidos;
-        private MaterialSkin.Controls.MaterialTextBox2 txtNombre;
-        private MaterialSkin.Controls.MaterialComboBox comboBoxRol;
-        private MaterialSkin.Controls.MaterialComboBox txtDepartamento;
-        private Label lblTitulo;
-        private Panel panel1;
-        private Label lblNSS;
-        private Label lblTipoContrato;
-        private MaterialSkin.Controls.MaterialComboBox cmbTipoContrato;
-        private MaterialSkin.Controls.MaterialComboBox cmbCatProfesional;
-        private Label lblCatProfesional;
-        private Label lblAntiguedad;
-        private NumericUpDown nudAntiguedad;
-        private MaterialSkin.Controls.MaterialTextBox2 txtNumSS;
+        private Label label1;
+        private MaterialSkin.Controls.MaterialTextBox txtBuscar;
+        private Label label2;
+        private Button btnEliminar;
+        private Button btnAdd;
     }
 }

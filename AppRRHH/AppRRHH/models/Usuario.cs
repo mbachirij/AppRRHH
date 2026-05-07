@@ -19,6 +19,8 @@ namespace AppRRHH.models
         [MaxLength(20)]
         public string Rol { get; set; }
 
+        public bool CambiarContrasena { get; set; }
+
         public int EmpleadoId { get; set; }
 
         public Empleado Empleado { get; set; }

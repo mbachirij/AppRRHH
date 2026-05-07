@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelCentrado = new Panel();
+            label2 = new Label();
             label1 = new Label();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             dgvHistorial = new DataGridView();
@@ -48,22 +49,34 @@
             // 
             // panelCentrado
             // 
-            panelCentrado.Anchor = AnchorStyles.None;
+            panelCentrado.Controls.Add(label2);
             panelCentrado.Controls.Add(label1);
             panelCentrado.Controls.Add(materialCard2);
             panelCentrado.Controls.Add(materialCard1);
             panelCentrado.Controls.Add(lblDiasDisponibles);
-            panelCentrado.Location = new Point(14, 16);
+            panelCentrado.Location = new Point(10, 10);
             panelCentrado.Name = "panelCentrado";
-            panelCentrado.Size = new Size(1054, 551);
+            panelCentrado.Size = new Size(1396, 962);
             panelCentrado.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(88, 101, 242);
+            label2.Location = new Point(19, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(1339, 68);
+            label2.TabIndex = 9;
+            label2.Text = "Gestión de Vacaciones";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(88, 101, 242);
-            label1.Location = new Point(30, 20);
+            label1.Location = new Point(169, 165);
             label1.Name = "label1";
             label1.Size = new Size(229, 41);
             label1.TabIndex = 8;
@@ -75,7 +88,7 @@
             materialCard2.Controls.Add(dgvHistorial);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(540, 130);
+            materialCard2.Location = new Point(679, 275);
             materialCard2.Margin = new Padding(14);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
@@ -103,7 +116,7 @@
             materialCard1.Controls.Add(lblTitulo);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(30, 130);
+            materialCard1.Location = new Point(169, 275);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -172,7 +185,7 @@
             // 
             lblDiasDisponibles.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDiasDisponibles.ForeColor = Color.FromArgb(88, 101, 242);
-            lblDiasDisponibles.Location = new Point(230, 70);
+            lblDiasDisponibles.Location = new Point(369, 215);
             lblDiasDisponibles.Name = "lblDiasDisponibles";
             lblDiasDisponibles.Size = new Size(600, 40);
             lblDiasDisponibles.TabIndex = 0;
@@ -185,7 +198,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelCentrado);
             Name = "UCVacacionesEmpleado";
-            Size = new Size(1091, 583);
+            Size = new Size(1411, 1008);
             panelCentrado.ResumeLayout(false);
             panelCentrado.PerformLayout();
             materialCard2.ResumeLayout(false);
@@ -209,5 +222,6 @@
         private DateTimePicker dtpFin;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Label label1;
+        private Label label2;
     }
 }

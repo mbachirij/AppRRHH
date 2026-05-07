@@ -1,4 +1,4 @@
-﻿namespace AppRRHH.views.Empleado
+﻿namespace AppRRHH.views.vistasEmpleado
 {
     partial class FormEmpleado
     {
@@ -164,6 +164,7 @@
             btnNominas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnNominas.UseAccentColor = false;
             btnNominas.UseVisualStyleBackColor = true;
+            btnNominas.Click += btnNominas_Click;
             // 
             // btnYo
             // 
