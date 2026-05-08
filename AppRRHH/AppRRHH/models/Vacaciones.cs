@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppRRHH.models
 {
@@ -16,6 +17,7 @@ namespace AppRRHH.models
         public int DiasDisponibles { get; set; }
         public int EmpleadoId { get; set; }
         // Navegación hacia Empleado
+        [ForeignKey("EmpleadoId")]
         public Empleado Empleado { get; set; }
     }
 }

@@ -69,9 +69,11 @@ namespace AppRRHH.models
 
         // Relaciones
         public int EmpleadoId { get; set; }
+        [ForeignKey("EmpleadoId")]
         public Empleado Empleado { get; set; }
 
         public int EmpresaId { get; set; }
+        [ForeignKey("EmpresaId")]
         public Empresa Empresa { get; set; }
     }
 }

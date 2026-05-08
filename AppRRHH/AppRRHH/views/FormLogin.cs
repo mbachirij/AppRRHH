@@ -49,13 +49,6 @@ namespace AppRRHH.views
                     return;
                 }
 
-                // Compruebo si tiene que cambiar la contraseña
-                if (usuario.CambiarContrasena)
-                {
-                    MessageBox.Show("Por seguridad tienes que cambiar tu contraseña al entrar por primera vez.", 
-                        "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
                 // Redirigir según rol
                 if (usuario.Rol == "Administrador")
                 {
@@ -66,6 +59,16 @@ namespace AppRRHH.views
                     FormAdmin formAdmin = new FormAdmin();
                     formAdmin.Show();
                     this.Hide();
+
+                    // Compruebo si tiene que cambiar la contraseña
+                    if (!usuario.CambiarContrasena)
+                    {
+                        MessageBox.Show("Por seguridad tienes que cambiar tu contraseña al entrar por primera vez.",
+                            "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        FormCambiarContrasena frmCambio = new FormCambiarContrasena();
+                        frmCambio.ShowDialog();
+                    }
                 }
                 else
                 {
@@ -76,6 +79,16 @@ namespace AppRRHH.views
                     FormEmpleado formEmpleado = new FormEmpleado();
                     formEmpleado.Show();
                     this.Hide();
+
+                    // Compruebo si tiene que cambiar la contraseña
+                    if (!usuario.CambiarContrasena)
+                    {
+                        MessageBox.Show("Por seguridad tienes que cambiar tu contraseña al entrar por primera vez.",
+                            "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        FormCambiarContrasena frmCambio = new FormCambiarContrasena();
+                        frmCambio.ShowDialog();
+                    }
                 }
 
                 this.Hide();

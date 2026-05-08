@@ -217,6 +217,15 @@ namespace AppRRHH.views.vistasAdmin
 
             using (var db = new AppDbContext())
             {
+
+                // Compruebo si existe una empresa en la bd
+                if (!db.Empresas.Any())
+                {
+                    MessageBox.Show("No hay datos de empresa. Por favor, ingresa los datos de la empresa antes de guardar la nómina.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // compruebo si ya existe nómina para ese empleado y mes
                 bool yaExiste = db.Nominas.Any(n =>
                     n.EmpleadoId == nominaCalculada.EmpleadoId &&

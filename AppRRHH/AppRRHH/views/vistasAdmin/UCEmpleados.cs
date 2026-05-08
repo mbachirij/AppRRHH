@@ -94,7 +94,6 @@ namespace AppRRHH.views.vistasAdmin
                 db.Empleados.Add(nuevoEmpleado);
                 db.SaveChanges();
 
-
                 // creo el usuario para el nuevo empleado
                 Usuario nuevoUsuario = new Usuario
                 {
@@ -102,7 +101,8 @@ namespace AppRRHH.views.vistasAdmin
                     Email = nuevoEmpleado.Email.ToLower(),
                     Contrasena = BCrypt.Net.BCrypt.HashPassword("1234"), // le asigno una contraseña temporal hasheada
                     Rol = nuevoEmpleado.Rol,
-                    Empleado = nuevoEmpleado
+                    Empleado = nuevoEmpleado,
+                    CambiarContrasena = false
                 };
 
                 // Guardo el nuevo usuario en la base de datos

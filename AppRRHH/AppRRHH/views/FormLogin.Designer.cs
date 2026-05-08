@@ -140,7 +140,7 @@
             txtPassword.Size = new Size(280, 48);
             txtPassword.TabIndex = 2;
             txtPassword.TabStop = false;
-            txtPassword.Text = "admin123";
+            txtPassword.Text = "admin1234";
             txtPassword.TextAlign = HorizontalAlignment.Left;
             txtPassword.TrailingIcon = null;
             txtPassword.UseSystemPasswordChar = false;

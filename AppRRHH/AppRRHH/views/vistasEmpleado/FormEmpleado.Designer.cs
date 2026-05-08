@@ -121,6 +121,7 @@
             btnConfiguracion.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnConfiguracion.UseAccentColor = false;
             btnConfiguracion.UseVisualStyleBackColor = true;
+            btnConfiguracion.Click += btnConfiguracion_Click;
             // 
             // btnVacaciones
             // 
