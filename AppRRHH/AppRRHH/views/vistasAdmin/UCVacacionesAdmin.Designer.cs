@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCVacacionesAdmin));
             panelContenido = new Panel();
+            label2 = new Label();
             lblHistorial = new Label();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             dgvHistorial = new DataGridView();
@@ -40,7 +41,6 @@
             btnAprobar = new Button();
             dgvPendientes = new DataGridView();
             lblSoliciPend = new Label();
-            label2 = new Label();
             panelContenido.SuspendLayout();
             materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
@@ -50,24 +50,38 @@
             // 
             // panelContenido
             // 
+            panelContenido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelContenido.AutoScroll = true;
+            panelContenido.BackColor = Color.Transparent;
             panelContenido.Controls.Add(label2);
             panelContenido.Controls.Add(lblHistorial);
             panelContenido.Controls.Add(materialCard2);
             panelContenido.Controls.Add(lblTitulo);
             panelContenido.Controls.Add(materialCard1);
-            panelContenido.Location = new Point(10, 10);
+            panelContenido.Location = new Point(0, 10);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(1396, 962);
+            panelContenido.Size = new Size(1411, 962);
             panelContenido.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(30, 41, 59);
+            label2.Location = new Point(0, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(1411, 80);
+            label2.TabIndex = 4;
+            label2.Text = "Gestión de Vacaciones";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblHistorial
             // 
             lblHistorial.AutoSize = true;
-            lblHistorial.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHistorial.ForeColor = Color.White;
+            lblHistorial.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
+            lblHistorial.ForeColor = Color.FromArgb(30, 41, 59);
             lblHistorial.Location = new Point(736, 156);
             lblHistorial.Name = "lblHistorial";
-            lblHistorial.Size = new Size(139, 41);
+            lblHistorial.Size = new Size(160, 47);
             lblHistorial.TabIndex = 3;
             lblHistorial.Text = "Historial";
             // 
@@ -108,11 +122,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(30, 41, 59);
             lblTitulo.Location = new Point(144, 156);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(332, 41);
+            lblTitulo.Size = new Size(387, 47);
             lblTitulo.TabIndex = 1;
             lblTitulo.Text = "Solicitudes Vacaciones";
             // 
@@ -139,7 +153,7 @@
             btnRechazar.ImageAlign = ContentAlignment.MiddleLeft;
             btnRechazar.Location = new Point(17, 340);
             btnRechazar.Name = "btnRechazar";
-            btnRechazar.Size = new Size(125, 37);
+            btnRechazar.Size = new Size(146, 41);
             btnRechazar.TabIndex = 3;
             btnRechazar.Text = "Rechazar";
             btnRechazar.UseVisualStyleBackColor = true;
@@ -149,9 +163,9 @@
             // 
             btnAprobar.Image = (Image)resources.GetObject("btnAprobar.Image");
             btnAprobar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAprobar.Location = new Point(292, 340);
+            btnAprobar.Location = new Point(271, 340);
             btnAprobar.Name = "btnAprobar";
-            btnAprobar.Size = new Size(125, 37);
+            btnAprobar.Size = new Size(146, 41);
             btnAprobar.TabIndex = 2;
             btnAprobar.Text = "Aprobar";
             btnAprobar.UseVisualStyleBackColor = true;
@@ -176,22 +190,12 @@
             lblSoliciPend.TabIndex = 0;
             lblSoliciPend.Text = "Solicitudes Pendientes";
             // 
-            // label2
-            // 
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(88, 101, 242);
-            label2.Location = new Point(14, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(1339, 68);
-            label2.TabIndex = 4;
-            label2.Text = "Gestión de Vacaciones";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // UCVacacionesAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(panelContenido);
             Name = "UCVacacionesAdmin";
             Size = new Size(1411, 1008);

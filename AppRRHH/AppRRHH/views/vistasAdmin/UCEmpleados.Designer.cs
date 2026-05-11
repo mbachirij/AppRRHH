@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCEmpleados));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -72,23 +72,24 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(materialCard1);
             panel1.Controls.Add(materialCard2);
-            panel1.Location = new Point(10, 10);
+            panel1.Location = new Point(0, 10);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1396, 962);
+            panel1.Size = new Size(1411, 962);
             panel1.TabIndex = 3;
             // 
             // label1
             // 
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(88, 101, 242);
-            label1.Location = new Point(14, 12);
+            label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(30, 41, 59);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1339, 68);
+            label1.Size = new Size(1411, 80);
             label1.TabIndex = 2;
             label1.Text = "Gestión de Empleados";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -102,7 +103,7 @@
             materialCard1.Controls.Add(dgvEmpleados);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(14, 90);
+            materialCard1.Location = new Point(40, 116);
             materialCard1.Margin = new Padding(12, 10, 12, 10);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -112,14 +113,16 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
+            btnEliminar.BackColor = Color.FromArgb(212, 18, 142);
+            btnEliminar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = Color.White;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEliminar.Location = new Point(1080, 39);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(215, 50);
-            btnEliminar.TabIndex = 8;
-            btnEliminar.Text = "Eliminar Empleado";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.TabIndex = 2;
+            btnEliminar.Text = "ELIMINAR EMPLEADO";
+            btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // txtBuscar
@@ -136,7 +139,7 @@
             txtBuscar.Multiline = false;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(324, 50);
-            txtBuscar.TabIndex = 7;
+            txtBuscar.TabIndex = 1;
             txtBuscar.Text = "";
             txtBuscar.TrailingIcon = null;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
@@ -157,14 +160,14 @@
             dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEmpleados.BackgroundColor = Color.White;
             dgvEmpleados.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dgvEmpleados.Location = new Point(15, 121);
@@ -205,7 +208,7 @@
             materialCard2.Controls.Add(lblNombre);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(14, 478);
+            materialCard2.Location = new Point(40, 504);
             materialCard2.Margin = new Padding(12, 10, 12, 10);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
@@ -215,14 +218,16 @@
             // 
             // btnAdd
             // 
-            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.BackColor = Color.FromArgb(212, 18, 142);
+            btnAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(1046, 284);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(215, 50);
-            btnAdd.TabIndex = 40;
-            btnAdd.Text = "Añadir Empleado";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.TabIndex = 15;
+            btnAdd.Text = "AÑADIR EMPLEADO";
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // label2
@@ -240,83 +245,83 @@
             // 
             cmbTipoContrato.FormattingEnabled = true;
             cmbTipoContrato.Items.AddRange(new object[] { "Contrato Indefinido", "Contrato Fijo-Discontinuo", "Contrato Temporal", "Contrato de Prácticas" });
-            cmbTipoContrato.Location = new Point(1116, 93);
+            cmbTipoContrato.Location = new Point(1116, 98);
             cmbTipoContrato.Name = "cmbTipoContrato";
             cmbTipoContrato.Size = new Size(199, 23);
-            cmbTipoContrato.TabIndex = 38;
+            cmbTipoContrato.TabIndex = 12;
             // 
             // cmbCatProfesional
             // 
             cmbCatProfesional.FormattingEnabled = true;
             cmbCatProfesional.Items.AddRange(new object[] { "Técnico", "Administrativo", "Operario", "Directivo", "Comercial" });
-            cmbCatProfesional.Location = new Point(1116, 154);
+            cmbCatProfesional.Location = new Point(1116, 151);
             cmbCatProfesional.Name = "cmbCatProfesional";
             cmbCatProfesional.Size = new Size(199, 23);
-            cmbCatProfesional.TabIndex = 37;
+            cmbCatProfesional.TabIndex = 13;
             // 
             // cmbDepartamento
             // 
             cmbDepartamento.FormattingEnabled = true;
-            cmbDepartamento.Location = new Point(755, 158);
+            cmbDepartamento.Location = new Point(755, 151);
             cmbDepartamento.Name = "cmbDepartamento";
             cmbDepartamento.Size = new Size(199, 23);
-            cmbDepartamento.TabIndex = 36;
+            cmbDepartamento.TabIndex = 10;
             // 
             // comboBoxRol
             // 
             comboBoxRol.FormattingEnabled = true;
             comboBoxRol.Items.AddRange(new object[] { "Empleado", "Administrador" });
-            comboBoxRol.Location = new Point(755, 230);
+            comboBoxRol.Location = new Point(755, 224);
             comboBoxRol.Name = "comboBoxRol";
             comboBoxRol.Size = new Size(199, 23);
-            comboBoxRol.TabIndex = 35;
+            comboBoxRol.TabIndex = 11;
             // 
             // txtSalario
             // 
-            txtSalario.Location = new Point(411, 236);
+            txtSalario.Location = new Point(394, 229);
             txtSalario.Name = "txtSalario";
             txtSalario.Size = new Size(199, 23);
-            txtSalario.TabIndex = 34;
+            txtSalario.TabIndex = 8;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(411, 158);
+            txtEmail.Location = new Point(394, 154);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(199, 23);
-            txtEmail.TabIndex = 33;
+            txtEmail.TabIndex = 7;
             // 
             // txtApellidos
             // 
-            txtApellidos.Location = new Point(103, 150);
+            txtApellidos.Location = new Point(81, 154);
             txtApellidos.Name = "txtApellidos";
             txtApellidos.Size = new Size(199, 23);
-            txtApellidos.TabIndex = 32;
+            txtApellidos.TabIndex = 4;
             // 
             // txtNumSS
             // 
             txtNumSS.Location = new Point(1116, 224);
             txtNumSS.Name = "txtNumSS";
             txtNumSS.Size = new Size(199, 23);
-            txtNumSS.TabIndex = 31;
+            txtNumSS.TabIndex = 14;
             // 
             // txtDni
             // 
-            txtDni.Location = new Point(103, 224);
+            txtDni.Location = new Point(81, 229);
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(199, 23);
-            txtDni.TabIndex = 30;
+            txtDni.TabIndex = 5;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(103, 89);
+            txtNombre.Location = new Point(81, 94);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(199, 23);
-            txtNombre.TabIndex = 28;
+            txtNombre.TabIndex = 3;
             // 
             // lblCatProfesional
             // 
             lblCatProfesional.AutoSize = true;
-            lblCatProfesional.Location = new Point(975, 153);
+            lblCatProfesional.Location = new Point(975, 154);
             lblCatProfesional.Name = "lblCatProfesional";
             lblCatProfesional.Size = new Size(120, 15);
             lblCatProfesional.TabIndex = 23;
@@ -325,7 +330,7 @@
             // lblTipoContrato
             // 
             lblTipoContrato.AutoSize = true;
-            lblTipoContrato.Location = new Point(1005, 97);
+            lblTipoContrato.Location = new Point(975, 102);
             lblTipoContrato.Name = "lblTipoContrato";
             lblTipoContrato.Size = new Size(81, 15);
             lblTipoContrato.TabIndex = 21;
@@ -334,7 +339,7 @@
             // lblNSS
             // 
             lblNSS.AutoSize = true;
-            lblNSS.Location = new Point(1046, 232);
+            lblNSS.Location = new Point(975, 227);
             lblNSS.Name = "lblNSS";
             lblNSS.Size = new Size(36, 15);
             lblNSS.TabIndex = 19;
@@ -347,7 +352,7 @@
             dateFechaNacimiento.Margin = new Padding(3, 2, 3, 2);
             dateFechaNacimiento.Name = "dateFechaNacimiento";
             dateFechaNacimiento.Size = new Size(199, 23);
-            dateFechaNacimiento.TabIndex = 16;
+            dateFechaNacimiento.TabIndex = 9;
             // 
             // txtTelefono
             // 
@@ -363,7 +368,7 @@
             txtTelefono.HideSelection = true;
             txtTelefono.InsertKeyMode = InsertKeyMode.Default;
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(411, 84);
+            txtTelefono.Location = new Point(394, 84);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Mask = "000-000-000";
             txtTelefono.MaxLength = 32767;
@@ -383,7 +388,7 @@
             txtTelefono.ShortcutsEnabled = true;
             txtTelefono.Size = new Size(199, 48);
             txtTelefono.SkipLiterals = true;
-            txtTelefono.TabIndex = 14;
+            txtTelefono.TabIndex = 6;
             txtTelefono.TabStop = false;
             txtTelefono.Text = "   -   -";
             txtTelefono.TextAlign = HorizontalAlignment.Left;
@@ -395,7 +400,7 @@
             // lblSalario
             // 
             lblSalario.AutoSize = true;
-            lblSalario.Location = new Point(341, 235);
+            lblSalario.Location = new Point(324, 233);
             lblSalario.Name = "lblSalario";
             lblSalario.Size = new Size(42, 15);
             lblSalario.TabIndex = 8;
@@ -404,7 +409,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(341, 157);
+            lblEmail.Location = new Point(324, 154);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(36, 15);
             lblEmail.TabIndex = 7;
@@ -413,7 +418,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(341, 93);
+            lblTelefono.Location = new Point(324, 101);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(53, 15);
             lblTelefono.TabIndex = 6;
@@ -422,7 +427,7 @@
             // lblRol
             // 
             lblRol.AutoSize = true;
-            lblRol.Location = new Point(674, 238);
+            lblRol.Location = new Point(628, 232);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(24, 15);
             lblRol.TabIndex = 5;
@@ -431,7 +436,7 @@
             // lblDepartamento
             // 
             lblDepartamento.AutoSize = true;
-            lblDepartamento.Location = new Point(642, 157);
+            lblDepartamento.Location = new Point(628, 154);
             lblDepartamento.Name = "lblDepartamento";
             lblDepartamento.Size = new Size(83, 15);
             lblDepartamento.TabIndex = 4;
@@ -440,7 +445,7 @@
             // lblFechaNac
             // 
             lblFechaNac.AutoSize = true;
-            lblFechaNac.Location = new Point(642, 93);
+            lblFechaNac.Location = new Point(628, 102);
             lblFechaNac.Name = "lblFechaNac";
             lblFechaNac.Size = new Size(103, 15);
             lblFechaNac.TabIndex = 3;
@@ -449,7 +454,7 @@
             // lblDni
             // 
             lblDni.AutoSize = true;
-            lblDni.Location = new Point(15, 238);
+            lblDni.Location = new Point(15, 232);
             lblDni.Name = "lblDni";
             lblDni.Size = new Size(27, 15);
             lblDni.TabIndex = 2;
@@ -477,6 +482,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(panel1);
             Name = "UCEmpleados";
             Padding = new Padding(20);

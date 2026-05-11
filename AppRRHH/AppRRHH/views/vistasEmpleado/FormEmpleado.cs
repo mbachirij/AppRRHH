@@ -74,5 +74,13 @@ namespace AppRRHH.views.vistasEmpleado
             panelContenido.Controls.Add(configuracion);
             configuracion.Dock = DockStyle.Fill;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            panelContenido.Controls.Clear();
+            UCInicioEmpleado vista = new UCInicioEmpleado();
+            panelContenido.Controls.Add(vista);
+            vista.Dock = DockStyle.Fill;
+        }
     }
 }

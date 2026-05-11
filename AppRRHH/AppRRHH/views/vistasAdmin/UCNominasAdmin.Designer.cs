@@ -41,6 +41,8 @@
             dgvNominas = new DataGridView();
             lblHistorial = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            label3 = new Label();
+            nudIRPF = new NumericUpDown();
             label1 = new Label();
             btnCalcular = new Button();
             lblPlusTrans = new Label();
@@ -61,40 +63,41 @@
             cmbEmpleado = new ComboBox();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             lblResumen = new Label();
-            nudIRPF = new NumericUpDown();
-            label3 = new Label();
             panelCentrado.SuspendLayout();
             materialCard7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNominas).BeginInit();
             materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudIRPF).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusTransporte).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusFestivo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusNocturnidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudHorasExtra).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudHoras).BeginInit();
             materialCard2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudIRPF).BeginInit();
             SuspendLayout();
             // 
             // panelCentrado
             // 
+            panelCentrado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelCentrado.AutoScroll = true;
+            panelCentrado.BackColor = Color.Transparent;
             panelCentrado.Controls.Add(label2);
             panelCentrado.Controls.Add(materialCard7);
             panelCentrado.Controls.Add(materialCard1);
             panelCentrado.Controls.Add(materialCard2);
-            panelCentrado.Location = new Point(10, 10);
+            panelCentrado.Location = new Point(0, 10);
             panelCentrado.Name = "panelCentrado";
-            panelCentrado.Size = new Size(1396, 962);
+            panelCentrado.Size = new Size(1411, 1016);
             panelCentrado.TabIndex = 0;
             // 
             // label2
             // 
             label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(88, 101, 242);
-            label2.Location = new Point(14, 12);
+            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(30, 41, 59);
+            label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(1339, 68);
+            label2.Size = new Size(1411, 80);
             label2.TabIndex = 3;
             label2.Text = "Gestión de Nóminas";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -112,7 +115,7 @@
             materialCard7.Controls.Add(lblHistorial);
             materialCard7.Depth = 0;
             materialCard7.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard7.Location = new Point(564, 348);
+            materialCard7.Location = new Point(575, 348);
             materialCard7.Margin = new Padding(14);
             materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard7.Name = "materialCard7";
@@ -122,14 +125,18 @@
             // 
             // btnBuscar
             // 
+            btnBuscar.BackColor = Color.FromArgb(212, 18, 142);
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscar.ForeColor = Color.White;
             btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
             btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(471, 71);
+            btnBuscar.Location = new Point(429, 71);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(138, 55);
-            btnBuscar.TabIndex = 17;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Size = new Size(180, 55);
+            btnBuscar.TabIndex = 14;
+            btnBuscar.Text = "BUSCAR";
+            btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
             // cmbFiltroAno
@@ -138,7 +145,7 @@
             cmbFiltroAno.Location = new Point(291, 88);
             cmbFiltroAno.Name = "cmbFiltroAno";
             cmbFiltroAno.Size = new Size(121, 23);
-            cmbFiltroAno.TabIndex = 5;
+            cmbFiltroAno.TabIndex = 13;
             // 
             // cmbFiltroMes
             // 
@@ -146,7 +153,7 @@
             cmbFiltroMes.Location = new Point(151, 88);
             cmbFiltroMes.Name = "cmbFiltroMes";
             cmbFiltroMes.Size = new Size(121, 23);
-            cmbFiltroMes.TabIndex = 4;
+            cmbFiltroMes.TabIndex = 12;
             // 
             // cmbFiltroNombre
             // 
@@ -154,30 +161,38 @@
             cmbFiltroNombre.Location = new Point(17, 88);
             cmbFiltroNombre.Name = "cmbFiltroNombre";
             cmbFiltroNombre.Size = new Size(121, 23);
-            cmbFiltroNombre.TabIndex = 3;
+            cmbFiltroNombre.TabIndex = 11;
             // 
             // btnGuardar
             // 
+            btnGuardar.BackColor = Color.FromArgb(212, 18, 142);
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardar.ForeColor = Color.White;
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
             btnGuardar.Location = new Point(17, 528);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(138, 55);
-            btnGuardar.TabIndex = 1;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Size = new Size(180, 55);
+            btnGuardar.TabIndex = 15;
+            btnGuardar.Text = "GUARDAR";
+            btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
             // btnImprimir
             // 
+            btnImprimir.BackColor = Color.FromArgb(212, 18, 142);
+            btnImprimir.FlatStyle = FlatStyle.Flat;
+            btnImprimir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnImprimir.ForeColor = Color.White;
             btnImprimir.Image = (Image)resources.GetObject("btnImprimir.Image");
             btnImprimir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnImprimir.Location = new Point(471, 528);
+            btnImprimir.Location = new Point(429, 528);
             btnImprimir.Name = "btnImprimir";
-            btnImprimir.Size = new Size(138, 55);
-            btnImprimir.TabIndex = 2;
-            btnImprimir.Text = "Imprimir";
-            btnImprimir.UseVisualStyleBackColor = true;
+            btnImprimir.Size = new Size(180, 55);
+            btnImprimir.TabIndex = 16;
+            btnImprimir.Text = "IMPRIMIR";
+            btnImprimir.UseVisualStyleBackColor = false;
             btnImprimir.Click += btnImprimir_Click;
             // 
             // dgvNominas
@@ -224,13 +239,33 @@
             materialCard1.Controls.Add(cmbEmpleado);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(104, 104);
+            materialCard1.Location = new Point(115, 104);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(14);
             materialCard1.Size = new Size(1086, 216);
             materialCard1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(829, 99);
+            label3.Name = "label3";
+            label3.Size = new Size(43, 15);
+            label3.TabIndex = 19;
+            label3.Text = "% IRPF";
+            // 
+            // nudIRPF
+            // 
+            nudIRPF.DecimalPlaces = 2;
+            nudIRPF.Location = new Point(889, 97);
+            nudIRPF.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
+            nudIRPF.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            nudIRPF.Name = "nudIRPF";
+            nudIRPF.Size = new Size(79, 23);
+            nudIRPF.TabIndex = 5;
+            nudIRPF.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // label1
             // 
@@ -245,12 +280,16 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(931, 134);
+            btnCalcular.BackColor = Color.FromArgb(212, 18, 142);
+            btnCalcular.FlatStyle = FlatStyle.Flat;
+            btnCalcular.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCalcular.ForeColor = Color.White;
+            btnCalcular.Location = new Point(889, 134);
             btnCalcular.Name = "btnCalcular";
-            btnCalcular.Size = new Size(138, 55);
-            btnCalcular.TabIndex = 16;
-            btnCalcular.Text = "Calcular";
-            btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Size = new Size(180, 55);
+            btnCalcular.TabIndex = 10;
+            btnCalcular.Text = "CALCULAR";
+            btnCalcular.UseVisualStyleBackColor = false;
             btnCalcular.Click += btnCalcular_Click;
             // 
             // lblPlusTrans
@@ -267,7 +306,7 @@
             nudPlusTransporte.Location = new Point(766, 152);
             nudPlusTransporte.Name = "nudPlusTransporte";
             nudPlusTransporte.Size = new Size(79, 23);
-            nudPlusTransporte.TabIndex = 14;
+            nudPlusTransporte.TabIndex = 9;
             // 
             // lblPlusFest
             // 
@@ -283,7 +322,7 @@
             nudPlusFestivo.Location = new Point(563, 152);
             nudPlusFestivo.Name = "nudPlusFestivo";
             nudPlusFestivo.Size = new Size(79, 23);
-            nudPlusFestivo.TabIndex = 12;
+            nudPlusFestivo.TabIndex = 8;
             // 
             // lblPlusNoct
             // 
@@ -299,7 +338,7 @@
             nudPlusNocturnidad.Location = new Point(351, 152);
             nudPlusNocturnidad.Name = "nudPlusNocturnidad";
             nudPlusNocturnidad.Size = new Size(94, 23);
-            nudPlusNocturnidad.TabIndex = 10;
+            nudPlusNocturnidad.TabIndex = 7;
             // 
             // lblHorasExtra
             // 
@@ -315,7 +354,7 @@
             nudHorasExtra.Location = new Point(99, 152);
             nudHorasExtra.Name = "nudHorasExtra";
             nudHorasExtra.Size = new Size(115, 23);
-            nudHorasExtra.TabIndex = 8;
+            nudHorasExtra.TabIndex = 6;
             // 
             // lblHoras
             // 
@@ -332,7 +371,7 @@
             nudHoras.Maximum = new decimal(new int[] { 160, 0, 0, 0 });
             nudHoras.Name = "nudHoras";
             nudHoras.Size = new Size(105, 23);
-            nudHoras.TabIndex = 6;
+            nudHoras.TabIndex = 4;
             // 
             // lblAnio
             // 
@@ -349,7 +388,7 @@
             cmbAnio.Location = new Point(487, 96);
             cmbAnio.Name = "cmbAnio";
             cmbAnio.Size = new Size(121, 23);
-            cmbAnio.TabIndex = 4;
+            cmbAnio.TabIndex = 3;
             // 
             // lblMes
             // 
@@ -391,7 +430,7 @@
             materialCard2.Controls.Add(lblResumen);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(104, 348);
+            materialCard2.Location = new Point(115, 348);
             materialCard2.Margin = new Padding(14);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
@@ -409,48 +448,29 @@
             lblResumen.TabIndex = 0;
             lblResumen.Text = "Resumen";
             // 
-            // nudIRPF
-            // 
-            nudIRPF.DecimalPlaces = 2;
-            nudIRPF.Location = new Point(889, 97);
-            nudIRPF.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
-            nudIRPF.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
-            nudIRPF.Name = "nudIRPF";
-            nudIRPF.Size = new Size(79, 23);
-            nudIRPF.TabIndex = 18;
-            nudIRPF.Value = new decimal(new int[] { 2, 0, 0, 0 });
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(829, 99);
-            label3.Name = "label3";
-            label3.Size = new Size(43, 15);
-            label3.TabIndex = 19;
-            label3.Text = "% IRPF";
-            // 
             // UCNominasAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(panelCentrado);
             Name = "UCNominasAdmin";
             Padding = new Padding(20);
-            Size = new Size(1411, 1008);
+            Size = new Size(1411, 1026);
             panelCentrado.ResumeLayout(false);
             materialCard7.ResumeLayout(false);
             materialCard7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNominas).EndInit();
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudIRPF).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusTransporte).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusFestivo).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudPlusNocturnidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudHorasExtra).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudHoras).EndInit();
             materialCard2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)nudIRPF).EndInit();
             ResumeLayout(false);
         }
 

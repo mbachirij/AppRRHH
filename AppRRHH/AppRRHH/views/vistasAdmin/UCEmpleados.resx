@@ -118,32 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAWtJREFUWEfV
-        V9FOwzAMHDxMQ3tgfADfxL9Xgr2XTdNeKrt8gNFJsWRM4hYSCJx0apTY9aXJedpm8x8hIjc5+rgfgYjc
-        +jlFtNYUIrIloodpmu5BjDHn45pCdzfP8xMzD8z8wszPiRgPWLOxzaDnO47jXSr+xswXZr4mYoy5QUR2
-        NqcJ9GUiciAi7BYFX5n5lIjxBWuIsTlNYATgvPHJsWsUPidifMUaYmxOEzgB+AIlAfgC9QK8v3Gp0lOP
-        IBJwcDlf6xPRDRaR/QoBe5+niN79Adbn+KRpV3g+EtExEHBEjM1Z3SdKPseuDFHcFvY8IcbmrOoTej6B
-        zy19UU8fv9wnzC0v+dzSF/T08WDcJ5zNcj6vpd6RfJ/4SwK6H8GuyyVME/1s6NGlESkidb/Zivv9GOXg
-        bLok4LPNauEE5PqECsj7vBZGQKlPxD6vhRFQ6hPLPq9FqU98y+e16PLHRBHtLlprCu/vap/3xDs0y3Bn
-        QrLqngAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAfJJREFUWEfN
-        V0FugkAURZvGNPUY3MCNOzJ/IBL3nsczuKiH6KLd2WV3XTWFKi7aTdvEJo2ewKLSvAm/QUSEoJ2+ZMIA
-        /7/3+DMDg2H8V0SGUUNLXy+L0jwIvu71zvgc/VIEMSrz+I5zGVhWk8/LJCdjwQGu7YgMcKleXbfxTDSY
-        2vYskPIzsO2rkes2ENM3jHo6Lw2OQQ5ywQGuCdEA3HuHhMvlEQ2+ut1oIqVqM9fFcRSbqOWZiO/VEIuc
-        OFc1cIIbccmhUWBHKJVPNJ9KufKFWHlEG0+I77dO56CJtDhykAsOcClOojkPx1YV+OTespoe0SKQcq0S
-        iSI0jyjMM5EpThQm8jcx5wIaOwaAxBAMUTpPiCUT5Jk4JK5yhVgqTqJhUmsLanL0+/WHdvtiLOXoPYso
-        acI0G2wA/b3iRCG4wAluaOw8PYNv5D5NwkRkGCCrF4nllbRXnFGopEThh+tGvhC3aOhnxWQNWVovE0VM
-        PAmxfnGcCA39o4kzipjA8lLt2OKMXxOm2RgT3aHU6adNVwUxiEVOJXEGz/THVut8IuUNSu5lmMA13EMM
-        YhNLtBq0GtA6BFonYRHxky3DIuInexFpfRVr/xhp/Rxr35Bo35IBWjelgJqEOrflafz5jwkDyZV+qWJU
-        5ilcqgM4Fs/J8APzz9mqwt+B8AAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="txtBuscar.LeadingIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAxBJREFUWEfN

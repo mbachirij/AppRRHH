@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             lblContadorHoras = new Label();
             lblReloj = new Label();
@@ -57,7 +57,7 @@
             materialCard1.Controls.Add(lblFecha);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(45, 233);
+            materialCard1.Location = new Point(122, 235);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -121,56 +121,56 @@
             dgvHistorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHistorial.BackgroundColor = Color.White;
             dgvHistorial.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Silver;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Silver;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvHistorial.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvHistorial.DefaultCellStyle = dataGridViewCellStyle8;
             dgvHistorial.EnableHeadersVisualStyles = false;
             dgvHistorial.GridColor = Color.LightGray;
-            dgvHistorial.Location = new Point(683, 233);
+            dgvHistorial.Location = new Point(760, 235);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.ReadOnly = true;
             dgvHistorial.RowHeadersVisible = false;
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dgvHistorial.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            dgvHistorial.RowsDefaultCellStyle = dataGridViewCellStyle9;
             dgvHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHistorial.Size = new Size(555, 350);
+            dgvHistorial.Size = new Size(570, 350);
             dgvHistorial.TabIndex = 0;
             // 
             // panelCentrado
             // 
-            panelCentrado.Anchor = AnchorStyles.Top;
+            panelCentrado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelCentrado.AutoScroll = true;
             panelCentrado.Controls.Add(label2);
             panelCentrado.Controls.Add(label1);
             panelCentrado.Controls.Add(lblTitulo);
             panelCentrado.Controls.Add(dgvHistorial);
             panelCentrado.Controls.Add(materialCard1);
-            panelCentrado.Location = new Point(10, 10);
+            panelCentrado.Location = new Point(0, 10);
             panelCentrado.Name = "panelCentrado";
-            panelCentrado.Size = new Size(1396, 962);
+            panelCentrado.Size = new Size(1411, 962);
             panelCentrado.TabIndex = 5;
             // 
             // label2
             // 
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(88, 101, 242);
-            label2.Location = new Point(14, 12);
+            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(30, 41, 59);
+            label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(1339, 68);
+            label2.Size = new Size(1411, 88);
             label2.TabIndex = 5;
             label2.Text = "Gestión de Fichajes";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -179,8 +179,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(88, 101, 242);
-            label1.Location = new Point(683, 183);
+            label1.ForeColor = Color.FromArgb(30, 41, 59);
+            label1.Location = new Point(760, 185);
             label1.Name = "label1";
             label1.Size = new Size(320, 45);
             label1.TabIndex = 4;
@@ -191,8 +191,8 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(88, 101, 242);
-            lblTitulo.Location = new Point(45, 183);
+            lblTitulo.ForeColor = Color.FromArgb(30, 41, 59);
+            lblTitulo.Location = new Point(122, 185);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(337, 45);
             lblTitulo.TabIndex = 3;
@@ -203,8 +203,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
-            BackColor = SystemColors.Control;
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(panelCentrado);
             ForeColor = SystemColors.ControlText;
             Name = "UCEmpleadoFichajes";

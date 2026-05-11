@@ -129,7 +129,6 @@
             txtAntigua.Size = new Size(346, 48);
             txtAntigua.TabIndex = 1;
             txtAntigua.TabStop = false;
-            txtAntigua.Text = "materialTextBox21";
             txtAntigua.TextAlign = HorizontalAlignment.Left;
             txtAntigua.TrailingIcon = (Image)resources.GetObject("txtAntigua.TrailingIcon");
             txtAntigua.UseSystemPasswordChar = true;
@@ -159,7 +158,6 @@
             txtNueva.Size = new Size(346, 48);
             txtNueva.TabIndex = 2;
             txtNueva.TabStop = false;
-            txtNueva.Text = "materialTextBox22";
             txtNueva.TextAlign = HorizontalAlignment.Left;
             txtNueva.TrailingIcon = (Image)resources.GetObject("txtNueva.TrailingIcon");
             txtNueva.UseSystemPasswordChar = true;
@@ -189,7 +187,6 @@
             txtNueva2.Size = new Size(346, 48);
             txtNueva2.TabIndex = 3;
             txtNueva2.TabStop = false;
-            txtNueva2.Text = "materialTextBox23";
             txtNueva2.TextAlign = HorizontalAlignment.Left;
             txtNueva2.TrailingIcon = (Image)resources.GetObject("txtNueva2.TrailingIcon");
             txtNueva2.UseSystemPasswordChar = true;
@@ -197,6 +194,7 @@
             // 
             // FormCambiarContrasena
             // 
+            AcceptButton = btnCambiar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;

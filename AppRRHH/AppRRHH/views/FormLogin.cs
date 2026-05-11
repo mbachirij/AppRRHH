@@ -13,28 +13,27 @@ namespace AppRRHH.views
 
             // Maximizo la ventana al abrirla
             this.WindowState = FormWindowState.Maximized;
-
+            this.AcceptButton = button1;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Acceder a los controles directamente por sus campos generados por el diseñador
-            var txtEmailControl = this.txtEmail; 
-            var txtPasswordControl = this.txtPassword; 
+            // guardo en variables los controles para no tener que escribir this.txtEmail cada vez
+            var txtEmailControl = this.txtEmail;
+            var txtPasswordControl = this.txtPassword;
             var lblErrorControl = this.lblError;
 
-            // Validar que los controles existan
+            // para ver que existen y no son null
             string email = txtEmailControl.Text.Trim();
             string password = txtPasswordControl.Text.Trim();
 
-            // Validar que no estén vacíos
+            // miro que no estén vacíos
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 lblErrorControl.Text = "Por favor, ingrese email y contraseña.";
                 return;
             }
 
-            
             using (var db = new AppDbContext())
             {
                 // busco el usuario en la base de datos
@@ -49,7 +48,7 @@ namespace AppRRHH.views
                     return;
                 }
 
-                // Redirigir según rol
+                // Redirijo a la vista correspondiente según el rol del usuario
                 if (usuario.Rol == "Administrador")
                 {
                     // Guardo el ID del empleado que ha iniciado sesión
@@ -96,7 +95,15 @@ namespace AppRRHH.views
             }
         }
 
-
-
+        private void lblContrasenaOlvidada_Click(object sender, EventArgs e)
+        {
+            // abre el correo del PC con el asunto ya escrito
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                // correo al admin
+                FileName = "mailto:admin@rrhh.com?subject=He%20olvidado%20mi%20contrasena",
+                UseShellExecute = true
+            });
+        }
     }
 }

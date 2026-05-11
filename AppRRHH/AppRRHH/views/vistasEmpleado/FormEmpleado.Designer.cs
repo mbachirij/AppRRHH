@@ -30,202 +30,188 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmpleado));
             panelSidebar = new Panel();
-            btnInicio = new MaterialSkin.Controls.MaterialButton();
-            btnCerrarSesion = new MaterialSkin.Controls.MaterialButton();
-            btnConfiguracion = new MaterialSkin.Controls.MaterialButton();
-            btnVacaciones = new MaterialSkin.Controls.MaterialButton();
-            btnNominas = new MaterialSkin.Controls.MaterialButton();
-            btnYo = new MaterialSkin.Controls.MaterialButton();
+            pictureBox1 = new PictureBox();
             panelContenido = new Panel();
+            btnInicio = new Button();
+            this.btnFichar = new Button();
+            btnNominas = new Button();
+            btnVacaciones = new Button();
+            btnConfiguracion = new Button();
+            btnCerrarSesion = new Button();
             panelSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelSidebar
             // 
-            panelSidebar.BackColor = Color.White;
+            panelSidebar.BackColor = Color.FromArgb(30, 41, 59);
             panelSidebar.Controls.Add(btnInicio);
             panelSidebar.Controls.Add(btnCerrarSesion);
+            panelSidebar.Controls.Add(pictureBox1);
             panelSidebar.Controls.Add(btnConfiguracion);
             panelSidebar.Controls.Add(btnVacaciones);
+            panelSidebar.Controls.Add(this.btnFichar);
             panelSidebar.Controls.Add(btnNominas);
-            panelSidebar.Controls.Add(btnYo);
             panelSidebar.Dock = DockStyle.Left;
             panelSidebar.Location = new Point(0, 0);
             panelSidebar.Margin = new Padding(3, 2, 3, 2);
             panelSidebar.Name = "panelSidebar";
-            panelSidebar.Size = new Size(192, 502);
+            panelSidebar.Size = new Size(208, 570);
             panelSidebar.TabIndex = 0;
             // 
-            // btnInicio
+            // pictureBox1
             // 
-            btnInicio.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnInicio.Cursor = Cursors.Hand;
-            btnInicio.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnInicio.Depth = 0;
-            btnInicio.HighEmphasis = false;
-            btnInicio.Icon = (Image)resources.GetObject("btnInicio.Icon");
-            btnInicio.Location = new Point(11, 19);
-            btnInicio.Margin = new Padding(4);
-            btnInicio.MouseState = MaterialSkin.MouseState.HOVER;
-            btnInicio.Name = "btnInicio";
-            btnInicio.NoAccentTextColor = Color.Empty;
-            btnInicio.Size = new Size(127, 36);
-            btnInicio.TabIndex = 7;
-            btnInicio.Text = "Dashboad";
-            btnInicio.TextAlign = ContentAlignment.MiddleLeft;
-            btnInicio.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnInicio.UseAccentColor = false;
-            btnInicio.UseVisualStyleBackColor = true;
-            btnInicio.Click += btnInicio_Click;
-            // 
-            // btnCerrarSesion
-            // 
-            btnCerrarSesion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnCerrarSesion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCerrarSesion.Cursor = Cursors.Hand;
-            btnCerrarSesion.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnCerrarSesion.Depth = 0;
-            btnCerrarSesion.HighEmphasis = false;
-            btnCerrarSesion.Icon = (Image)resources.GetObject("btnCerrarSesion.Icon");
-            btnCerrarSesion.Location = new Point(11, 432);
-            btnCerrarSesion.Margin = new Padding(4);
-            btnCerrarSesion.MouseState = MaterialSkin.MouseState.HOVER;
-            btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.NoAccentTextColor = Color.Empty;
-            btnCerrarSesion.Size = new Size(159, 36);
-            btnCerrarSesion.TabIndex = 6;
-            btnCerrarSesion.Text = "Cerrar sesión";
-            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
-            btnCerrarSesion.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCerrarSesion.UseAccentColor = false;
-            btnCerrarSesion.UseVisualStyleBackColor = true;
-            btnCerrarSesion.Click += btnCerrarSesion_Click;
-            // 
-            // btnConfiguracion
-            // 
-            btnConfiguracion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnConfiguracion.Cursor = Cursors.Hand;
-            btnConfiguracion.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnConfiguracion.Depth = 0;
-            btnConfiguracion.HighEmphasis = false;
-            btnConfiguracion.Icon = (Image)resources.GetObject("btnConfiguracion.Icon");
-            btnConfiguracion.Location = new Point(11, 273);
-            btnConfiguracion.Margin = new Padding(4);
-            btnConfiguracion.MouseState = MaterialSkin.MouseState.HOVER;
-            btnConfiguracion.Name = "btnConfiguracion";
-            btnConfiguracion.NoAccentTextColor = Color.Empty;
-            btnConfiguracion.Size = new Size(165, 36);
-            btnConfiguracion.TabIndex = 5;
-            btnConfiguracion.Text = "Configuración";
-            btnConfiguracion.TextAlign = ContentAlignment.MiddleLeft;
-            btnConfiguracion.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnConfiguracion.UseAccentColor = false;
-            btnConfiguracion.UseVisualStyleBackColor = true;
-            btnConfiguracion.Click += btnConfiguracion_Click;
-            // 
-            // btnVacaciones
-            // 
-            btnVacaciones.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnVacaciones.Cursor = Cursors.Hand;
-            btnVacaciones.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnVacaciones.Depth = 0;
-            btnVacaciones.HighEmphasis = false;
-            btnVacaciones.Icon = (Image)resources.GetObject("btnVacaciones.Icon");
-            btnVacaciones.Location = new Point(11, 229);
-            btnVacaciones.Margin = new Padding(4);
-            btnVacaciones.MouseState = MaterialSkin.MouseState.HOVER;
-            btnVacaciones.Name = "btnVacaciones";
-            btnVacaciones.NoAccentTextColor = Color.Empty;
-            btnVacaciones.Size = new Size(140, 36);
-            btnVacaciones.TabIndex = 3;
-            btnVacaciones.Text = "Vacaciones";
-            btnVacaciones.TextAlign = ContentAlignment.MiddleLeft;
-            btnVacaciones.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnVacaciones.UseAccentColor = false;
-            btnVacaciones.UseVisualStyleBackColor = true;
-            btnVacaciones.Click += btnVacaciones_Click;
-            // 
-            // btnNominas
-            // 
-            btnNominas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnNominas.Cursor = Cursors.Hand;
-            btnNominas.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnNominas.Depth = 0;
-            btnNominas.HighEmphasis = false;
-            btnNominas.Icon = (Image)resources.GetObject("btnNominas.Icon");
-            btnNominas.Location = new Point(11, 185);
-            btnNominas.Margin = new Padding(4);
-            btnNominas.MouseState = MaterialSkin.MouseState.HOVER;
-            btnNominas.Name = "btnNominas";
-            btnNominas.NoAccentTextColor = Color.Empty;
-            btnNominas.Size = new Size(116, 36);
-            btnNominas.TabIndex = 2;
-            btnNominas.Text = "Nominas";
-            btnNominas.TextAlign = ContentAlignment.MiddleLeft;
-            btnNominas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnNominas.UseAccentColor = false;
-            btnNominas.UseVisualStyleBackColor = true;
-            btnNominas.Click += btnNominas_Click;
-            // 
-            // btnYo
-            // 
-            btnYo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnYo.Cursor = Cursors.Hand;
-            btnYo.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnYo.Depth = 0;
-            btnYo.HighEmphasis = false;
-            btnYo.Icon = (Image)resources.GetObject("btnYo.Icon");
-            btnYo.Location = new Point(11, 141);
-            btnYo.Margin = new Padding(4);
-            btnYo.MouseState = MaterialSkin.MouseState.HOVER;
-            btnYo.Name = "btnYo";
-            btnYo.NoAccentTextColor = Color.Empty;
-            btnYo.Size = new Size(101, 36);
-            btnYo.TabIndex = 0;
-            btnYo.Text = "FICHAR";
-            btnYo.TextAlign = ContentAlignment.MiddleLeft;
-            btnYo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnYo.UseAccentColor = false;
-            btnYo.UseVisualStyleBackColor = true;
-            btnYo.Click += btnYo_Click;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-1, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(209, 127);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panelContenido
             // 
-            panelContenido.BackgroundImageLayout = ImageLayout.Zoom;
+            panelContenido.BackColor = Color.SeaShell;
+            panelContenido.BackgroundImageLayout = ImageLayout.Stretch;
             panelContenido.Dock = DockStyle.Fill;
-            panelContenido.Location = new Point(192, 0);
+            panelContenido.Location = new Point(208, 0);
             panelContenido.Margin = new Padding(3, 2, 3, 2);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(804, 502);
+            panelContenido.Size = new Size(845, 570);
             panelContenido.TabIndex = 1;
+            // 
+            // btnInicio
+            // 
+            btnInicio.BackColor = Color.Transparent;
+            btnInicio.FlatAppearance.BorderSize = 0;
+            btnInicio.FlatStyle = FlatStyle.Flat;
+            btnInicio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInicio.ForeColor = Color.FromArgb(241, 245, 249);
+            btnInicio.Image = (Image)resources.GetObject("btnInicio.Image");
+            btnInicio.ImageAlign = ContentAlignment.MiddleLeft;
+            btnInicio.Location = new Point(11, 178);
+            btnInicio.Name = "btnInicio";
+            btnInicio.Size = new Size(185, 36);
+            btnInicio.TabIndex = 1;
+            btnInicio.Text = "MI PERFIL";
+            btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
+            // 
+            // btnFichar
+            // 
+            this.btnFichar.BackColor = Color.Transparent;
+            this.btnFichar.FlatAppearance.BorderSize = 0;
+            this.btnFichar.FlatStyle = FlatStyle.Flat;
+            this.btnFichar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            this.btnFichar.ForeColor = Color.FromArgb(241, 245, 249);
+            this.btnFichar.Image = (Image)resources.GetObject("btnFichar.Image");
+            this.btnFichar.ImageAlign = ContentAlignment.MiddleLeft;
+            this.btnFichar.Location = new Point(11, 220);
+            this.btnFichar.Name = "btnFichar";
+            this.btnFichar.Size = new Size(185, 36);
+            this.btnFichar.TabIndex = 3;
+            this.btnFichar.Text = "FICHAR";
+            this.btnFichar.UseVisualStyleBackColor = false;
+            this.btnFichar.Click += this.btnYo_Click;
+            // 
+            // btnNominas
+            // 
+            btnNominas.BackColor = Color.Transparent;
+            btnNominas.FlatAppearance.BorderSize = 0;
+            btnNominas.FlatStyle = FlatStyle.Flat;
+            btnNominas.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNominas.ForeColor = Color.FromArgb(241, 245, 249);
+            btnNominas.Image = (Image)resources.GetObject("btnNominas.Image");
+            btnNominas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNominas.Location = new Point(11, 264);
+            btnNominas.Name = "btnNominas";
+            btnNominas.Size = new Size(185, 36);
+            btnNominas.TabIndex = 5;
+            btnNominas.Text = "NÓMINAS";
+            btnNominas.UseVisualStyleBackColor = false;
+            btnNominas.Click += btnNominas_Click;
+            // 
+            // btnVacaciones
+            // 
+            btnVacaciones.BackColor = Color.Transparent;
+            btnVacaciones.FlatAppearance.BorderSize = 0;
+            btnVacaciones.FlatStyle = FlatStyle.Flat;
+            btnVacaciones.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVacaciones.ForeColor = Color.FromArgb(241, 245, 249);
+            btnVacaciones.Image = (Image)resources.GetObject("btnVacaciones.Image");
+            btnVacaciones.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVacaciones.Location = new Point(11, 308);
+            btnVacaciones.Name = "btnVacaciones";
+            btnVacaciones.Size = new Size(185, 36);
+            btnVacaciones.TabIndex = 6;
+            btnVacaciones.Text = "VACACIONES";
+            btnVacaciones.UseVisualStyleBackColor = false;
+            btnVacaciones.Click += btnVacaciones_Click;
+            // 
+            // btnConfiguracion
+            // 
+            btnConfiguracion.BackColor = Color.Transparent;
+            btnConfiguracion.FlatAppearance.BorderSize = 0;
+            btnConfiguracion.FlatStyle = FlatStyle.Flat;
+            btnConfiguracion.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfiguracion.ForeColor = Color.FromArgb(241, 245, 249);
+            btnConfiguracion.Image = (Image)resources.GetObject("btnConfiguracion.Image");
+            btnConfiguracion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnConfiguracion.Location = new Point(11, 352);
+            btnConfiguracion.Name = "btnConfiguracion";
+            btnConfiguracion.Size = new Size(185, 36);
+            btnConfiguracion.TabIndex = 7;
+            btnConfiguracion.Text = "CONFIGURACIÓN";
+            btnConfiguracion.UseVisualStyleBackColor = false;
+            btnConfiguracion.Click += this.btnConfiguracion_Click;
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = Color.Transparent;
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = Color.FromArgb(241, 245, 249);
+            btnCerrarSesion.Image = (Image)resources.GetObject("btnCerrarSesion.Image");
+            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.Location = new Point(11, 513);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(185, 36);
+            btnCerrarSesion.TabIndex = 8;
+            btnCerrarSesion.Text = "CERRAR SESIÓN";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += this.btnCerrarSesion_Click;
             // 
             // FormEmpleado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(996, 502);
+            ClientSize = new Size(1053, 570);
             Controls.Add(panelContenido);
             Controls.Add(panelSidebar);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(790, 460);
+            MinimumSize = new Size(1000, 500);
             Name = "FormEmpleado";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pantalla de Inicio - Empleado";
             panelSidebar.ResumeLayout(false);
-            panelSidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelSidebar;
-        private MaterialSkin.Controls.MaterialButton btnInicio;
-        private MaterialSkin.Controls.MaterialButton btnCerrarSesion;
-        private MaterialSkin.Controls.MaterialButton btnConfiguracion;
-        private MaterialSkin.Controls.MaterialButton btnVacaciones;
-        private MaterialSkin.Controls.MaterialButton btnNominas;
-        private MaterialSkin.Controls.MaterialButton btnYo;
         private Panel panelContenido;
+        private PictureBox pictureBox1;
+        private Button btnInicio;
+        private Button btnFichar;
+        private Button btnYo;
+        private Button btnNominas;
+        private Button btnConfiguracion;
+        private Button btnCerrarSesion;
+        private Button btnVacaciones;
     }
 }

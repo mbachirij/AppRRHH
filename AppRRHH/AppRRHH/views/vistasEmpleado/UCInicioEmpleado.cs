@@ -1,12 +1,8 @@
 ﻿using AppRRHH.Data;
 using AppRRHH.models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+
 
 namespace AppRRHH.views.vistasEmpleado
 {
@@ -56,13 +52,24 @@ namespace AppRRHH.views.vistasEmpleado
                 vacacionesAprobadas = Math.Min(vacacionesAprobadas, 30);
                 lblDiasVacaciones.Text = (30 - vacacionesAprobadas).ToString();
 
-                lblNominasAnio.Text = db.Nominas
-                .Count(n => n.EmpleadoId == empleadoId && n.Anio == DateTime.Now.Year)
-                .ToString();
+                // creo el gráfico de tarta con las nóminas de este año por mes
+                var series = new List<ISeries>();
 
-                lblHorasMes.Text = db.Asistencias
-                .Count(a => a.EmpleadoId == empleadoId && a.Fecha.Month == DateTime.Now.Month)
-                .ToString() + " días";
+                var nominasAnio = db.Nominas
+                    .Where(n => n.EmpleadoId == empleadoId && n.Anio == DateTime.Now.Year)
+                    .ToList();
+
+                foreach (var n in nominasAnio)
+                {
+                    series.Add(new PieSeries<decimal>
+                    {
+                        Values = new List<decimal> { n.LiquidoAPercibir },
+                        Name = n.Mes,
+                        DataLabelsSize = 12
+                    });
+                }
+
+                pieChart1.Series = series.ToArray();
 
 
             }

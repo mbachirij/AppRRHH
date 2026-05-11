@@ -79,7 +79,7 @@ namespace AppRRHH.views.vistasAdmin
             {
                 anios.Add(i);
             }
-                
+
             cmbAnio.DataSource = anios;
             cmbAnio.SelectedItem = DateTime.Now.Year;
         }
@@ -360,7 +360,7 @@ namespace AppRRHH.views.vistasAdmin
                 {
                     nominas = nominas.Where(n => n.Anio == (int)cmbFiltroAno.SelectedItem).ToList();
                 }
-                    
+
 
                 // si el combo de mes no está en (Todos los meses), filtro por el mes en el que está
                 if (cmbFiltroMes.SelectedIndex > 0)

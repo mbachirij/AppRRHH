@@ -1,4 +1,8 @@
 ﻿using AppRRHH.Data;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.SKCharts;
+using LiveChartsCore.SkiaSharpView.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+
 
 namespace AppRRHH.views.vistasAdmin
 {
@@ -43,9 +48,20 @@ namespace AppRRHH.views.vistasAdmin
                 // Contar nóminas del mes actual
                 lblNominasMes.Text = db.Nominas.Count(n => n.Mes == mesActual && n.Anio == anioActual).ToString();
 
-                lblVacacionesPend.Text = db.Vacaciones
-                    .Count(v => v.Estado == "Pendiente").ToString();
                 lblTotalDeptos2.Text = db.Departamentos.Count().ToString();
+
+                // creo el gráfico de vacaciones por estado
+                var series = new List<ISeries>();
+
+                int pendientes = db.Vacaciones.Count(v => v.Estado == "Pendiente");
+                int aprobadas = db.Vacaciones.Count(v => v.Estado == "Aprobada");
+                int rechazadas = db.Vacaciones.Count(v => v.Estado == "Rechazada");
+
+                series.Add(new PieSeries<int> { Values = new[] { pendientes }, Name = "Pendientes", DataLabelsSize = 12 });
+                series.Add(new PieSeries<int> { Values = new[] { aprobadas }, Name = "Aprobadas", DataLabelsSize = 12 });
+                series.Add(new PieSeries<int> { Values = new[] { rechazadas }, Name = "Rechazadas", DataLabelsSize = 12 });
+
+                pieChart1.Series = series.ToArray();
             }
         }
     }

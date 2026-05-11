@@ -49,24 +49,24 @@
             // 
             // panelCentrado
             // 
+            panelCentrado.BackColor = Color.FromArgb(248, 250, 252);
             panelCentrado.Controls.Add(label2);
             panelCentrado.Controls.Add(label1);
             panelCentrado.Controls.Add(materialCard2);
             panelCentrado.Controls.Add(materialCard1);
             panelCentrado.Controls.Add(lblDiasDisponibles);
-            panelCentrado.Location = new Point(10, 10);
+            panelCentrado.Location = new Point(0, 10);
             panelCentrado.Name = "panelCentrado";
-            panelCentrado.Size = new Size(1396, 962);
+            panelCentrado.Size = new Size(1411, 962);
             panelCentrado.TabIndex = 0;
             // 
             // label2
             // 
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(88, 101, 242);
-            label2.Location = new Point(19, 16);
+            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(30, 41, 59);
+            label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(1339, 68);
+            label2.Size = new Size(1411, 94);
             label2.TabIndex = 9;
             label2.Text = "Gestión de Vacaciones";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -75,7 +75,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(88, 101, 242);
+            label1.ForeColor = Color.FromArgb(30, 41, 59);
             label1.Location = new Point(169, 165);
             label1.Name = "label1";
             label1.Size = new Size(229, 41);
@@ -184,7 +184,7 @@
             // lblDiasDisponibles
             // 
             lblDiasDisponibles.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDiasDisponibles.ForeColor = Color.FromArgb(88, 101, 242);
+            lblDiasDisponibles.ForeColor = Color.FromArgb(30, 41, 59);
             lblDiasDisponibles.Location = new Point(369, 215);
             lblDiasDisponibles.Name = "lblDiasDisponibles";
             lblDiasDisponibles.Size = new Size(600, 40);
@@ -196,6 +196,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(panelCentrado);
             Name = "UCVacacionesEmpleado";
             Size = new Size(1411, 1008);

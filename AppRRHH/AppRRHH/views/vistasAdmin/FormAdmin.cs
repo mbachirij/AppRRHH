@@ -11,7 +11,7 @@ namespace AppRRHH.views.vistasAdmin
 
             panelSidebar.BackColor = Color.FromArgb(35, 35, 55);
             panelContenido.BackColor = Color.FromArgb(25, 25, 40);
-            
+
             UCInicioAdmin home = new UCInicioAdmin();
             panelContenido.Controls.Add(home);
             home.Dock = DockStyle.Fill;
@@ -67,7 +67,7 @@ namespace AppRRHH.views.vistasAdmin
             UCInicioAdmin home = new UCInicioAdmin();
             panelContenido.Controls.Add(home);
             home.Dock = DockStyle.Fill;
-            
+
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -76,6 +76,22 @@ namespace AppRRHH.views.vistasAdmin
             this.Hide();
             FormLogin login = new FormLogin();
             login.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            panelContenido.Controls.Clear();
+            UCInicioAdmin home = new UCInicioAdmin();
+            panelContenido.Controls.Add(home);
+            home.Dock = DockStyle.Fill;
+        }
+
+        private void btnFichajes_Click(object sender, EventArgs e)
+        {
+            panelContenido.Controls.Clear();
+            UCFichajesAdmin fichajes = new UCFichajesAdmin();
+            panelContenido.Controls.Add(fichajes);
+            fichajes.Dock = DockStyle.Fill;
         }
     }
 }

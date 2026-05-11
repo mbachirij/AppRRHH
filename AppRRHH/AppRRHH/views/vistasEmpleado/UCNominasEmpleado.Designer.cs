@@ -33,6 +33,7 @@
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             dgvHistorial = new DataGridView();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            btnImprimir = new Button();
             label2 = new Label();
             label1 = new Label();
             btnBuscar = new Button();
@@ -46,7 +47,6 @@
             lbl2 = new Label();
             lblNetoMes = new Label();
             lbl1 = new Label();
-            btnImprimir = new Button();
             lblTitulo = new Label();
             panel1.SuspendLayout();
             materialCard1.SuspendLayout();
@@ -56,12 +56,14 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoScroll = true;
             panel1.Controls.Add(materialCard1);
             panel1.Controls.Add(mcEstadisticas);
             panel1.Controls.Add(lblTitulo);
-            panel1.Location = new Point(10, 10);
+            panel1.Location = new Point(0, 10);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1396, 962);
+            panel1.Size = new Size(1411, 962);
             panel1.TabIndex = 0;
             // 
             // materialCard1
@@ -104,6 +106,21 @@
             materialDivider1.Size = new Size(937, 10);
             materialDivider1.TabIndex = 25;
             materialDivider1.Text = "materialDivider1";
+            // 
+            // btnImprimir
+            // 
+            btnImprimir.Cursor = Cursors.Hand;
+            btnImprimir.FlatStyle = FlatStyle.Flat;
+            btnImprimir.Image = (Image)resources.GetObject("btnImprimir.Image");
+            btnImprimir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImprimir.Location = new Point(856, 19);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Padding = new Padding(10, 0, 0, 0);
+            btnImprimir.Size = new Size(144, 46);
+            btnImprimir.TabIndex = 7;
+            btnImprimir.Text = "Imprimir";
+            btnImprimir.UseVisualStyleBackColor = true;
+            btnImprimir.Click += btnImprimir_Click;
             // 
             // label2
             // 
@@ -248,29 +265,13 @@
             lbl1.Text = "Neto último es";
             lbl1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnImprimir
-            // 
-            btnImprimir.Cursor = Cursors.Hand;
-            btnImprimir.FlatStyle = FlatStyle.Flat;
-            btnImprimir.Image = (Image)resources.GetObject("btnImprimir.Image");
-            btnImprimir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnImprimir.Location = new Point(856, 19);
-            btnImprimir.Name = "btnImprimir";
-            btnImprimir.Padding = new Padding(10, 0, 0, 0);
-            btnImprimir.Size = new Size(144, 46);
-            btnImprimir.TabIndex = 7;
-            btnImprimir.Text = "Imprimir";
-            btnImprimir.UseVisualStyleBackColor = true;
-            btnImprimir.Click += btnImprimir_Click;
-            // 
             // lblTitulo
             // 
-            lblTitulo.BorderStyle = BorderStyle.Fixed3D;
-            lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(88, 101, 242);
-            lblTitulo.Location = new Point(14, 12);
+            lblTitulo.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.FromArgb(30, 41, 59);
+            lblTitulo.Location = new Point(0, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(1364, 68);
+            lblTitulo.Size = new Size(1408, 90);
             lblTitulo.TabIndex = 6;
             lblTitulo.Text = "Mis Nóminas";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -279,6 +280,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(panel1);
             Name = "UCNominasEmpleado";
             Padding = new Padding(20);

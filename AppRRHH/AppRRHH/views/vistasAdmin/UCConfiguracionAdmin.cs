@@ -16,6 +16,8 @@ namespace AppRRHH.views.vistasAdmin
         {
             InitializeComponent();
             CargarEmpresa();
+
+
         }
         private void CargarEmpresa()
         {
@@ -33,6 +35,12 @@ namespace AppRRHH.views.vistasAdmin
                     txtCodigoPostal.Text = empresa.CodigoPostal;
                     txtNumCuentaCotizacion.Text = empresa.NumCuentaCotizacion;
                 }
+
+                // cargo el cmbEmpleados con los empleados de la empresa
+                var empleados = db.Empleados.ToList();
+                cmbEmpleados.DataSource = empleados;
+                cmbEmpleados.DisplayMember = "Nombre";
+
             }
         }
 
@@ -78,6 +86,73 @@ namespace AppRRHH.views.vistasAdmin
                 db.SaveChanges();
                 MessageBox.Show("Datos de la empresa guardados correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnActualizarContrasena_Click(object sender, EventArgs e)
+        {
+            string nuevaContrasena = txtNuevaContrasena.Text.Trim();
+            string nuevaContrasena2 = txtNuevaContrasena2.Text.Trim();
+
+            // compruebo que las contraseñas no estén vacías
+            if (string.IsNullOrEmpty(nuevaContrasena) || string.IsNullOrEmpty(nuevaContrasena2))
+            {
+                MessageBox.Show("Por favor, ingrese la nueva contraseña en ambos campos.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // compruebo que las contraseñas coincidan
+            if (nuevaContrasena != nuevaContrasena2)
+            {
+                MessageBox.Show("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // actualizo la contraseña del empleado seleccionado
+            using (var db = new AppDbContext())
+            {
+                // obtengo el empleado seleccionado en el combo box
+                var empleadoSeleccionado = cmbEmpleados.SelectedItem as Empleado;
+
+                if (empleadoSeleccionado.Rol.Trim().ToLower() == "administrador")
+                {
+                    using (var ventanaSeguridad = new FormContrasenaSeguridad())
+                    {
+                        ventanaSeguridad.Text = "Confirmación necesaria.";
+
+                        if (ventanaSeguridad.ShowDialog() != DialogResult.OK)
+                        {
+                            return;
+                        }
+
+                        // obtengo el usuario del empleado logueado para verificar su contraseña
+                        var miUsuario = db.Usuarios.FirstOrDefault(u => u.EmpleadoId == Program.idEmpleadoLogueado);
+                        if (miUsuario == null || !BCrypt.Net.BCrypt.Verify(ventanaSeguridad.contrasenaPrivada, miUsuario.Contrasena))
+                        {
+                            MessageBox.Show("Contraseña incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+
+                // obtengo el usuario del empleado seleccionado para actualizar su contraseña
+                var usuario = db.Usuarios.FirstOrDefault(u => u.EmpleadoId == empleadoSeleccionado.Id);
+                if (usuario != null)
+                {
+                    // actualizo la contraseña del usuario con la nueva contraseña hasheada
+                    usuario.Contrasena = BCrypt.Net.BCrypt.HashPassword(nuevaContrasena);
+                    // marco que el usuario SI necesita cambiar la contraseña en el próximo inicio de sesión
+                    usuario.CambiarContrasena = false;
+                    // guardo los cambios en la base de datos
+                    db.SaveChanges();
+
+                    MessageBox.Show("Contraseña de " + empleadoSeleccionado.Nombre + " actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNuevaContrasena.Clear();
+                    txtNuevaContrasena2.Clear();
+                }
+
             }
         }
     }

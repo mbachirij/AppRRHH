@@ -53,6 +53,11 @@ namespace AppRRHH.views.vistasAdmin
 
                 lstDepartamentos.DataSource = lista;
                 lstDepartamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // cargo el comb con empleados para asignar a departamentos
+                var empleados = db.Empleados.Select(e => e.Nombre + " " + e.Apellidos).ToList();
+                cmbEmpleados.DataSource = empleados;
+
             }
             ActualizarCards();
         }
@@ -66,9 +71,9 @@ namespace AppRRHH.views.vistasAdmin
                 lblTotalDeptos.Text = totalD.ToString();
 
                 if (totalD > 0)
-                    lblPromedio.Text = ((double)totalE / totalD).ToString("N1");
+                    lblPromedio.Text = ((double)totalE / totalD).ToString("N1") + " %";
                 else
-                    lblPromedio.Text = "0";
+                    lblPromedio.Text = "0 %";
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -92,8 +97,11 @@ namespace AppRRHH.views.vistasAdmin
 
         private void EstiloListas()
         {
-            // Verifico que el DataGridView no sea nulo antes de aplicar los estilos
-            if (lstDepartamentos == null) return;
+            // miro que el dgv no sea nulo antes de aplicar los estilos
+            if (lstDepartamentos == null)
+            {
+                return;
+            }
 
             // Estilo del DataGridView
             lstDepartamentos.BackgroundColor = Color.White;
@@ -145,7 +153,12 @@ namespace AppRRHH.views.vistasAdmin
                 return;
             }
 
-            string nombreDepto = lstDepartamentos.SelectedRows[0].ToString();
+            // cojo el nombre del departamento de la primera fila seleccionada
+            string nombreDepto = lstDepartamentos.SelectedRows[0].Cells["Nombre"].Value?.ToString();
+            if (string.IsNullOrEmpty(nombreDepto))
+            {
+                return;
+            }
 
             using (var db = new Data.AppDbContext())
             {
@@ -157,13 +170,24 @@ namespace AppRRHH.views.vistasAdmin
                     return;
                 }
 
-                var depto = db.Departamentos.FirstOrDefault(d => d.Nombre == nombreDepto);
-                if (depto != null)
+                // Pregunta de confirmación antes de eliminar
+                var result = MessageBox.Show($"¿Estás seguro de que quieres eliminar el departamento '{nombreDepto}'?",
+                    "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    db.Departamentos.Remove(depto);
-                    db.SaveChanges();
-                    CargarDepartamentos();
-                    MessageBox.Show("Departamento eliminado correctamente.");
+                    // busco y borro el departamento
+                    var depto = db.Departamentos.FirstOrDefault(d => d.Nombre == nombreDepto);
+                    if (depto != null)
+                    {
+                        db.Departamentos.Remove(depto);
+                        db.SaveChanges();
+                        CargarDepartamentos();
+                        MessageBox.Show("Departamento eliminado correctamente.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El departamento no ha sido eliminado.");
                 }
             }
         }
@@ -177,12 +201,13 @@ namespace AppRRHH.views.vistasAdmin
                 return;
             }
 
-            string nombreEmp = lstEmpleadosDepto.SelectedRows[0].ToString();
+            string nombreEmp = lstEmpleadosDepto.SelectedRows[0].Cells["Nombre"].Value?.ToString();
+            string apellidosEmp = lstEmpleadosDepto.SelectedRows[0].Cells["Apellidos"].Value?.ToString();
 
             using (var db = new Data.AppDbContext())
             {
-                // Busco el empleado por nombre
-                var emp = db.Empleados.FirstOrDefault(e => e.Nombre == nombreEmp);
+                // Busco el empleado por nombre y apellidos
+                var emp = db.Empleados.FirstOrDefault(e => e.Nombre == nombreEmp && e.Apellidos == apellidosEmp);
 
                 if (emp != null)
                 {
@@ -191,6 +216,35 @@ namespace AppRRHH.views.vistasAdmin
                     db.SaveChanges();
                     CargarDepartamentos();
                     MessageBox.Show("Empleado eliminado del departamento correctamente.");
+                }
+            }
+        }
+
+        private void btnAnadir_Click(object sender, EventArgs e)
+        {
+            // compruebo que haya un departamento y un empleado seleccionado
+            if (lstDepartamentos.SelectedRows.Count == 0 || cmbEmpleados.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona un departamento y un empleado para asignar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // cojo el nombre del departamento de la primera fila seleccionada
+            string nombreDepto = lstDepartamentos.SelectedRows[0].Cells["Nombre"].Value?.ToString();
+            string nombreEmp = cmbEmpleados.SelectedItem.ToString().Split(' ')[0];
+            string apellidosEmp = cmbEmpleados.SelectedItem.ToString().Split(' ')[1];
+
+            // Busco el empleado por nombre y apellido
+            using (var db = new Data.AppDbContext())
+            {
+                var emp = db.Empleados.FirstOrDefault(e => e.Nombre == nombreEmp && e.Apellidos == apellidosEmp);
+                if (emp != null)
+                {
+                    // Asigno el departamento al empleado
+                    emp.Departamento = nombreDepto;
+                    db.SaveChanges();
+                    CargarDepartamentos();
+                    MessageBox.Show("Empleado asignado al departamento correctamente.");
                 }
             }
         }
